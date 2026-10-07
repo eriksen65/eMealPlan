@@ -1,0 +1,10 @@
+body { margin: 0; font-family: system-ui, sans-serif; color: #222; background: #fafafa; }
+.hero { background: #2e7d32; color: #fff; padding: 2rem 1rem; text-align: center; }
+main { max-width: 900px; margin: 0 auto; padding: 1rem; }
+.kort-liste { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.kort { text-align: left; padding: 1rem; border: 2px solid #ccc; border-radius: 8px; background: #fff; cursor: pointer; display: flex; flex-direction: column; gap: .4rem; font: inherit; }
+.kort.valgt { border-color: #2e7d32; }
+.dage, .indkob { list-style: none; padding: 0; display: grid; gap: .75rem; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+.dage li, .indkob li { background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: .75rem; }
+.dage h3, .dage p { margin: 0; }
+footer { text-align: center; padding: 2rem 1rem; color: #666; }
