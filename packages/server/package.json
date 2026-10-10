@@ -1,7 +1,7 @@
 {
     "name": "@emealplan/server",
     "version": "0.0.1",
-    "description": "eMealPlan Node.js/TypeScript backend: REST API over the domain layer, backed by JSON file repositories",
+    "description": "eMealPlan Node.js/TypeScript backend: a minimal Fastify API (currently just a hello-world endpoint) that will grow alongside the web app",
     "private": true,
     "type": "module",
     "scripts": {
@@ -12,7 +12,6 @@
         "test:watch": "vitest"
     },
     "dependencies": {
-        "@emealplan/domain": "*",
         "@fastify/cors": "^10.0.2",
         "fastify": "^5.2.0"
     },

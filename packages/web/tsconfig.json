@@ -5,6 +5,7 @@
         "lib": ["DOM", "DOM.Iterable", "ES2022"],
         "jsx": "react-jsx",
         "noEmit": true,
+        "types": ["vite/client"],
         "paths": {
             "src/*": ["./src/*"]
         }
