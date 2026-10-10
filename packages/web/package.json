@@ -1,7 +1,7 @@
 {
     "name": "@emealplan/web",
     "version": "0.0.1",
-    "description": "eMealPlan React/TypeScript frontend: dashboard, recipes, meal plan, shopping list and daily cooking plan",
+    "description": "eMealPlan React/TypeScript frontend",
     "private": true,
     "type": "module",
     "scripts": {
@@ -13,10 +13,8 @@
         "test:watch": "vitest"
     },
     "dependencies": {
-        "@emealplan/domain": "*",
         "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "react-router-dom": "^7.1.1"
+        "react-dom": "^19.0.0"
     },
     "devDependencies": {
         "@testing-library/jest-dom": "^6.6.3",
