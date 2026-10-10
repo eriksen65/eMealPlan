@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
 import { App } from '../App';
@@ -10,5 +11,15 @@ describe('App', () => {
         expect(screen.getByText('eMealPlan')).toBeInTheDocument();
         expect(screen.getByText('Plan. Cook. Enjoy.')).toBeInTheDocument();
         expect(screen.getByAltText('eMealPlan logo')).toBeInTheDocument();
+    });
+
+    it('opens the full recipe when a recipe card is clicked', async () => {
+        render(<App />);
+        const user = userEvent.setup();
+
+        await user.click(screen.getByRole('button', { name: /lasagna/i }));
+
+        expect(screen.getByRole('dialog', { name: 'Lasagna' })).toBeInTheDocument();
+        expect(screen.getByText('Preheat oven to 200°C.')).toBeInTheDocument();
     });
 });
