@@ -1,13 +1,27 @@
+import { useState } from 'react';
+
 import { TopNavBar } from './components/TopNavBar';
+import { RecipeCard } from './components/RecipeCard';
+import { RecipeDetailModal } from './components/RecipeDetailModal';
+import { MOCK_RECIPES, type MockRecipe } from './data/mockRecipes';
 
 export function App() {
+    const [selectedRecipe, setSelectedRecipe] = useState<MockRecipe | null>(null);
+
     return (
         <div className='app-shell'>
             <TopNavBar />
 
             <main className='app-main'>
-                <p className='placeholder'>More to come — recipes, meal plan, shopping list, and cooking plan.</p>
+                <h1 className='page__title'>Recipes</h1>
+                <div className='recipe-grid'>
+                    {MOCK_RECIPES.map((recipe) => (
+                        <RecipeCard key={recipe.id} recipe={recipe} onClick={setSelectedRecipe} />
+                    ))}
+                </div>
             </main>
+
+            {selectedRecipe && <RecipeDetailModal recipe={selectedRecipe} onClose={() => setSelectedRecipe(null)} />}
         </div>
     );
 }
