@@ -1,0 +1,11 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "always"
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.renderWhitespace": "all",
+    "files.eol": "\n",
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "cSpell.words": ["Eriksen", "eMealPlan", "fastify"]
+}
