@@ -9,7 +9,7 @@ export const MOCK_INGREDIENTS: MockIngredient[] = [
     { id: 'hakket-svinekoed', name: 'Hakket svinekød', emoji: '🥩' },
     { id: 'ingefaerpure', name: 'Ingefærpuré', emoji: '🫚' },
     { id: 'citrongraes', name: 'Citrongræs', emoji: '🌿' },
-    { id: 'chilipulver', name: 'Chilipulver', emoji: '🧂' },
+    { id: 'chilipulver', name: 'Ginger Ninja', emoji: '🧂' },
     { id: 'soed-chilisauce', name: 'Sød chilisauce', emoji: '🫙' },
     { id: 'sojasauce', name: 'Sojasauce', emoji: '🍶' },
     { id: 'udon-nudler', name: 'Udon nudler, tørrede', emoji: '🍜' },
