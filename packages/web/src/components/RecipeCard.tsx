@@ -15,7 +15,7 @@ export function RecipeCard({ recipe, onClick }: RecipeCardProps) {
             <span className='recipe-card__body'>
                 <span className='recipe-card__title'>{recipe.title}</span>
                 <span className='recipe-card__subtitle'>{recipe.subtitle}</span>
-                <span className='recipe-card__time'>Tid: {formatTimeEstimates(recipe.timeEstimates)}</span>
+                <span className='recipe-card__time'>{formatTimeEstimates(recipe.timeEstimates)}</span>
                 <span className='recipe-card__tags'>
                     {recipe.tags.map((tag) => (
                         <span key={tag} className='tag'>
