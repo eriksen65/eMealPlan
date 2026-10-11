@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import type { MockRecipe } from '../data/mockRecipes';
+import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
 
 interface RecipeDetailModalProps {
     recipe: MockRecipe;
@@ -17,8 +18,8 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
 
     return (
         <div className='modal-overlay' onClick={onClose}>
-            <div className='modal' role='dialog' aria-modal='true' aria-label={recipe.name} onClick={(event) => event.stopPropagation()}>
-                <button type='button' className='modal__close' onClick={onClose} aria-label='Close recipe'>
+            <div className='modal' role='dialog' aria-modal='true' aria-label={recipe.title} onClick={(event) => event.stopPropagation()}>
+                <button type='button' className='modal__close' onClick={onClose} aria-label='Luk opskrift'>
                     ✕
                 </button>
 
@@ -26,12 +27,11 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                     {recipe.emoji}
                 </span>
 
-                <h2 className='modal__title'>{recipe.name}</h2>
+                <h2 className='modal__title'>{recipe.title}</h2>
+                <p className='modal__subtitle'>{recipe.subtitle}</p>
                 <p className='modal__description'>{recipe.description}</p>
 
-                <p className='card__meta'>
-                    {recipe.totalTimeMinutes} min total · {recipe.portions} portions
-                </p>
+                <p className='card__meta'>Tid: {formatTimeEstimates(recipe.timeEstimates)}</p>
 
                 <div className='recipe-card__tags'>
                     {recipe.tags.map((tag) => (
@@ -41,14 +41,14 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                     ))}
                 </div>
 
-                <h3 className='section-title'>Ingredients</h3>
+                <h3 className='section-title'>Ingredienser</h3>
                 <ul className='ingredient-list'>
                     {recipe.ingredients.map((ingredient) => (
                         <li key={ingredient}>{ingredient}</li>
                     ))}
                 </ul>
 
-                <h3 className='section-title'>Steps</h3>
+                <h3 className='section-title'>Fremgangsmåde</h3>
                 <ol className='step-list'>
                     {recipe.steps.map((step) => (
                         <li key={step}>{step}</li>

@@ -1,10 +1,16 @@
+export interface TimeEstimate {
+    portions: number;
+    minMinutes: number;
+    maxMinutes: number;
+}
+
 export interface MockRecipe {
     id: string;
-    name: string;
+    title: string;
+    subtitle: string;
     emoji: string;
     description: string;
-    portions: number;
-    totalTimeMinutes: number;
+    timeEstimates: TimeEstimate[];
     tags: string[];
     ingredients: string[];
     steps: string[];
@@ -12,109 +18,159 @@ export interface MockRecipe {
 
 export const MOCK_RECIPES: MockRecipe[] = [
     {
+        id: 'vietnamesiske-nudler',
+        title: 'Hurtige vietnamesiske nudler og hakket svinekød',
+        subtitle: 'med frisk mynte salat',
+        emoji: '🍜',
+        description: 'Sprøde nudler wokket med hakket svinekød, hvidløg og chili, toppet med en frisk mynte- og koriandersalat.',
+        timeEstimates: [
+            { portions: 2, minMinutes: 15, maxMinutes: 20 },
+            { portions: 4, minMinutes: 20, maxMinutes: 25 }
+        ],
+        tags: ['Svinekød', 'Hurtigt'],
+        ingredients: [
+            '250 g nudler',
+            '300 g hakket svinekød',
+            '2 fed hvidløg',
+            '1 rød chili',
+            '2 spsk fiskesauce',
+            'Frisk mynte',
+            'Frisk koriander',
+            '1 lime',
+            '2 forårsløg'
+        ],
+        steps: [
+            'Kog nudlerne efter anvisning på pakken.',
+            'Hak hvidløg og chili fint.',
+            'Brun det hakkede svinekød i en wok.',
+            'Tilsæt hvidløg og chili, steg et par minutter.',
+            'Smag til med fiskesauce og lime.',
+            'Bland mynte, koriander og forårsløg til salaten.',
+            'Server nudlerne med kød og frisk salat ovenpå.'
+        ]
+    },
+    {
         id: 'spaghetti-bolognese',
-        name: 'Spaghetti Bolognese',
+        title: 'Klassisk spaghetti bolognese',
+        subtitle: 'med langtidssimret kødsovs',
         emoji: '🍝',
-        description: 'A rich, slow-simmered meat sauce over al dente spaghetti.',
-        portions: 4,
-        totalTimeMinutes: 45,
-        tags: ['Pasta', 'Beef'],
-        ingredients: ['500 g minced beef', '1 onion', '2 garlic cloves', '400 g crushed tomatoes', '400 g spaghetti', 'Parmesan, to serve'],
+        description: 'En fyldig, langtidssimret kødsovs serveret over spaghetti kogt al dente.',
+        timeEstimates: [
+            { portions: 2, minMinutes: 20, maxMinutes: 25 },
+            { portions: 4, minMinutes: 40, maxMinutes: 45 }
+        ],
+        tags: ['Pasta', 'Oksekød'],
+        ingredients: ['500 g hakket oksekød', '1 løg', '2 fed hvidløg', '400 g hakkede tomater', '400 g spaghetti', 'Parmesan til servering'],
         steps: [
-            'Chop the onion and garlic.',
-            'Brown the minced beef in a large pan.',
-            'Add onion and garlic, cook until soft.',
-            'Stir in crushed tomatoes and simmer for 25 minutes.',
-            'Boil the spaghetti according to the package.',
-            'Serve the sauce over spaghetti with parmesan.'
+            'Hak løg og hvidløg.',
+            'Brun det hakkede oksekød i en stor pande.',
+            'Tilsæt løg og hvidløg, steg til det er blødt.',
+            'Rør de hakkede tomater i og lad simre i 25 minutter.',
+            'Kog spaghettien efter anvisning på pakken.',
+            'Server sovsen over spaghettien med parmesan.'
         ]
     },
     {
-        id: 'chicken-curry',
-        name: 'Chicken Curry',
+        id: 'kyllingecurry',
+        title: 'Cremet kyllingecurry',
+        subtitle: 'med kokosmælk og ris',
         emoji: '🍛',
-        description: 'A warming coconut curry with tender chicken and vegetables.',
-        portions: 4,
-        totalTimeMinutes: 40,
-        tags: ['Chicken', 'Quick meals'],
-        ingredients: ['500 g chicken breast', '1 can coconut milk', '2 tbsp curry paste', '1 bell pepper', 'Rice, to serve'],
+        description: 'En varmende kokoscurry med mørt kylling og sprøde grøntsager.',
+        timeEstimates: [
+            { portions: 2, minMinutes: 20, maxMinutes: 25 },
+            { portions: 4, minMinutes: 35, maxMinutes: 40 }
+        ],
+        tags: ['Kylling', 'Hurtigt'],
+        ingredients: ['500 g kyllingebryst', '1 dåse kokosmælk', '2 spsk karrypasta', '1 peberfrugt', 'Ris til servering'],
         steps: [
-            'Cut the chicken into bite-sized pieces.',
-            'Fry the curry paste for a minute in a hot pan.',
-            'Add chicken and brown on all sides.',
-            'Pour in coconut milk and simmer for 15 minutes.',
-            'Add sliced bell pepper for the last 5 minutes.',
-            'Serve with rice.'
+            'Skær kyllingen i mundrette stykker.',
+            'Steg karrypastaen et minuts tid i en varm pande.',
+            'Tilsæt kylling og brun den på alle sider.',
+            'Hæld kokosmælk i og lad simre i 15 minutter.',
+            'Tilsæt skåret peberfrugt de sidste 5 minutter.',
+            'Server med ris.'
         ]
     },
     {
-        id: 'homemade-pizza',
-        name: 'Homemade Pizza',
+        id: 'hjemmelavet-pizza',
+        title: 'Hjemmelavet pizza',
+        subtitle: 'med din yndlingstopping',
         emoji: '🍕',
-        description: 'Crispy home-baked pizza with your favourite toppings.',
-        portions: 4,
-        totalTimeMinutes: 60,
-        tags: ['Vegetarian', 'Kid friendly'],
-        ingredients: ['Pizza dough', 'Tomato sauce', '200 g mozzarella', 'Toppings of choice'],
+        description: 'Sprød hjemmebagt pizza med den topping, I bedst kan lide.',
+        timeEstimates: [
+            { portions: 2, minMinutes: 30, maxMinutes: 35 },
+            { portions: 4, minMinutes: 55, maxMinutes: 60 }
+        ],
+        tags: ['Vegetar', 'Børnevenligt'],
+        ingredients: ['Pizzadej', 'Tomatsauce', '200 g mozzarella', 'Topping efter eget valg'],
         steps: [
-            'Preheat the oven to 250°C.',
-            'Roll out the pizza dough.',
-            'Spread tomato sauce over the dough.',
-            'Add mozzarella and toppings.',
-            'Bake for 10-12 minutes until golden.'
+            'Forvarm ovnen til 250°C.',
+            'Rul pizzadejen ud.',
+            'Smør tomatsauce ud over dejen.',
+            'Fordel mozzarella og topping.',
+            'Bag i 10-12 minutter til den er gylden.'
         ]
     },
     {
         id: 'tacos',
-        name: 'Tacos',
+        title: 'Mexicanske tacos',
+        subtitle: 'med krydret oksekød og frisk salsa',
         emoji: '🌮',
-        description: 'Build-your-own taco night with seasoned beef and fresh toppings.',
-        portions: 4,
-        totalTimeMinutes: 30,
-        tags: ['Beef', 'Quick meals'],
-        ingredients: ['400 g minced beef', 'Taco seasoning', 'Taco shells', 'Lettuce, tomato, cheese'],
+        description: 'Byg-selv-taco-aften med krydret oksekød og friske toppings.',
+        timeEstimates: [
+            { portions: 2, minMinutes: 15, maxMinutes: 20 },
+            { portions: 4, minMinutes: 25, maxMinutes: 30 }
+        ],
+        tags: ['Oksekød', 'Hurtigt'],
+        ingredients: ['400 g hakket oksekød', 'Tacokrydderi', 'Tacoskaller', 'Salat, tomat, ost'],
         steps: [
-            'Brown the minced beef in a pan.',
-            'Stir in taco seasoning and a splash of water.',
-            'Simmer for 5 minutes.',
-            'Warm the taco shells.',
-            'Let everyone build their own tacos.'
+            'Brun det hakkede oksekød i en pande.',
+            'Rør tacokrydderi og lidt vand i.',
+            'Lad simre i 5 minutter.',
+            'Varm tacoskallerne.',
+            'Lad alle bygge deres egne tacos.'
         ]
     },
     {
-        id: 'steak-potatoes',
-        name: 'Steak with Potatoes',
+        id: 'boef-med-kartofler',
+        title: 'Bøf med kartofler',
+        subtitle: 'og hjemmelavet bearnaise',
         emoji: '🥩',
-        description: 'A simple, satisfying weekend dinner.',
-        portions: 4,
-        totalTimeMinutes: 40,
-        tags: ['Beef', 'Weekend food'],
-        ingredients: ['4 steaks', '800 g potatoes', '50 g butter', '300 g green beans'],
+        description: 'En simpel og mættende weekendmiddag.',
+        timeEstimates: [
+            { portions: 2, minMinutes: 20, maxMinutes: 25 },
+            { portions: 4, minMinutes: 35, maxMinutes: 40 }
+        ],
+        tags: ['Oksekød', 'Weekend'],
+        ingredients: ['4 bøffer', '800 g kartofler', '50 g smør', '300 g grønne bønner'],
         steps: [
-            'Take the steaks out to reach room temperature.',
-            'Boil the potatoes.',
-            'Sear the steaks in butter.',
-            'Rest the steaks, cook the green beans.',
-            'Plate and serve.'
+            'Tag bøfferne frem, så de når stuetemperatur.',
+            'Kog kartoflerne.',
+            'Steg bøfferne i smør.',
+            'Lad bøfferne hvile, tilbered de grønne bønner.',
+            'Anret og server.'
         ]
     },
     {
-        id: 'lasagna',
-        name: 'Lasagna',
+        id: 'lasagne',
+        title: 'Klassisk lasagne',
+        subtitle: 'med oksekød og bechamelsauce',
         emoji: '🧆',
-        description: 'Layers of pasta, rich meat sauce, and creamy béchamel.',
-        portions: 6,
-        totalTimeMinutes: 80,
-        tags: ['Pasta', 'Beef', 'Weekend food'],
-        ingredients: ['500 g minced beef', 'Lasagna sheets', 'Béchamel sauce', '400 g crushed tomatoes', '150 g grated cheese'],
+        description: 'Lag på lag af pasta, fyldig kødsovs og cremet bechamelsauce.',
+        timeEstimates: [
+            { portions: 4, minMinutes: 70, maxMinutes: 75 },
+            { portions: 6, minMinutes: 85, maxMinutes: 90 }
+        ],
+        tags: ['Pasta', 'Oksekød', 'Weekend'],
+        ingredients: ['500 g hakket oksekød', 'Lasagneplader', 'Bechamelsauce', '400 g hakkede tomater', '150 g revet ost'],
         steps: [
-            'Take the minced beef out of the refrigerator.',
-            'Chop onion and garlic.',
-            'Start the meat sauce.',
-            'Preheat oven to 200°C.',
-            'Assemble the lasagna.',
-            'Put lasagna in the oven.',
-            'Remove lasagna from the oven and let rest.'
+            'Tag det hakkede oksekød ud af køleskabet.',
+            'Hak løg og hvidløg.',
+            'Start kødsovsen.',
+            'Forvarm ovnen til 200°C.',
+            'Saml lasagnen i lag.',
+            'Sæt lasagnen i ovnen.',
+            'Tag lasagnen ud af ovnen og lad den hvile.'
         ]
     }
 ];

@@ -17,9 +17,9 @@ describe('App', () => {
         render(<App />);
         const user = userEvent.setup();
 
-        await user.click(screen.getByRole('button', { name: /lasagna/i }));
+        await user.click(screen.getByRole('button', { name: /klassisk lasagne/i }));
 
-        expect(screen.getByRole('dialog', { name: 'Lasagna' })).toBeInTheDocument();
-        expect(screen.getByText('Preheat oven to 200°C.')).toBeInTheDocument();
+        expect(screen.getByRole('dialog', { name: 'Klassisk lasagne' })).toBeInTheDocument();
+        expect(screen.getByText('Forvarm ovnen til 200°C.')).toBeInTheDocument();
     });
 });
