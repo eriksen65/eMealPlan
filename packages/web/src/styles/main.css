@@ -34,7 +34,10 @@ body {
 
 .top-nav {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-between;
+    gap: 8px 20px;
     padding: 10px 20px;
     background: var(--color-surface);
     border-bottom: 1px solid var(--color-border);
@@ -77,12 +80,6 @@ body {
 .nav-tabs {
     display: flex;
     gap: 4px;
-    padding: 8px 16px 0;
-    background: var(--color-surface);
-    border-bottom: 1px solid var(--color-border);
-    position: sticky;
-    top: 65px;
-    z-index: 9;
 }
 
 .nav-tabs__item {
@@ -94,7 +91,7 @@ body {
     font-weight: 600;
     font-size: 0.9rem;
     color: var(--color-text-muted);
-    padding: 10px 14px;
+    padding: 8px 14px;
     border-bottom: 2px solid transparent;
 }
 
