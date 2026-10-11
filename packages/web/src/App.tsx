@@ -17,25 +17,27 @@ export function App() {
             <TopNavBar activePage={page} onChangePage={setPage} />
 
             <main className='app-main'>
-                {page === 'recipes' ? (
-                    <>
-                        <h1 className='page__title'>Opskrifter</h1>
-                        <div className='recipe-grid'>
-                            {MOCK_RECIPES.map((recipe) => (
-                                <RecipeCard key={recipe.id} recipe={recipe} onClick={setSelectedRecipe} />
-                            ))}
-                        </div>
-                    </>
-                ) : (
-                    <>
-                        <h1 className='page__title'>Ingredienser</h1>
-                        <div className='ingredient-grid'>
-                            {MOCK_INGREDIENTS.map((ingredient) => (
-                                <IngredientCard key={ingredient.id} ingredient={ingredient} />
-                            ))}
-                        </div>
-                    </>
-                )}
+                <div className='app-main__inner'>
+                    {page === 'recipes' ? (
+                        <>
+                            <h1 className='page__title'>Opskrifter</h1>
+                            <div className='recipe-grid'>
+                                {MOCK_RECIPES.map((recipe) => (
+                                    <RecipeCard key={recipe.id} recipe={recipe} onClick={setSelectedRecipe} />
+                                ))}
+                            </div>
+                        </>
+                    ) : (
+                        <>
+                            <h1 className='page__title'>Ingredienser</h1>
+                            <div className='ingredient-grid'>
+                                {MOCK_INGREDIENTS.map((ingredient) => (
+                                    <IngredientCard key={ingredient.id} ingredient={ingredient} />
+                                ))}
+                            </div>
+                        </>
+                    )}
+                </div>
             </main>
 
             {selectedRecipe && <RecipeDetailModal recipe={selectedRecipe} onClose={() => setSelectedRecipe(null)} />}
