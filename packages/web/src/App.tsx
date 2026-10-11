@@ -13,7 +13,7 @@ export function App() {
             <TopNavBar />
 
             <main className='app-main'>
-                <h1 className='page__title'>Recipes</h1>
+                <h1 className='page__title'>Opskrifter</h1>
                 <div className='recipe-grid'>
                     {MOCK_RECIPES.map((recipe) => (
                         <RecipeCard key={recipe.id} recipe={recipe} onClick={setSelectedRecipe} />

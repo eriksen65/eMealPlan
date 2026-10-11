@@ -153,15 +153,23 @@ body {
     padding: 14px 16px 18px;
 }
 
-.recipe-card__name {
+.recipe-card__title {
     font-weight: 700;
     font-size: 1.05rem;
+    line-height: 1.3;
     color: var(--color-text);
 }
 
-.recipe-card__meta {
+.recipe-card__subtitle {
     color: var(--color-text-muted);
+    font-size: 0.9rem;
+}
+
+.recipe-card__time {
+    color: var(--color-primary-dark);
     font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 2px;
 }
 
 .recipe-card__tags {
@@ -240,6 +248,13 @@ body {
     margin: 0 0 4px;
     color: var(--color-primary-dark);
     text-align: center;
+}
+
+.modal__subtitle {
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0 0 8px;
+    font-style: italic;
 }
 
 .modal__description {

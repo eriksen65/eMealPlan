@@ -1,4 +1,5 @@
 import type { MockRecipe } from '../data/mockRecipes';
+import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
 
 interface RecipeCardProps {
     recipe: MockRecipe;
@@ -12,10 +13,9 @@ export function RecipeCard({ recipe, onClick }: RecipeCardProps) {
                 {recipe.emoji}
             </span>
             <span className='recipe-card__body'>
-                <span className='recipe-card__name'>{recipe.name}</span>
-                <span className='recipe-card__meta'>
-                    {recipe.totalTimeMinutes} min · {recipe.portions} portions
-                </span>
+                <span className='recipe-card__title'>{recipe.title}</span>
+                <span className='recipe-card__subtitle'>{recipe.subtitle}</span>
+                <span className='recipe-card__time'>Tid: {formatTimeEstimates(recipe.timeEstimates)}</span>
                 <span className='recipe-card__tags'>
                     {recipe.tags.map((tag) => (
                         <span key={tag} className='tag'>
