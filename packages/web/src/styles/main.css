@@ -39,10 +39,9 @@ body {
 }
 
 .top-nav {
-    display: flex;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     gap: 12px;
     flex-shrink: 0;
     padding: 10px 20px;
@@ -52,12 +51,17 @@ body {
     z-index: 10;
 }
 
+.top-nav__spacer {
+    min-width: 0;
+}
+
 .top-nav__brand {
     display: flex;
     align-items: center;
     gap: 12px;
     min-width: 0;
     overflow: hidden;
+    justify-self: start;
 }
 
 .top-nav__logo {
@@ -95,6 +99,7 @@ body {
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    justify-self: center;
 }
 
 .nav-tabs__items {

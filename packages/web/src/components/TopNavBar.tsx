@@ -17,6 +17,7 @@ export function TopNavBar({ activePage, onChangePage }: TopNavBarProps) {
                 </div>
             </div>
             <NavTabs active={activePage} onChange={onChangePage} />
+            <div className='top-nav__spacer' aria-hidden='true' />
         </header>
     );
 }
