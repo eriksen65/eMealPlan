@@ -31,7 +31,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                 <p className='modal__subtitle'>{recipe.subtitle}</p>
                 <p className='modal__description'>{recipe.description}</p>
 
-                <p className='card__meta'>Tid: {formatTimeEstimates(recipe.timeEstimates)}</p>
+                <p className='card__meta'>{formatTimeEstimates(recipe.timeEstimates)}</p>
 
                 <div className='recipe-card__tags'>
                     {recipe.tags.map((tag) => (
