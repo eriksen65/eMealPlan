@@ -24,7 +24,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                 </button>
 
                 <span className='modal__hero' aria-hidden='true'>
-                    {recipe.emoji}
+                    {recipe.image ? <img src={recipe.image} alt='' className='modal__photo' /> : recipe.emoji}
                 </span>
 
                 <h2 className='modal__title'>{recipe.title}</h2>

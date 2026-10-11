@@ -10,7 +10,7 @@ export function RecipeCard({ recipe, onClick }: RecipeCardProps) {
     return (
         <button type='button' className='recipe-card' onClick={() => onClick(recipe)}>
             <span className='recipe-card__image' aria-hidden='true'>
-                {recipe.emoji}
+                {recipe.image ? <img src={recipe.image} alt='' className='recipe-card__photo' /> : recipe.emoji}
             </span>
             <span className='recipe-card__body'>
                 <span className='recipe-card__title'>{recipe.title}</span>
