@@ -1,3 +1,5 @@
+import vietnamesiskeNudlerPhoto from '../assets/recipes/vietnamesiske-nudler.png';
+
 export interface TimeEstimate {
     portions: number;
     minMinutes: number;
@@ -9,6 +11,8 @@ export interface MockRecipe {
     title: string;
     subtitle: string;
     emoji: string;
+    /** Optional real photo; falls back to the emoji when not set. */
+    image?: string;
     description: string;
     timeEstimates: TimeEstimate[];
     tags: string[];
@@ -22,6 +26,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
         title: 'Hurtige vietnamesiske nudler og hakket svinekød',
         subtitle: 'med frisk mynte salat',
         emoji: '🍜',
+        image: vietnamesiskeNudlerPhoto,
         description: 'Sprøde nudler wokket med hakket svinekød, hvidløg og chili, toppet med en frisk mynte- og koriandersalat.',
         timeEstimates: [
             { portions: 2, minMinutes: 15, maxMinutes: 20 },
