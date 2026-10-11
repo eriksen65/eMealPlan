@@ -1,6 +1,12 @@
 import logo from '../assets/logo.png';
+import { NavTabs, type AppPage } from './NavTabs';
 
-export function TopNavBar() {
+interface TopNavBarProps {
+    activePage: AppPage;
+    onChangePage: (page: AppPage) => void;
+}
+
+export function TopNavBar({ activePage, onChangePage }: TopNavBarProps) {
     return (
         <header className='top-nav'>
             <div className='top-nav__brand'>
@@ -10,6 +16,7 @@ export function TopNavBar() {
                     <span className='top-nav__tagline'>Plan. Cook. Enjoy.</span>
                 </div>
             </div>
+            <NavTabs active={activePage} onChange={onChangePage} />
         </header>
     );
 }

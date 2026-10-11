@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { TopNavBar } from './components/TopNavBar';
-import { NavTabs, type AppPage } from './components/NavTabs';
+import type { AppPage } from './components/NavTabs';
 import { RecipeCard } from './components/RecipeCard';
 import { RecipeDetailModal } from './components/RecipeDetailModal';
 import { IngredientCard } from './components/IngredientCard';
@@ -14,8 +14,7 @@ export function App() {
 
     return (
         <div className='app-shell'>
-            <TopNavBar />
-            <NavTabs active={page} onChange={setPage} />
+            <TopNavBar activePage={page} onChangePage={setPage} />
 
             <main className='app-main'>
                 {page === 'recipes' ? (
