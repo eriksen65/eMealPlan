@@ -51,17 +51,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         imageUrl: '🌿'
     },
     {
-        id: 'chilipulver',
+        id: 'ginger-ninja',
         name: 'Ginger Ninja',
         category: 'spice',
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🧂'
     },
     {
         id: 'soed-chilisauce',
         name: 'Sød chilisauce',
         category: 'sauce',
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🫙'
     },
     {
@@ -69,7 +69,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         name: 'Sojasauce',
         category: 'sauce',
         tags: ['vegan', 'vegetarian'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🍶'
     },
     {
@@ -77,7 +77,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         name: 'Udon nudler, tørrede',
         category: 'grain',
         tags: ['vegan', 'vegetarian'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🍜'
     },
     {
@@ -127,5 +127,21 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['fresh', 'vegan', 'vegetarian'],
         isStaple: false,
         imageUrl: '🫛'
+    },
+    {
+        id: 'salt',
+        name: 'Salt',
+        category: 'spice',
+        tags: ['vegan', 'vegetarian'],
+        isStaple: true,
+        imageUrl: '🧂'
+    },
+    {
+        id: 'peber',
+        name: 'Peber',
+        category: 'spice',
+        tags: ['vegan', 'vegetarian'],
+        isStaple: true,
+        imageUrl: '🌶️'
     }
 ];
