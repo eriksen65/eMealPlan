@@ -1,6 +1,8 @@
 export type IngredientCategory = 'vegetable' | 'fruit' | 'meat' | 'fish' | 'dairy' | 'grain' | 'spice' | 'herb' | 'sauce' | 'oil' | 'other';
 
-export type IngredientTag = 'fresh' | 'frozen' | 'canned' | 'vegan' | 'vegetarian';
+export type IngredientTag = 'spicy' | 'seasoning' | 'sour' | 'sweet' | 'bitter';
+
+export type DietaryProperty = 'vegan' | 'vegetarian' | 'gluten-free' | 'lactose-free';
 
 export interface NutritionPer100g {
     energyKcal: number;
@@ -16,6 +18,7 @@ export interface Ingredient {
 
     category: IngredientCategory;
     tags?: IngredientTag[];
+    dietaryProperties: DietaryProperty[];
 
     isStaple: boolean;
     aliases?: string[];
@@ -30,7 +33,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'hakket-svinekoed',
         name: 'Hakket svinekød',
         category: 'meat',
-        tags: ['fresh'],
+        tags: [],
+        dietaryProperties: ['gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🥩'
     },
@@ -38,7 +42,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'ingefaerpure',
         name: 'Ingefærpuré',
         category: 'spice',
-        tags: ['fresh'],
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🫚'
     },
@@ -46,7 +51,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'citrongraes',
         name: 'Citrongræs',
         category: 'herb',
-        tags: ['fresh'],
+        tags: ['sour'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🌿'
     },
@@ -54,6 +60,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'ginger-ninja',
         name: 'Ginger Ninja',
         category: 'spice',
+        tags: ['spicy', 'seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🧂'
     },
@@ -61,6 +69,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'soed-chilisauce',
         name: 'Sød chilisauce',
         category: 'sauce',
+        tags: ['sweet', 'spicy'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🫙'
     },
@@ -68,7 +78,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'sojasauce',
         name: 'Sojasauce',
         category: 'sauce',
-        tags: ['vegan', 'vegetarian'],
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
         isStaple: false,
         imageUrl: '🍶'
     },
@@ -76,7 +87,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'udon-nudler',
         name: 'Udon nudler, tørrede',
         category: 'grain',
-        tags: ['vegan', 'vegetarian'],
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
         isStaple: false,
         imageUrl: '🍜'
     },
@@ -84,7 +96,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'gulerod-julienne',
         name: 'Gulerod, julienne',
         category: 'vegetable',
-        tags: ['fresh', 'vegan', 'vegetarian'],
+        tags: ['sweet'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🥕'
     },
@@ -92,7 +105,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'mynte',
         name: 'Mynte',
         category: 'herb',
-        tags: ['fresh', 'vegan', 'vegetarian'],
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🌱'
     },
@@ -100,7 +114,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'citrusfrugt',
         name: 'Citrusfrugt',
         category: 'fruit',
-        tags: ['fresh', 'vegan', 'vegetarian'],
+        tags: ['sour'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🍋'
     },
@@ -108,7 +123,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'spidskaal',
         name: 'Spidskål, skåret',
         category: 'vegetable',
-        tags: ['fresh', 'vegan', 'vegetarian'],
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🥬'
     },
@@ -116,7 +132,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'chili',
         name: 'Chili',
         category: 'vegetable',
-        tags: ['fresh', 'vegan', 'vegetarian'],
+        tags: ['spicy'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🌶️'
     },
@@ -124,7 +141,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'sukkeraerter',
         name: 'Sukkerærter',
         category: 'vegetable',
-        tags: ['fresh', 'vegan', 'vegetarian'],
+        tags: ['sweet'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🫛'
     },
@@ -132,7 +150,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'salt',
         name: 'Salt',
         category: 'spice',
-        tags: ['vegan', 'vegetarian'],
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
         imageUrl: '🧂'
     },
@@ -140,7 +159,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         id: 'peber',
         name: 'Peber',
         category: 'spice',
-        tags: ['vegan', 'vegetarian'],
+        tags: ['spicy', 'seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
         imageUrl: '🌶️'
     }
