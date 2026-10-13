@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import type { MockRecipe } from '../data/mockRecipes';
 import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
+import { formatRecipeIngredient } from '../utilities/formatRecipeIngredient';
 
 interface RecipeDetailModalProps {
     recipe: MockRecipe;
@@ -44,7 +45,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                 <h3 className='section-title'>Ingredienser</h3>
                 <ul className='ingredient-list'>
                     {recipe.ingredients.map((ingredient) => (
-                        <li key={ingredient}>{ingredient}</li>
+                        <li key={ingredient.ingredientId}>{formatRecipeIngredient(ingredient)}</li>
                     ))}
                 </ul>
 

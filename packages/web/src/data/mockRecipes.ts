@@ -6,6 +6,32 @@ export interface TimeEstimate {
     maxMinutes: number;
 }
 
+export type Unit = 'g' | 'kg' | 'ml' | 'l' | 'tsp' | 'tbsp' | 'pcs';
+
+export type IngredientPreparation =
+    | 'whole'
+    | 'halved'
+    | 'quartered'
+    | 'sliced'
+    | 'thinly-sliced'
+    | 'chopped'
+    | 'finely-chopped'
+    | 'diced'
+    | 'minced'
+    | 'grated'
+    | 'crushed'
+    | 'peeled'
+    | 'juiced'
+    | 'melted';
+
+export interface RecipeIngredient {
+    ingredientId: string;
+    amount: number;
+    unit: Unit;
+    preparation?: IngredientPreparation[];
+    optional?: boolean;
+}
+
 export interface MockRecipe {
     id: string;
     title: string;
@@ -16,7 +42,7 @@ export interface MockRecipe {
     description: string;
     timeEstimates: TimeEstimate[];
     tags: string[];
-    ingredients: string[];
+    ingredients: RecipeIngredient[];
     steps: string[];
 }
 
@@ -34,15 +60,15 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ],
         tags: ['Svinekød', 'Hurtigt'],
         ingredients: [
-            '250 g nudler',
-            '300 g hakket svinekød',
-            '2 fed hvidløg',
-            '1 rød chili',
-            '2 spsk fiskesauce',
-            'Frisk mynte',
-            'Frisk koriander',
-            '1 lime',
-            '2 forårsløg'
+            { ingredientId: 'udon-nudler', amount: 250, unit: 'g' },
+            { ingredientId: 'hakket-svinekoed', amount: 300, unit: 'g', preparation: ['minced'] },
+            { ingredientId: 'hvidloeg', amount: 2, unit: 'pcs' },
+            { ingredientId: 'chili', amount: 1, unit: 'pcs' },
+            { ingredientId: 'fiskesauce', amount: 2, unit: 'tbsp' },
+            { ingredientId: 'mynte', amount: 10, unit: 'g' },
+            { ingredientId: 'koriander', amount: 10, unit: 'g' },
+            { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs' },
+            { ingredientId: 'foraarsloeg', amount: 2, unit: 'pcs' }
         ],
         steps: [
             'Kog nudlerne efter anvisning på pakken.',
@@ -65,7 +91,14 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 4, minMinutes: 40, maxMinutes: 45 }
         ],
         tags: ['Pasta', 'Oksekød'],
-        ingredients: ['500 g hakket oksekød', '1 løg', '2 fed hvidløg', '400 g hakkede tomater', '400 g spaghetti', 'Parmesan til servering'],
+        ingredients: [
+            { ingredientId: 'hakket-oksekoed', amount: 500, unit: 'g', preparation: ['minced'] },
+            { ingredientId: 'loeg', amount: 1, unit: 'pcs' },
+            { ingredientId: 'hvidloeg', amount: 2, unit: 'pcs' },
+            { ingredientId: 'hakkede-tomater', amount: 400, unit: 'g' },
+            { ingredientId: 'spaghetti', amount: 400, unit: 'g' },
+            { ingredientId: 'parmesan', amount: 30, unit: 'g', preparation: ['grated'], optional: true }
+        ],
         steps: [
             'Hak løg og hvidløg.',
             'Brun det hakkede oksekød i en stor pande.',
@@ -86,7 +119,13 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 4, minMinutes: 35, maxMinutes: 40 }
         ],
         tags: ['Kylling', 'Hurtigt'],
-        ingredients: ['500 g kyllingebryst', '1 dåse kokosmælk', '2 spsk karrypasta', '1 peberfrugt', 'Ris til servering'],
+        ingredients: [
+            { ingredientId: 'kyllingebryst', amount: 500, unit: 'g', preparation: ['diced'] },
+            { ingredientId: 'kokosmaelk', amount: 1, unit: 'pcs' },
+            { ingredientId: 'karrypasta', amount: 2, unit: 'tbsp' },
+            { ingredientId: 'peberfrugt', amount: 1, unit: 'pcs', preparation: ['sliced'] },
+            { ingredientId: 'ris', amount: 300, unit: 'g' }
+        ],
         steps: [
             'Skær kyllingen i mundrette stykker.',
             'Steg karrypastaen et minuts tid i en varm pande.',
@@ -107,7 +146,12 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 4, minMinutes: 55, maxMinutes: 60 }
         ],
         tags: ['Vegetar', 'Børnevenligt'],
-        ingredients: ['Pizzadej', 'Tomatsauce', '200 g mozzarella', 'Topping efter eget valg'],
+        ingredients: [
+            { ingredientId: 'pizzadej', amount: 1, unit: 'pcs' },
+            { ingredientId: 'tomatsauce', amount: 100, unit: 'g' },
+            { ingredientId: 'mozzarella', amount: 200, unit: 'g' },
+            { ingredientId: 'pizzatopping', amount: 150, unit: 'g', optional: true }
+        ],
         steps: [
             'Forvarm ovnen til 250°C.',
             'Rul pizzadejen ud.',
@@ -127,7 +171,14 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 4, minMinutes: 25, maxMinutes: 30 }
         ],
         tags: ['Oksekød', 'Hurtigt'],
-        ingredients: ['400 g hakket oksekød', 'Tacokrydderi', 'Tacoskaller', 'Salat, tomat, ost'],
+        ingredients: [
+            { ingredientId: 'hakket-oksekoed', amount: 400, unit: 'g', preparation: ['minced'] },
+            { ingredientId: 'tacokrydderi', amount: 2, unit: 'tbsp' },
+            { ingredientId: 'tacoskaller', amount: 8, unit: 'pcs' },
+            { ingredientId: 'salat', amount: 50, unit: 'g', preparation: ['sliced'] },
+            { ingredientId: 'tomat', amount: 1, unit: 'pcs', preparation: ['diced'] },
+            { ingredientId: 'ost', amount: 50, unit: 'g', preparation: ['grated'] }
+        ],
         steps: [
             'Brun det hakkede oksekød i en pande.',
             'Rør tacokrydderi og lidt vand i.',
@@ -147,7 +198,12 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 4, minMinutes: 35, maxMinutes: 40 }
         ],
         tags: ['Oksekød', 'Weekend'],
-        ingredients: ['4 bøffer', '800 g kartofler', '50 g smør', '300 g grønne bønner'],
+        ingredients: [
+            { ingredientId: 'boef', amount: 4, unit: 'pcs' },
+            { ingredientId: 'kartofler', amount: 800, unit: 'g' },
+            { ingredientId: 'smoer', amount: 50, unit: 'g', preparation: ['melted'] },
+            { ingredientId: 'groenne-boenner', amount: 300, unit: 'g' }
+        ],
         steps: [
             'Tag bøfferne frem, så de når stuetemperatur.',
             'Kog kartoflerne.',
@@ -167,7 +223,13 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 6, minMinutes: 85, maxMinutes: 90 }
         ],
         tags: ['Pasta', 'Oksekød', 'Weekend'],
-        ingredients: ['500 g hakket oksekød', 'Lasagneplader', 'Bechamelsauce', '400 g hakkede tomater', '150 g revet ost'],
+        ingredients: [
+            { ingredientId: 'hakket-oksekoed', amount: 500, unit: 'g', preparation: ['minced'] },
+            { ingredientId: 'lasagneplader', amount: 12, unit: 'pcs' },
+            { ingredientId: 'bechamelsauce', amount: 500, unit: 'ml' },
+            { ingredientId: 'hakkede-tomater', amount: 400, unit: 'g' },
+            { ingredientId: 'ost', amount: 150, unit: 'g', preparation: ['grated'] }
+        ],
         steps: [
             'Tag det hakkede oksekød ud af køleskabet.',
             'Hak løg og hvidløg.',
