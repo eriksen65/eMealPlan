@@ -39,31 +39,22 @@ export interface Ingredient {
 
 export const MOCK_INGREDIENTS: Ingredient[] = [
     {
-        id: 'hakket-svinekoed',
-        name: 'Hakket svinekød',
-        category: 'meat',
-        tags: [],
-        dietaryProperties: ['gluten-free', 'lactose-free'],
-        isStaple: false,
-        imageUrl: '🥩'
-    },
-    {
-        id: 'udon-nudler',
-        name: 'Udon nudler, tørrede',
-        category: 'grain',
-        tags: [],
-        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
-        isStaple: false,
-        imageUrl: '🍜'
-    },
-    {
-        id: 'mynte',
-        name: 'Mynte',
-        category: 'herb',
-        tags: [],
+        id: 'chili',
+        name: 'Chili',
+        category: 'vegetable',
+        tags: ['spicy'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🌱'
+        imageUrl: '🌶️'
+    },
+    {
+        id: 'citrongraes',
+        name: 'Citrongræs',
+        category: 'herb',
+        tags: ['sour'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        imageUrl: '🌿'
     },
     {
         id: 'citrusfrugt',
@@ -75,56 +66,101 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         imageUrl: '🍋'
     },
     {
-        id: 'chili',
-        name: 'Chili',
-        category: 'vegetable',
-        tags: ['spicy'],
+        id: 'ginger-ninja',
+        name: 'Ginger Ninja',
+        category: 'spice',
+        tags: ['spicy', 'seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🌶️'
+        imageUrl: '🧂',
+        unitConversions: [
+            { unit: 'tsp', grams: 6 },
+            { unit: 'tbsp', grams: 18 }
+        ]
     },
     {
-        id: 'hvidloeg',
-        name: 'Hvidløg',
+        id: 'gulerod-julienne',
+        name: 'Gulerod, julienne',
         category: 'vegetable',
+        tags: ['sweet'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        imageUrl: '🥕'
+    },
+    {
+        id: 'hakket-svinekoed',
+        name: 'Hakket svinekød',
+        category: 'meat',
+        tags: [],
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        imageUrl: '🥩'
+    },
+    {
+        id: 'ingefaerpure',
+        name: 'Ingefærpuré',
+        category: 'spice',
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🧄',
+        imageUrl: '🫚',
         unitConversions: [
-            { unit: 'pcs', grams: 5 },
-            { unit: 'clove', grams: 5 }
+            { unit: 'tsp', grams: 6 },
+            { unit: 'tbsp', grams: 18 }
         ]
     },
     {
-        id: 'fiskesauce',
-        name: 'Fiskesauce',
-        category: 'sauce',
-        tags: ['seasoning'],
-        dietaryProperties: ['gluten-free', 'lactose-free'],
-        isStaple: false,
-        imageUrl: '🫙',
-        unitConversions: [
-            { unit: 'tsp', grams: 5 },
-            { unit: 'tbsp', grams: 16 }
-        ]
-    },
-    {
-        id: 'koriander',
-        name: 'Koriander',
+        id: 'mynte',
+        name: 'Mynte',
         category: 'herb',
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🌿'
+        imageUrl: '🌱'
     },
     {
-        id: 'foraarsloeg',
-        name: 'Forårsløg',
+        id: 'soed-chilisauce',
+        name: 'Sød chilisauce',
+        category: 'sauce',
+        tags: ['sweet', 'spicy'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        imageUrl: '🫙'
+    },
+    {
+        id: 'sojasauce',
+        name: 'Sojasauce',
+        category: 'sauce',
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: false,
+        imageUrl: '🍶'
+    },
+    {
+        id: 'spidskaal',
+        name: 'Spidskål, skåret',
         category: 'vegetable',
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🧅'
+        imageUrl: '🥬'
+    },
+    {
+        id: 'sukkeraerter',
+        name: 'Sukkerærter',
+        category: 'vegetable',
+        tags: ['sweet'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        imageUrl: '🫛'
+    },
+    {
+        id: 'udon-nudler',
+        name: 'Udon nudler, tørrede',
+        category: 'grain',
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: false,
+        imageUrl: '🍜'
     }
 ];
