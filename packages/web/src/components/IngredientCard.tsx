@@ -2,15 +2,16 @@ import type { Ingredient } from '../data/mockIngredients';
 
 interface IngredientCardProps {
     ingredient: Ingredient;
+    onClick: (ingredient: Ingredient) => void;
 }
 
-export function IngredientCard({ ingredient }: IngredientCardProps) {
+export function IngredientCard({ ingredient, onClick }: IngredientCardProps) {
     return (
-        <div className='ingredient-card'>
+        <button type='button' className='ingredient-card' onClick={() => onClick(ingredient)}>
             <span className='ingredient-card__icon' aria-hidden='true'>
                 {ingredient.imageUrl ? <img src={ingredient.imageUrl} alt='' className='ingredient-card__photo' /> : ingredient.emoji}
             </span>
             <span className='ingredient-card__name'>{ingredient.name}</span>
-        </div>
+        </button>
     );
 }
