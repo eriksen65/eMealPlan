@@ -21,11 +21,22 @@ export type IngredientTag = 'spicy' | 'seasoning' | 'sour' | 'sweet' | 'bitter';
 export type DietaryProperty = 'vegan' | 'vegetarian' | 'gluten-free' | 'lactose-free';
 
 export interface NutritionPer100g {
+    /** Energi */
     energyKcal: number;
-    protein: number;
-    carbohydrates: number;
+    /** Fedt */
     fat: number;
-    fiber?: number;
+    /** Heraf mættede fedtsyrer */
+    saturatedFat: number;
+    /** Kulhydrat */
+    carbohydrates: number;
+    /** Heraf sukkerarter */
+    sugars: number;
+    /** Kostfibre */
+    fiber: number;
+    /** Protein */
+    protein: number;
+    /** Salt */
+    salt: number;
 }
 
 export interface IngredientUnitConversion {
