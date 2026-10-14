@@ -8,7 +8,9 @@ const UNIT_LABELS: Record<Unit, string> = {
     l: 'l',
     tsp: 'tsk',
     tbsp: 'spsk',
-    pcs: ''
+    pcs: '',
+    clove: 'fed',
+    pinch: 'knivspids'
 };
 
 const PREPARATION_LABELS: Record<IngredientPreparation, string> = {

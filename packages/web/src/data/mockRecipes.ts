@@ -6,7 +6,7 @@ export interface TimeEstimate {
     maxMinutes: number;
 }
 
-export type Unit = 'g' | 'kg' | 'ml' | 'l' | 'tsp' | 'tbsp' | 'pcs';
+export type Unit = 'g' | 'kg' | 'ml' | 'l' | 'tsp' | 'tbsp' | 'pcs' | 'clove' | 'pinch';
 
 export type IngredientPreparation =
     | 'whole'
