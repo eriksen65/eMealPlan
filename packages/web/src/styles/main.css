@@ -492,3 +492,20 @@ body {
 .step-list li {
     margin-bottom: 6px;
 }
+
+.step-list__title {
+    font-weight: 600;
+    margin: 0;
+}
+
+.step-list__instruction {
+    color: var(--color-text-muted);
+    margin: 2px 0 0;
+}
+
+.step-list__tip {
+    color: var(--color-primary-dark);
+    font-style: italic;
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+}
