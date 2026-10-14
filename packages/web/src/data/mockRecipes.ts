@@ -111,13 +111,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
                 amount: 0.5,
                 unit: 'pcs',
                 scaling: {
-                    type: 'portions',
-                    amounts: [
-                        { portions: 3, amount: 1 },
-                        { portions: 4, amount: 1 },
-                        { portions: 5, amount: 1.5 },
-                        { portions: 6, amount: 1.5 }
-                    ]
+                    type: 'linear'
                 }
             },
             { ingredientId: 'ingefaerpure', amount: 10, unit: 'g', scaling: { type: 'linear' } },
