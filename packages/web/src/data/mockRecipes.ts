@@ -93,7 +93,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
         emoji: '🍜',
         image: vietnamesiskeNudlerPhoto,
         description:
-            'Sprøde nudler wokket med hakket svinekød, citrongræs, ingefær og chili, fyldt med sprøde grøntsager og toppet med en frisk mynte-salat.',
+            'Sprøde nudler wokket med hakket svinekød, citrongræs, ingefær og chili, fyldt med sprøde grøntsager og toppet med en frisk gulerods- og mynte-salat.',
         baseServings: 2,
         timeEstimates: [
             { portions: 2, minMinutes: 15, maxMinutes: 20 },
