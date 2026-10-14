@@ -75,10 +75,11 @@ export const MOCK_RECIPES: MockRecipe[] = [
     {
         id: 'vietnamesiske-nudler',
         title: 'Hurtige vietnamesiske nudler og hakket svinekød',
-        subtitle: 'med frisk mynte salat',
+        subtitle: 'med sprøde grøntsager og frisk mynte',
         emoji: '🍜',
         image: vietnamesiskeNudlerPhoto,
-        description: 'Sprøde nudler wokket med hakket svinekød, hvidløg og chili, toppet med en frisk mynte- og koriandersalat.',
+        description:
+            'Sprøde nudler wokket med hakket svinekød, citrongræs, ingefær og chili, fyldt med sprøde grøntsager og toppet med en frisk mynte-salat.',
         baseServings: 2,
         timeEstimates: [
             { portions: 2, minMinutes: 15, maxMinutes: 20 },
@@ -88,22 +89,27 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ingredients: [
             { ingredientId: 'udon-nudler', amount: 250, unit: 'g' },
             { ingredientId: 'hakket-svinekoed', amount: 300, unit: 'g', preparations: ['minced'] },
-            { ingredientId: 'hvidloeg', amount: 2, unit: 'pcs' },
+            { ingredientId: 'gulerod-julienne', amount: 100, unit: 'g' },
+            { ingredientId: 'spidskaal', amount: 150, unit: 'g' },
+            { ingredientId: 'sukkeraerter', amount: 100, unit: 'g' },
+            { ingredientId: 'citrongraes', amount: 1, unit: 'pcs' },
+            { ingredientId: 'ingefaerpure', amount: 1, unit: 'tbsp' },
+            { ingredientId: 'ginger-ninja', amount: 1, unit: 'tbsp' },
             { ingredientId: 'chili', amount: 1, unit: 'pcs' },
-            { ingredientId: 'fiskesauce', amount: 2, unit: 'tbsp' },
+            { ingredientId: 'soed-chilisauce', amount: 2, unit: 'tbsp' },
+            { ingredientId: 'sojasauce', amount: 2, unit: 'tbsp' },
             { ingredientId: 'mynte', amount: 10, unit: 'g' },
-            { ingredientId: 'koriander', amount: 10, unit: 'g' },
-            { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs' },
-            { ingredientId: 'foraarsloeg', amount: 2, unit: 'pcs' }
+            { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs' }
         ],
         steps: [
             { title: 'Kog nudlerne', instruction: 'Kog nudlerne efter anvisning på pakken.' },
-            { title: 'Hak hvidløg og chili', instruction: 'Hak hvidløg og chili fint.' },
+            { title: 'Forbered grøntsagerne', instruction: 'Hak citrongræs og chili fint.' },
             { title: 'Brun svinekødet', instruction: 'Brun det hakkede svinekød i en wok.' },
-            { title: 'Tilsæt hvidløg og chili', instruction: 'Tilsæt hvidløg og chili, steg et par minutter.' },
-            { title: 'Smag til', instruction: 'Smag til med fiskesauce og lime.' },
-            { title: 'Lav salaten', instruction: 'Bland mynte, koriander og forårsløg til salaten.' },
-            { title: 'Server', instruction: 'Server nudlerne med kød og frisk salat ovenpå.' }
+            { title: 'Tilsæt krydderier', instruction: 'Tilsæt ingefærpuré, Ginger Ninja, citrongræs og chili, steg et par minutter.' },
+            { title: 'Wok grøntsagerne', instruction: 'Tilsæt gulerod, spidskål og sukkerærter, og wok til de er sprøde-møre.' },
+            { title: 'Smag til', instruction: 'Rør sojasauce og sød chilisauce i, og vend nudlerne med.' },
+            { title: 'Lav salaten', instruction: 'Bland mynte med et skvæt citrus.' },
+            { title: 'Server', instruction: 'Server nudlerne med kød, grøntsager og frisk mynte-salat ovenpå.' }
         ]
     }
 ];
