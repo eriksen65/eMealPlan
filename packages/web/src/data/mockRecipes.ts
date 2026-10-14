@@ -127,9 +127,9 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { ingredientId: 'sojasauce', amount: 40, unit: 'ml', scaling: { type: 'linear' } },
             { ingredientId: 'mynte', amount: 1, unit: 'sprig', scaling: { type: 'linear' } },
             { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs', scaling: { type: 'linear' } },
-            { ingredientId: 'olie-til-salat', amount: 1, unit: 'tbsp', scaling: { type: 'linear' } },
-            { ingredientId: 'olie-til-stegning', amount: 0.5, unit: 'tbsp', scaling: { type: 'linear' } },
-            { ingredientId: 'salt-til-salat', amount: 0.25, unit: 'tsp', scaling: { type: 'linear' } },
+            { ingredientId: 'olie', amount: 1, unit: 'tbsp', scaling: { type: 'linear' }, displayName: 'Olie (til salat)' },
+            { ingredientId: 'olie', amount: 0.5, unit: 'tbsp', scaling: { type: 'linear' }, displayName: 'Olie (til stegning)' },
+            { ingredientId: 'salt', amount: 0.25, unit: 'tsp', scaling: { type: 'linear' }, displayName: 'Salt (til salat)' },
             { ingredientId: 'kogevand', amount: 100, unit: 'ml', scaling: { type: 'linear' } }
         ],
         steps: [

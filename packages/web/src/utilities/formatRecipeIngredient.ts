@@ -8,7 +8,7 @@ import { formatUnit } from './formatUnit';
  */
 export function formatRecipeIngredient(recipeIngredient: RecipeIngredient): string {
     const ingredient = MOCK_INGREDIENTS.find((candidate) => candidate.id === recipeIngredient.ingredientId);
-    const name = ingredient?.name ?? recipeIngredient.ingredientId;
+    const name = recipeIngredient.displayName ?? ingredient?.name ?? recipeIngredient.ingredientId;
     const unitLabel = formatUnit(recipeIngredient.unit);
     const amountPart = unitLabel ? `${recipeIngredient.amount} ${unitLabel}` : `${recipeIngredient.amount}`;
 
