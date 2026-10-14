@@ -17,9 +17,9 @@ describe('App', () => {
         render(<App />);
         const user = userEvent.setup();
 
-        await user.click(screen.getByRole('button', { name: /klassisk lasagne/i }));
+        await user.click(screen.getByRole('button', { name: /hurtige vietnamesiske nudler/i }));
 
-        expect(screen.getByRole('dialog', { name: 'Klassisk lasagne' })).toBeInTheDocument();
-        expect(screen.getByText('Forvarm ovnen til 200°C.')).toBeInTheDocument();
+        expect(screen.getByRole('dialog', { name: /hurtige vietnamesiske nudler/i })).toBeInTheDocument();
+        expect(screen.getByText('Kog nudlerne efter anvisning på pakken.')).toBeInTheDocument();
     });
 });
