@@ -6,8 +6,10 @@ import { RecipeCard } from './components/RecipeCard';
 import { RecipeDetailModal } from './components/RecipeDetailModal';
 import { IngredientCard } from './components/IngredientCard';
 import { IngredientDetailModal } from './components/IngredientDetailModal';
+import { InfoTooltip } from './components/InfoTooltip';
 import { MOCK_RECIPES, type MockRecipe } from './data/mockRecipes';
 import { MOCK_INGREDIENTS, type Ingredient } from './data/mockIngredients';
+import { STAPLES_INFO_TEXT } from './utilities/staplesInfoText';
 
 export function App() {
     const [page, setPage] = useState<AppPage>('recipes');
@@ -43,7 +45,10 @@ export function App() {
 
                             {staples.length > 0 && (
                                 <>
-                                    <h2 className='section-title section-title--divider'>Basisvarer</h2>
+                                    <h2 className='section-title section-title--divider'>
+                                        Basisvarer
+                                        <InfoTooltip text={STAPLES_INFO_TEXT} />
+                                    </h2>
                                     <div className='ingredient-grid'>
                                         {staples.map((ingredient) => (
                                             <IngredientCard key={ingredient.id} ingredient={ingredient} onClick={setSelectedIngredient} />

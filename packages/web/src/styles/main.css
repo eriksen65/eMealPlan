@@ -590,6 +590,64 @@ body {
     letter-spacing: 0.04em;
     font-weight: 600;
     color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.info-tooltip {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: help;
+    color: var(--color-text-muted);
+}
+
+.info-tooltip__icon {
+    font-size: 0.9em;
+    line-height: 1;
+}
+
+.info-tooltip__bubble {
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translate(-50%, 4px);
+    width: max-content;
+    max-width: 220px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: var(--color-primary-dark);
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.4;
+    text-align: left;
+    opacity: 0;
+    pointer-events: none;
+    transition:
+        opacity 0.15s ease,
+        transform 0.15s ease;
+    z-index: 20;
+}
+
+.info-tooltip__bubble::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--color-primary-dark);
+}
+
+.info-tooltip:hover .info-tooltip__bubble,
+.info-tooltip:focus-visible .info-tooltip__bubble {
+    opacity: 1;
+    transform: translate(-50%, 0);
 }
 
 .step-list {

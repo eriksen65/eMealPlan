@@ -5,6 +5,8 @@ import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
 import { formatRecipeIngredient } from '../utilities/formatRecipeIngredient';
 import { formatRecipeTag } from '../utilities/formatRecipeTag';
 import { computePortionBounds, scaleIngredientAmount } from '../utilities/scaleIngredientAmount';
+import { InfoTooltip } from './InfoTooltip';
+import { STAPLES_INFO_TEXT } from '../utilities/staplesInfoText';
 
 interface RecipeDetailModalProps {
     recipe: MockRecipe;
@@ -89,6 +91,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                         <>
                             <li className='ingredient-list__divider' role='presentation'>
                                 Basisvarer
+                                <InfoTooltip text={STAPLES_INFO_TEXT} />
                             </li>
                             {stapleIngredients.map((ingredient, index) => (
                                 <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient)}</li>
