@@ -1,3 +1,5 @@
+import type { Unit } from './mockRecipes';
+
 export type IngredientCategory = 'vegetable' | 'fruit' | 'meat' | 'fish' | 'dairy' | 'grain' | 'spice' | 'herb' | 'sauce' | 'oil' | 'other';
 
 export type IngredientTag = 'spicy' | 'seasoning' | 'sour' | 'sweet' | 'bitter';
@@ -10,6 +12,11 @@ export interface NutritionPer100g {
     carbohydrates: number;
     fat: number;
     fiber?: number;
+}
+
+export interface IngredientUnitConversion {
+    unit: Unit;
+    grams: number;
 }
 
 export interface Ingredient {
@@ -26,6 +33,8 @@ export interface Ingredient {
     /** Mock placeholder icon (emoji) for now; real product photos follow later. */
     imageUrl?: string;
     nutritionPer100g?: NutritionPer100g;
+    /** Grams-per-unit conversions, used to normalise quantities measured in e.g. tsp/tbsp/pcs for the shopping list. */
+    unitConversions?: IngredientUnitConversion[];
 }
 
 export const MOCK_INGREDIENTS: Ingredient[] = [
@@ -153,7 +162,12 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
-        imageUrl: '🧂'
+        imageUrl: '🧂',
+        unitConversions: [
+            { unit: 'tsp', grams: 6 },
+            { unit: 'tbsp', grams: 18 },
+            { unit: 'pinch', grams: 0.3 }
+        ]
     },
     {
         id: 'peber',
@@ -162,7 +176,12 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['spicy', 'seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
-        imageUrl: '🌶️'
+        imageUrl: '🌶️',
+        unitConversions: [
+            { unit: 'tsp', grams: 2 },
+            { unit: 'tbsp', grams: 6 },
+            { unit: 'pinch', grams: 0.2 }
+        ]
     },
     {
         id: 'hvidloeg',
@@ -170,8 +189,12 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'vegetable',
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
-        isStaple: true,
-        imageUrl: '🧄'
+        isStaple: false,
+        imageUrl: '🧄',
+        unitConversions: [
+            { unit: 'pcs', grams: 5 },
+            { unit: 'clove', grams: 5 }
+        ]
     },
     {
         id: 'fiskesauce',
@@ -179,8 +202,12 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'sauce',
         tags: ['seasoning'],
         dietaryProperties: ['gluten-free', 'lactose-free'],
-        isStaple: true,
-        imageUrl: '🫙'
+        isStaple: false,
+        imageUrl: '🫙',
+        unitConversions: [
+            { unit: 'tsp', grams: 5 },
+            { unit: 'tbsp', grams: 16 }
+        ]
     },
     {
         id: 'koriander',
@@ -215,7 +242,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'vegetable',
         tags: ['sweet'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🧅'
     },
     {
@@ -224,7 +251,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'vegetable',
         tags: ['sour'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🥫'
     },
     {
@@ -233,7 +260,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'grain',
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🍝'
     },
     {
@@ -242,7 +269,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'dairy',
         tags: ['seasoning'],
         dietaryProperties: ['vegetarian', 'gluten-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🧀'
     },
     {
@@ -260,7 +287,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'other',
         tags: ['sweet'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🥥'
     },
     {
@@ -269,8 +296,12 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'sauce',
         tags: ['spicy', 'seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
-        isStaple: true,
-        imageUrl: '🍛'
+        isStaple: false,
+        imageUrl: '🍛',
+        unitConversions: [
+            { unit: 'tsp', grams: 6 },
+            { unit: 'tbsp', grams: 18 }
+        ]
     },
     {
         id: 'peberfrugt',
@@ -305,7 +336,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'sauce',
         tags: ['sour'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🍅'
     },
     {
@@ -332,8 +363,12 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'spice',
         tags: ['spicy', 'seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
-        isStaple: true,
-        imageUrl: '🌮'
+        isStaple: false,
+        imageUrl: '🌮',
+        unitConversions: [
+            { unit: 'tsp', grams: 3 },
+            { unit: 'tbsp', grams: 9 }
+        ]
     },
     {
         id: 'tacoskaller',
@@ -341,7 +376,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'grain',
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🌮'
     },
     {
@@ -368,7 +403,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'dairy',
         tags: [],
         dietaryProperties: ['vegetarian', 'gluten-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🧀'
     },
     {
@@ -386,7 +421,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'vegetable',
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🥔'
     },
     {
@@ -395,7 +430,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'dairy',
         tags: [],
         dietaryProperties: ['vegetarian', 'gluten-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🧈'
     },
     {
@@ -413,7 +448,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'grain',
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
-        isStaple: true,
+        isStaple: false,
         imageUrl: '🍝'
     },
     {
