@@ -28,10 +28,25 @@ export type IngredientPreparation =
     | 'juiced'
     | 'melted';
 
+export interface PortionAmount {
+    portions: number;
+    amount: number;
+}
+
+export type IngredientScaling =
+    | {
+          type: 'linear';
+      }
+    | {
+          type: 'portions';
+          amounts: PortionAmount[];
+      };
+
 export interface RecipeIngredient {
     ingredientId: string;
     amount: number;
     unit: Unit;
+    scaling: IngredientScaling;
     preparations?: IngredientPreparation[];
     optional?: boolean;
 }
@@ -92,19 +107,19 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ],
         tags: ['quick'],
         ingredients: [
-            { ingredientId: 'udon-nudler', amount: 250, unit: 'g' },
-            { ingredientId: 'hakket-svinekoed', amount: 300, unit: 'g', preparations: ['minced'] },
-            { ingredientId: 'gulerod-julienne', amount: 100, unit: 'g' },
-            { ingredientId: 'spidskaal', amount: 150, unit: 'g' },
-            { ingredientId: 'sukkeraerter', amount: 100, unit: 'g' },
-            { ingredientId: 'citrongraes', amount: 1, unit: 'pcs' },
-            { ingredientId: 'ingefaerpure', amount: 1, unit: 'tbsp' },
-            { ingredientId: 'ginger-ninja', amount: 1, unit: 'tbsp' },
-            { ingredientId: 'chili', amount: 1, unit: 'pcs' },
-            { ingredientId: 'soed-chilisauce', amount: 2, unit: 'tbsp' },
-            { ingredientId: 'sojasauce', amount: 2, unit: 'tbsp' },
-            { ingredientId: 'mynte', amount: 10, unit: 'g' },
-            { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs' }
+            { ingredientId: 'udon-nudler', amount: 250, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'hakket-svinekoed', amount: 300, unit: 'g', preparations: ['minced'], scaling: { type: 'linear' } },
+            { ingredientId: 'gulerod-julienne', amount: 100, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'spidskaal', amount: 150, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'sukkeraerter', amount: 100, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'citrongraes', amount: 1, unit: 'pcs', scaling: { type: 'linear' } },
+            { ingredientId: 'ingefaerpure', amount: 1, unit: 'tbsp', scaling: { type: 'linear' } },
+            { ingredientId: 'ginger-ninja', amount: 1, unit: 'tbsp', scaling: { type: 'linear' } },
+            { ingredientId: 'chili', amount: 1, unit: 'pcs', scaling: { type: 'linear' } },
+            { ingredientId: 'soed-chilisauce', amount: 2, unit: 'tbsp', scaling: { type: 'linear' } },
+            { ingredientId: 'sojasauce', amount: 2, unit: 'tbsp', scaling: { type: 'linear' } },
+            { ingredientId: 'mynte', amount: 10, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs', scaling: { type: 'linear' } }
         ],
         steps: [
             {
