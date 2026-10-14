@@ -54,6 +54,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                 <ol className='step-list'>
                     {recipe.steps.map((step) => (
                         <li key={step.title}>
+                            {step.image && <img src={step.image} alt='' className='step-list__photo' />}
                             <p className='step-list__title'>{step.title}</p>
                             <p className='step-list__instruction'>{step.instruction}</p>
                             {step.tip && <p className='step-list__tip'>Tip: {step.tip}</p>}

@@ -500,6 +500,15 @@ body {
     margin-bottom: 6px;
 }
 
+.step-list__photo {
+    display: block;
+    width: 100%;
+    max-width: 320px;
+    border-radius: 12px;
+    object-fit: cover;
+    margin: 6px 0;
+}
+
 .step-list__title {
     font-weight: 600;
     margin: 0;
