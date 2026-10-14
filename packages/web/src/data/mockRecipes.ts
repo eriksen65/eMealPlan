@@ -19,7 +19,8 @@ export type Unit =
     | 'tbsp' // spiseskefuld
     | 'pcs' // stykker
     | 'clove' // fed (fx hvidløgsfed)
-    | 'pinch'; // knivspids
+    | 'pinch' // knivspids
+    | 'sprig'; // kvist (fx en kvist timian eller mynte)
 
 export interface PortionAmount {
     portions: number;
@@ -100,19 +101,36 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ],
         tags: ['quick'],
         ingredients: [
-            { ingredientId: 'udon-nudler', amount: 250, unit: 'g', scaling: { type: 'linear' } },
-            { ingredientId: 'hakket-svinekoed', amount: 300, unit: 'g', scaling: { type: 'linear' } },
-            { ingredientId: 'gulerod-julienne', amount: 100, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'udon-nudler', amount: 150, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'hakket-svinekoed', amount: 250, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'gulerod-julienne', amount: 50, unit: 'g', scaling: { type: 'linear' } },
             { ingredientId: 'spidskaal', amount: 150, unit: 'g', scaling: { type: 'linear' } },
             { ingredientId: 'sukkeraerter', amount: 100, unit: 'g', scaling: { type: 'linear' } },
-            { ingredientId: 'citrongraes', amount: 1, unit: 'pcs', scaling: { type: 'linear' } },
-            { ingredientId: 'ingefaerpure', amount: 1, unit: 'tbsp', scaling: { type: 'linear' } },
-            { ingredientId: 'ginger-ninja', amount: 1, unit: 'tbsp', scaling: { type: 'linear' } },
+            {
+                ingredientId: 'citrongraes',
+                amount: 0.5,
+                unit: 'pcs',
+                scaling: {
+                    type: 'portions',
+                    amounts: [
+                        { portions: 3, amount: 1 },
+                        { portions: 4, amount: 1 },
+                        { portions: 5, amount: 1.5 },
+                        { portions: 6, amount: 1.5 }
+                    ]
+                }
+            },
+            { ingredientId: 'ingefaerpure', amount: 10, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'ginger-ninja', amount: 5, unit: 'g', scaling: { type: 'linear' } },
             { ingredientId: 'chili', amount: 1, unit: 'pcs', scaling: { type: 'linear' } },
-            { ingredientId: 'soed-chilisauce', amount: 2, unit: 'tbsp', scaling: { type: 'linear' } },
-            { ingredientId: 'sojasauce', amount: 2, unit: 'tbsp', scaling: { type: 'linear' } },
+            { ingredientId: 'soed-chilisauce', amount: 80, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'sojasauce', amount: 40, unit: 'ml', scaling: { type: 'linear' } },
             { ingredientId: 'mynte', amount: 10, unit: 'g', scaling: { type: 'linear' } },
-            { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs', scaling: { type: 'linear' } }
+            { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs', scaling: { type: 'linear' } },
+            { ingredientId: 'olie-til-salat', amount: 1, unit: 'tbsp', scaling: { type: 'linear' } },
+            { ingredientId: 'olie-til-stegning', amount: 0.5, unit: 'tbsp', scaling: { type: 'linear' } },
+            { ingredientId: 'salt-til-salat', amount: 0.25, unit: 'tsp', scaling: { type: 'linear' } },
+            { ingredientId: 'kogevand', amount: 100, unit: 'ml', scaling: { type: 'linear' } }
         ],
         steps: [
             {
