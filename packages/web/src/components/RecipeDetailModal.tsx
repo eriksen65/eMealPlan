@@ -4,7 +4,7 @@ import { MOCK_INGREDIENTS } from '../data/mockIngredients';
 import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
 import { formatRecipeIngredient } from '../utilities/formatRecipeIngredient';
 import { formatRecipeTag } from '../utilities/formatRecipeTag';
-import { PORTION_BOUNDS, scaleIngredientAmount } from '../utilities/scaleIngredientAmount';
+import { computePortionBounds, scaleIngredientAmount } from '../utilities/scaleIngredientAmount';
 
 interface RecipeDetailModalProps {
     recipe: MockRecipe;
@@ -17,6 +17,7 @@ function isStapleIngredient(recipeIngredient: RecipeIngredient): boolean {
 
 export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
     const [portions, setPortions] = useState(recipe.baseServings);
+    const portionBounds = computePortionBounds(recipe.ingredients, recipe.baseServings);
 
     useEffect(() => {
         function handleKeyDown(event: KeyboardEvent) {
@@ -64,8 +65,8 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                         <button
                             type='button'
                             className='portion-stepper__button'
-                            onClick={() => setPortions((current) => Math.max(PORTION_BOUNDS.min, current - 1))}
-                            disabled={portions <= PORTION_BOUNDS.min}
+                            onClick={() => setPortions((current) => Math.max(portionBounds.min, current - 1))}
+                            disabled={portions <= portionBounds.min}
                             aria-label='Færre portioner'>
                             −
                         </button>
@@ -73,8 +74,8 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                         <button
                             type='button'
                             className='portion-stepper__button'
-                            onClick={() => setPortions((current) => Math.min(PORTION_BOUNDS.max, current + 1))}
-                            disabled={portions >= PORTION_BOUNDS.max}
+                            onClick={() => setPortions((current) => Math.min(portionBounds.max, current + 1))}
+                            disabled={portions >= portionBounds.max}
                             aria-label='Flere portioner'>
                             +
                         </button>
