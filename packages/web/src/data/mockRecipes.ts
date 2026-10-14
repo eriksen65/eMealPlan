@@ -13,20 +13,20 @@ export interface TimeEstimate {
 export type Unit = 'g' | 'kg' | 'ml' | 'l' | 'tsp' | 'tbsp' | 'pcs' | 'clove' | 'pinch';
 
 export type IngredientPreparation =
-    | 'whole'
-    | 'halved'
-    | 'quartered'
-    | 'sliced'
-    | 'thinly-sliced'
-    | 'chopped'
-    | 'finely-chopped'
-    | 'diced'
-    | 'minced'
-    | 'grated'
-    | 'crushed'
-    | 'peeled'
-    | 'juiced'
-    | 'melted';
+    | 'whole' // hel, ikke tilberedt
+    | 'halved' // skåret i to halve
+    | 'quartered' // skåret i kvarte
+    | 'sliced' // skåret i skiver
+    | 'thinly-sliced' // skåret i tynde skiver
+    | 'chopped' // groft hakket
+    | 'finely-chopped' // finthakket
+    | 'diced' // skåret i små tern
+    | 'minced' // hakket (fx hakket kød)
+    | 'grated' // revet, fx på et rivejern
+    | 'crushed' // knust, fx hvidløg eller krydderier
+    | 'peeled' // skrællet
+    | 'juiced' // presset for saft
+    | 'melted'; // smeltet, fx smør
 
 export interface PortionAmount {
     portions: number;
@@ -109,7 +109,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ingredients: [
             { ingredientId: 'udon-nudler', amount: 250, unit: 'g', scaling: { type: 'linear' } },
             { ingredientId: 'hakket-svinekoed', amount: 300, unit: 'g', preparations: ['minced'], scaling: { type: 'linear' } },
-            { ingredientId: 'gulerod-julienne', amount: 100, unit: 'g', scaling: { type: 'linear' } },
+            { ingredientId: 'gulerod-julienne', amount: 100, unit: 'g', preparations: ['grated'], scaling: { type: 'linear' } },
             { ingredientId: 'spidskaal', amount: 150, unit: 'g', scaling: { type: 'linear' } },
             { ingredientId: 'sukkeraerter', amount: 100, unit: 'g', scaling: { type: 'linear' } },
             { ingredientId: 'citrongraes', amount: 1, unit: 'pcs', scaling: { type: 'linear' } },
