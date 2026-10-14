@@ -7,7 +7,11 @@ import gingerNinjaPhoto from '../assets/ingredients/ginger-ninja.webp';
 import gulerodJuliennePhoto from '../assets/ingredients/gulerod-julienne.webp';
 import hakketSvinekoedPhoto from '../assets/ingredients/hakket-svinekoed.webp';
 import ingefaerpurePhoto from '../assets/ingredients/ingefaerpure.webp';
+import kogevandPhoto from '../assets/ingredients/kogevand.webp';
 import myntePhoto from '../assets/ingredients/mynte.webp';
+import oliePhoto from '../assets/ingredients/olie.webp';
+import peberPhoto from '../assets/ingredients/peber.webp';
+import saltPhoto from '../assets/ingredients/salt.webp';
 import soedChilisaucePhoto from '../assets/ingredients/soed-chilisauce.webp';
 import sojasaucePhoto from '../assets/ingredients/sojasauce.webp';
 import spidskaalPhoto from '../assets/ingredients/spidskaal.webp';
@@ -117,7 +121,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         imageUrl: '🥕',
-        image: gulerodJuliennePhoto
+        image: gulerodJuliennePhoto,
+        nutritionPer100g: {
+            energyKcal: 41,
+            fat: 0.6,
+            saturatedFat: 0.3,
+            carbohydrates: 11,
+            sugars: 9.1,
+            fiber: 0.5,
+            protein: 1.7,
+            salt: 0.1
+        }
     },
     {
         id: 'hakket-svinekoed',
@@ -144,6 +158,16 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         ]
     },
     {
+        id: 'kogevand',
+        name: 'Kogevand',
+        category: 'other',
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        imageUrl: '💧',
+        image: kogevandPhoto
+    },
+    {
         id: 'mynte',
         name: 'Mynte',
         category: 'herb',
@@ -152,6 +176,36 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         isStaple: false,
         imageUrl: '🌱',
         image: myntePhoto
+    },
+    {
+        id: 'olie',
+        name: 'Olie',
+        category: 'oil',
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        imageUrl: '🫒',
+        image: oliePhoto
+    },
+    {
+        id: 'peber',
+        name: 'Peber',
+        category: 'spice',
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        imageUrl: '🧂',
+        image: peberPhoto
+    },
+    {
+        id: 'salt',
+        name: 'Salt',
+        category: 'spice',
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        imageUrl: '🧂',
+        image: saltPhoto
     },
     {
         id: 'soed-chilisauce',
