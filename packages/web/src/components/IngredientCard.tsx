@@ -8,7 +8,7 @@ export function IngredientCard({ ingredient }: IngredientCardProps) {
     return (
         <div className='ingredient-card'>
             <span className='ingredient-card__icon' aria-hidden='true'>
-                {ingredient.imageUrl}
+                {ingredient.image ? <img src={ingredient.image} alt='' className='ingredient-card__photo' /> : ingredient.imageUrl}
             </span>
             <span className='ingredient-card__name'>{ingredient.name}</span>
         </div>
