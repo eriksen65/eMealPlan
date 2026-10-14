@@ -31,6 +31,7 @@ export interface RecipeIngredient {
     amount: number;
     unit: Unit;
     scaling: IngredientScaling;
+    displayName?: string;
     optional?: boolean;
 }
 
