@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
-import type { MockRecipe } from '../data/mockRecipes';
+import type { MockRecipe, RecipeIngredient } from '../data/mockRecipes';
+import { MOCK_INGREDIENTS } from '../data/mockIngredients';
 import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
 import { formatRecipeIngredient } from '../utilities/formatRecipeIngredient';
 import { formatRecipeTag } from '../utilities/formatRecipeTag';
@@ -7,6 +8,10 @@ import { formatRecipeTag } from '../utilities/formatRecipeTag';
 interface RecipeDetailModalProps {
     recipe: MockRecipe;
     onClose: () => void;
+}
+
+function isStapleIngredient(recipeIngredient: RecipeIngredient): boolean {
+    return MOCK_INGREDIENTS.find((candidate) => candidate.id === recipeIngredient.ingredientId)?.isStaple ?? false;
 }
 
 export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
@@ -17,6 +22,9 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [onClose]);
+
+    const coreIngredients = recipe.ingredients.filter((ingredient) => !isStapleIngredient(ingredient));
+    const stapleIngredients = recipe.ingredients.filter((ingredient) => isStapleIngredient(ingredient));
 
     return (
         <div className='modal-overlay' onClick={onClose}>
@@ -45,10 +53,21 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
 
                 <h3 className='section-title'>Ingredienser</h3>
                 <ul className='ingredient-list'>
-                    {recipe.ingredients.map((ingredient) => (
-                        <li key={ingredient.ingredientId}>{formatRecipeIngredient(ingredient)}</li>
+                    {coreIngredients.map((ingredient, index) => (
+                        <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient)}</li>
                     ))}
                 </ul>
+
+                {stapleIngredients.length > 0 && (
+                    <>
+                        <h3 className='section-title section-title--divider'>Basisvarer</h3>
+                        <ul className='ingredient-list'>
+                            {stapleIngredients.map((ingredient, index) => (
+                                <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient)}</li>
+                            ))}
+                        </ul>
+                    </>
+                )}
 
                 <h3 className='section-title'>Fremgangsmåde</h3>
                 <ol className='step-list'>
