@@ -10,7 +10,8 @@ const UNIT_LABELS: Record<Unit, string> = {
     tbsp: 'spsk',
     pcs: '',
     clove: 'fed',
-    pinch: 'knivspids'
+    pinch: 'knivspids',
+    sprig: 'kvist'
 };
 
 /**
