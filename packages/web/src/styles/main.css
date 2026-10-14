@@ -385,6 +385,23 @@ body {
     border: 1px solid var(--color-border);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
     overflow: hidden;
+    transition:
+        transform 0.12s ease,
+        box-shadow 0.12s ease,
+        border-color 0.12s ease;
+}
+
+.ingredient-card:hover .ingredient-card__icon,
+.ingredient-card:focus-visible .ingredient-card__icon {
+    transform: translateY(-2px) scale(1.04);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.ingredient-card:hover .ingredient-card__name,
+.ingredient-card:focus-visible .ingredient-card__name {
+    color: var(--color-primary-dark);
 }
 
 .ingredient-card__photo {
