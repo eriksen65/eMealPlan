@@ -14,6 +14,9 @@ export function App() {
     const [selectedRecipe, setSelectedRecipe] = useState<MockRecipe | null>(null);
     const [selectedIngredient, setSelectedIngredient] = useState<Ingredient | null>(null);
 
+    const coreIngredients = MOCK_INGREDIENTS.filter((ingredient) => !ingredient.isStaple);
+    const staples = MOCK_INGREDIENTS.filter((ingredient) => ingredient.isStaple);
+
     return (
         <div className='app-shell'>
             <TopNavBar activePage={page} onChangePage={setPage} />
@@ -33,10 +36,21 @@ export function App() {
                         <>
                             <h1 className='page__title'>Ingredienser</h1>
                             <div className='ingredient-grid'>
-                                {MOCK_INGREDIENTS.map((ingredient) => (
+                                {coreIngredients.map((ingredient) => (
                                     <IngredientCard key={ingredient.id} ingredient={ingredient} onClick={setSelectedIngredient} />
                                 ))}
                             </div>
+
+                            {staples.length > 0 && (
+                                <>
+                                    <h2 className='section-title section-title--divider'>Basisvarer</h2>
+                                    <div className='ingredient-grid'>
+                                        {staples.map((ingredient) => (
+                                            <IngredientCard key={ingredient.id} ingredient={ingredient} onClick={setSelectedIngredient} />
+                                        ))}
+                                    </div>
+                                </>
+                            )}
                         </>
                     )}
                 </div>

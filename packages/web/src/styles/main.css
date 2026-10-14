@@ -513,6 +513,12 @@ body {
     margin: 20px 0 8px;
 }
 
+.section-title--divider {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--color-border);
+}
+
 .ingredient-list,
 .step-list {
     padding-left: 20px;
