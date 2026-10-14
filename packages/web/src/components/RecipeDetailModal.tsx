@@ -56,18 +56,17 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                     {coreIngredients.map((ingredient, index) => (
                         <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient)}</li>
                     ))}
-                </ul>
-
-                {stapleIngredients.length > 0 && (
-                    <>
-                        <h3 className='section-title section-title--divider'>Basisvarer</h3>
-                        <ul className='ingredient-list'>
+                    {stapleIngredients.length > 0 && (
+                        <>
+                            <li className='ingredient-list__divider' role='presentation'>
+                                Basisvarer
+                            </li>
                             {stapleIngredients.map((ingredient, index) => (
                                 <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient)}</li>
                             ))}
-                        </ul>
-                    </>
-                )}
+                        </>
+                    )}
+                </ul>
 
                 <h3 className='section-title'>Fremgangsmåde</h3>
                 <ol className='step-list'>
