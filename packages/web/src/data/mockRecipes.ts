@@ -1,4 +1,8 @@
 import vietnamesiskeNudlerPhoto from '../assets/recipes/vietnamesiske-nudler.png';
+import stepKogNudlerPhoto from '../assets/recipes/steps/step-1-kog-nudler.webp';
+import stepStegKoedPhoto from '../assets/recipes/steps/step-2-steg-kod.webp';
+import stepLavSaucePhoto from '../assets/recipes/steps/step-3-lav-sauce.webp';
+import stepServerPhoto from '../assets/recipes/steps/step-4-server.webp';
 
 export interface TimeEstimate {
     portions: number;
@@ -37,6 +41,7 @@ export interface RecipeStep {
     instruction: string;
 
     tip?: string;
+    vigtig?: string;
     image?: string;
 }
 
@@ -102,14 +107,32 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs' }
         ],
         steps: [
-            { title: 'Kog nudlerne', instruction: 'Kog nudlerne efter anvisning på pakken.' },
-            { title: 'Forbered grøntsagerne', instruction: 'Hak citrongræs og chili fint.' },
-            { title: 'Brun svinekødet', instruction: 'Brun det hakkede svinekød i en wok.' },
-            { title: 'Tilsæt krydderier', instruction: 'Tilsæt ingefærpuré, Ginger Ninja, citrongræs og chili, steg et par minutter.' },
-            { title: 'Wok grøntsagerne', instruction: 'Tilsæt gulerod, spidskål og sukkerærter, og wok til de er sprøde-møre.' },
-            { title: 'Smag til', instruction: 'Rør sojasauce og sød chilisauce i, og vend nudlerne med.' },
-            { title: 'Lav salaten', instruction: 'Bland mynte med et skvæt citrus.' },
-            { title: 'Server', instruction: 'Server nudlerne med kød, grøntsager og frisk mynte-salat ovenpå.' }
+            {
+                title: 'Kog nudler',
+                instruction:
+                    'Bring en stor gryde med saltet vand i kog.\nKog nudlerne i 4-5 min, eller indtil de er bløde.\nGem lidt kogevand, og hæld resten fra.\nSkyl nudler under koldt vand i en si.',
+                tip: 'Kogevandet skal være salt som havvand.',
+                image: stepKogNudlerPhoto
+            },
+            {
+                title: 'Steg kød',
+                instruction:
+                    'Imens, riv citrongræs fint.\nFlæk chili, fjern kerner, og skær i tynde skiver.\nOpvarm olivenolie i en stor stegepande på middelhøj varme.\nSteg kød med Ginger Ninja under omrøring i 4-5 min, eller indtil det er brunet.\nHalver citrusfrugt.\nRiv mynte i mindre stykker.\nBland sukkerærter, gulerod, mynte, salt, olivenolie, og et skvæt citrusfrugtsaft i en stor skål.',
+                vigtig: 'kød er færdigt, når der er uden antydning af rødt.',
+                image: stepStegKoedPhoto
+            },
+            {
+                title: 'Lav Sauce',
+                instruction:
+                    'Tilsæt sød chilisauce, citrongræs og ingefærpasta til stegepanden, og steg i 30 sek, eller indtil velduftende.\nSænk til middel varme.\nTilsæt nudler, sojasauce, sød chilisauce og pastavand, og vend det sammen.',
+                tip: 'Undlad chilien, eller brug mindre, hvis du ikke er til stærk mad.',
+                image: stepLavSaucePhoto
+            },
+            {
+                title: 'Server',
+                instruction: 'Anret nudler og salat i dybe tallerkener.',
+                image: stepServerPhoto
+            }
         ]
     }
 ];

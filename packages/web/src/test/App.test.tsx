@@ -20,6 +20,6 @@ describe('App', () => {
         await user.click(screen.getByRole('button', { name: /hurtige vietnamesiske nudler/i }));
 
         expect(screen.getByRole('dialog', { name: /hurtige vietnamesiske nudler/i })).toBeInTheDocument();
-        expect(screen.getByText('Kog nudlerne efter anvisning på pakken.')).toBeInTheDocument();
+        expect(screen.getByText(/bring en stor gryde med saltet vand i kog/i)).toBeInTheDocument();
     });
 });
