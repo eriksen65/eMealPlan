@@ -41,6 +41,13 @@ export interface RecipeStep {
     image?: string;
 }
 
+/**
+ * Meta attributes about a recipe that can't be derived from its other fields
+ * (e.g. ingredient categories already imply protein/dish type, so those are
+ * not repeated here as tags).
+ */
+export type RecipeTag = 'quick' | 'weekend' | 'kid-friendly' | 'meal-prep';
+
 export interface MockRecipe {
     id: string;
 
@@ -58,7 +65,7 @@ export interface MockRecipe {
 
     timeEstimates: TimeEstimate[];
 
-    tags: string[];
+    tags: RecipeTag[];
 
     ingredients: RecipeIngredient[];
 
@@ -78,7 +85,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 2, minMinutes: 15, maxMinutes: 20 },
             { portions: 4, minMinutes: 20, maxMinutes: 25 }
         ],
-        tags: ['Svinekød', 'Hurtigt'],
+        tags: ['quick'],
         ingredients: [
             { ingredientId: 'udon-nudler', amount: 250, unit: 'g' },
             { ingredientId: 'hakket-svinekoed', amount: 300, unit: 'g', preparation: ['minced'] },
@@ -111,7 +118,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 2, minMinutes: 20, maxMinutes: 25 },
             { portions: 4, minMinutes: 40, maxMinutes: 45 }
         ],
-        tags: ['Pasta', 'Oksekød'],
+        tags: [],
         ingredients: [
             { ingredientId: 'hakket-oksekoed', amount: 500, unit: 'g', preparation: ['minced'] },
             { ingredientId: 'loeg', amount: 1, unit: 'pcs' },
@@ -140,7 +147,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 2, minMinutes: 20, maxMinutes: 25 },
             { portions: 4, minMinutes: 35, maxMinutes: 40 }
         ],
-        tags: ['Kylling', 'Hurtigt'],
+        tags: ['quick'],
         ingredients: [
             { ingredientId: 'kyllingebryst', amount: 500, unit: 'g', preparation: ['diced'] },
             { ingredientId: 'kokosmaelk', amount: 1, unit: 'pcs' },
@@ -168,7 +175,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 2, minMinutes: 30, maxMinutes: 35 },
             { portions: 4, minMinutes: 55, maxMinutes: 60 }
         ],
-        tags: ['Vegetar', 'Børnevenligt'],
+        tags: ['kid-friendly'],
         ingredients: [
             { ingredientId: 'pizzadej', amount: 1, unit: 'pcs' },
             { ingredientId: 'tomatsauce', amount: 100, unit: 'g' },
@@ -194,7 +201,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 2, minMinutes: 15, maxMinutes: 20 },
             { portions: 4, minMinutes: 25, maxMinutes: 30 }
         ],
-        tags: ['Oksekød', 'Hurtigt'],
+        tags: ['quick'],
         ingredients: [
             { ingredientId: 'hakket-oksekoed', amount: 400, unit: 'g', preparation: ['minced'] },
             { ingredientId: 'tacokrydderi', amount: 2, unit: 'tbsp' },
@@ -222,7 +229,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 2, minMinutes: 20, maxMinutes: 25 },
             { portions: 4, minMinutes: 35, maxMinutes: 40 }
         ],
-        tags: ['Oksekød', 'Weekend'],
+        tags: ['weekend'],
         ingredients: [
             { ingredientId: 'boef', amount: 4, unit: 'pcs' },
             { ingredientId: 'kartofler', amount: 800, unit: 'g' },
@@ -248,7 +255,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { portions: 4, minMinutes: 70, maxMinutes: 75 },
             { portions: 6, minMinutes: 85, maxMinutes: 90 }
         ],
-        tags: ['Pasta', 'Oksekød', 'Weekend'],
+        tags: ['weekend'],
         ingredients: [
             { ingredientId: 'hakket-oksekoed', amount: 500, unit: 'g', preparation: ['minced'] },
             { ingredientId: 'lasagneplader', amount: 12, unit: 'pcs' },

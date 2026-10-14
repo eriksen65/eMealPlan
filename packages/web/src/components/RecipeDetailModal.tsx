@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import type { MockRecipe } from '../data/mockRecipes';
 import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
 import { formatRecipeIngredient } from '../utilities/formatRecipeIngredient';
+import { formatRecipeTag } from '../utilities/formatRecipeTag';
 
 interface RecipeDetailModalProps {
     recipe: MockRecipe;
@@ -37,7 +38,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                 <div className='recipe-card__tags'>
                     {recipe.tags.map((tag) => (
                         <span key={tag} className='tag'>
-                            {tag}
+                            {formatRecipeTag(tag)}
                         </span>
                     ))}
                 </div>

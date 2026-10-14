@@ -1,5 +1,6 @@
 import type { MockRecipe } from '../data/mockRecipes';
 import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
+import { formatRecipeTag } from '../utilities/formatRecipeTag';
 
 interface RecipeCardProps {
     recipe: MockRecipe;
@@ -19,7 +20,7 @@ export function RecipeCard({ recipe, onClick }: RecipeCardProps) {
                 <span className='recipe-card__tags'>
                     {recipe.tags.map((tag) => (
                         <span key={tag} className='tag'>
-                            {tag}
+                            {formatRecipeTag(tag)}
                         </span>
                     ))}
                 </span>
