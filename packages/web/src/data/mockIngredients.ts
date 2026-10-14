@@ -77,7 +77,18 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         emoji: '🌶️',
-        imageUrl: chiliPhoto
+        imageUrl: chiliPhoto,
+        unitConversions: [{ unit: 'pcs', grams: 30 }],
+        nutritionPer100g: {
+            energyKcal: 40,
+            fat: 0.4,
+            saturatedFat: 0.04,
+            carbohydrates: 8.8,
+            sugars: 5.3,
+            fiber: 1.5,
+            protein: 1.9,
+            salt: 0.02
+        }
     },
     {
         id: 'citrongraes',
@@ -87,7 +98,18 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         emoji: '🌿',
-        imageUrl: citrongraesPhoto
+        imageUrl: citrongraesPhoto,
+        unitConversions: [{ unit: 'pcs', grams: 25 }],
+        nutritionPer100g: {
+            energyKcal: 99,
+            fat: 0.49,
+            saturatedFat: 0.05,
+            carbohydrates: 25,
+            sugars: 0,
+            fiber: 4.3,
+            protein: 1.8,
+            salt: 0.015
+        }
     },
     {
         id: 'citrusfrugt',
@@ -97,7 +119,18 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         emoji: '🍋',
-        imageUrl: citrusfrugtPhoto
+        imageUrl: citrusfrugtPhoto,
+        unitConversions: [{ unit: 'pcs', grams: 30 }],
+        nutritionPer100g: {
+            energyKcal: 22,
+            fat: 0.24,
+            saturatedFat: 0.04,
+            carbohydrates: 6.9,
+            sugars: 2.52,
+            fiber: 0.3,
+            protein: 0.35,
+            salt: 0.0025
+        }
     },
     {
         id: 'ginger-ninja',
@@ -111,7 +144,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         unitConversions: [
             { unit: 'tsp', grams: 6 },
             { unit: 'tbsp', grams: 18 }
-        ]
+        ],
+        nutritionPer100g: {
+            energyKcal: 80,
+            fat: 0.75,
+            saturatedFat: 0.2,
+            carbohydrates: 17.8,
+            sugars: 1.7,
+            fiber: 2.0,
+            protein: 1.82,
+            salt: 0.0325
+        }
     },
     {
         id: 'gulerod-julienne',
@@ -141,7 +184,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['gluten-free', 'lactose-free'],
         isStaple: false,
         emoji: '🥩',
-        imageUrl: hakketSvinekoedPhoto
+        imageUrl: hakketSvinekoedPhoto,
+        nutritionPer100g: {
+            energyKcal: 263,
+            fat: 21.2,
+            saturatedFat: 7.6,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 16.9,
+            salt: 0.14
+        }
     },
     {
         id: 'ingefaerpure',
@@ -155,7 +208,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         unitConversions: [
             { unit: 'tsp', grams: 6 },
             { unit: 'tbsp', grams: 18 }
-        ]
+        ],
+        nutritionPer100g: {
+            energyKcal: 80,
+            fat: 0.75,
+            saturatedFat: 0,
+            carbohydrates: 17.77,
+            sugars: 2,
+            fiber: 2,
+            protein: 1.82,
+            salt: 0.0325
+        }
     },
     {
         id: 'kogevand',
@@ -165,7 +228,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
         emoji: '💧',
-        imageUrl: kogevandPhoto
+        imageUrl: kogevandPhoto,
+        nutritionPer100g: {
+            energyKcal: 0,
+            fat: 0,
+            saturatedFat: 0,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 0,
+            salt: 1
+        }
     },
     {
         id: 'mynte',
@@ -175,7 +248,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         emoji: '🌱',
-        imageUrl: myntePhoto
+        imageUrl: myntePhoto,
+        nutritionPer100g: {
+            energyKcal: 44,
+            fat: 0.73,
+            saturatedFat: 0.191,
+            carbohydrates: 8.41,
+            sugars: 0,
+            fiber: 6.8,
+            protein: 3.29,
+            salt: 0.075
+        }
     },
     {
         id: 'olie',
@@ -185,7 +268,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
         emoji: '🫒',
-        imageUrl: oliePhoto
+        imageUrl: oliePhoto,
+        nutritionPer100g: {
+            energyKcal: 884,
+            fat: 100,
+            saturatedFat: 13.8,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 0,
+            salt: 0.005
+        }
     },
     {
         id: 'peber',
@@ -195,7 +288,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
         emoji: '🧂',
-        imageUrl: peberPhoto
+        imageUrl: peberPhoto,
+        nutritionPer100g: {
+            energyKcal: 251,
+            fat: 3.26,
+            saturatedFat: 1.39,
+            carbohydrates: 63.95,
+            sugars: 0.64,
+            fiber: 25.3,
+            protein: 10.4,
+            salt: 0.05
+        }
     },
     {
         id: 'salt',
@@ -205,7 +308,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
         emoji: '🧂',
-        imageUrl: saltPhoto
+        imageUrl: saltPhoto,
+        nutritionPer100g: {
+            energyKcal: 0,
+            fat: 0,
+            saturatedFat: 0,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 0,
+            salt: 100
+        }
     },
     {
         id: 'soed-chilisauce',
@@ -215,7 +328,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         emoji: '🫙',
-        imageUrl: soedChilisaucePhoto
+        imageUrl: soedChilisaucePhoto,
+        nutritionPer100g: {
+            energyKcal: 125,
+            fat: 0,
+            saturatedFat: 0,
+            carbohydrates: 31.25,
+            sugars: 28.1,
+            fiber: 0,
+            protein: 0,
+            salt: 2.19
+        }
     },
     {
         id: 'sojasauce',
@@ -225,7 +348,18 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
         isStaple: false,
         emoji: '🍶',
-        imageUrl: sojasaucePhoto
+        imageUrl: sojasaucePhoto,
+        unitConversions: [{ unit: 'ml', grams: 1.2 }],
+        nutritionPer100g: {
+            energyKcal: 60,
+            fat: 0.1,
+            saturatedFat: 0,
+            carbohydrates: 5.6,
+            sugars: 1.7,
+            fiber: 0.8,
+            protein: 10.5,
+            salt: 13.97
+        }
     },
     {
         id: 'spidskaal',
@@ -235,7 +369,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         emoji: '🥬',
-        imageUrl: spidskaalPhoto
+        imageUrl: spidskaalPhoto,
+        nutritionPer100g: {
+            energyKcal: 27,
+            fat: 0.1,
+            saturatedFat: 0.01,
+            carbohydrates: 6.1,
+            sugars: 2.27,
+            fiber: 3.1,
+            protein: 2.0,
+            salt: 0.07
+        }
     },
     {
         id: 'sukkeraerter',
@@ -245,7 +389,17 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
         emoji: '🫛',
-        imageUrl: sukkeraerterPhoto
+        imageUrl: sukkeraerterPhoto,
+        nutritionPer100g: {
+            energyKcal: 42,
+            fat: 0.2,
+            saturatedFat: 0.04,
+            carbohydrates: 7.55,
+            sugars: 4.0,
+            fiber: 2.6,
+            protein: 2.8,
+            salt: 0.01
+        }
     },
     {
         id: 'udon-nudler',
@@ -255,6 +409,16 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
         isStaple: false,
         emoji: '🍜',
-        imageUrl: udonNudlerPhoto
+        imageUrl: udonNudlerPhoto,
+        nutritionPer100g: {
+            energyKcal: 336,
+            fat: 1.2,
+            saturatedFat: 0.25,
+            carbohydrates: 72.9,
+            sugars: 0,
+            fiber: 0,
+            protein: 8.3,
+            salt: 3.8
+        }
     }
 ];

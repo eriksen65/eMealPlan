@@ -10,7 +10,16 @@ export interface TimeEstimate {
     maxMinutes: number;
 }
 
-export type Unit = 'g' | 'kg' | 'ml' | 'l' | 'tsp' | 'tbsp' | 'pcs' | 'clove' | 'pinch';
+export type Unit =
+    | 'g' // gram
+    | 'kg' // kilogram
+    | 'ml' // milliliter
+    | 'l' // liter
+    | 'tsp' // teskefuld
+    | 'tbsp' // spiseskefuld
+    | 'pcs' // stykker
+    | 'clove' // fed (fx hvidløgsfed)
+    | 'pinch'; // knivspids
 
 export interface PortionAmount {
     portions: number;
