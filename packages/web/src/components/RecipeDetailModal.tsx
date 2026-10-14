@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { MockRecipe, RecipeIngredient } from '../data/mockRecipes';
 import { MOCK_INGREDIENTS } from '../data/mockIngredients';
 import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
 import { formatRecipeIngredient } from '../utilities/formatRecipeIngredient';
 import { formatRecipeTag } from '../utilities/formatRecipeTag';
+import { PORTION_BOUNDS, scaleIngredientAmount } from '../utilities/scaleIngredientAmount';
 
 interface RecipeDetailModalProps {
     recipe: MockRecipe;
@@ -15,6 +16,8 @@ function isStapleIngredient(recipeIngredient: RecipeIngredient): boolean {
 }
 
 export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
+    const [portions, setPortions] = useState(recipe.baseServings);
+
     useEffect(() => {
         function handleKeyDown(event: KeyboardEvent) {
             if (event.key === 'Escape') onClose();
@@ -23,8 +26,12 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [onClose]);
 
-    const coreIngredients = recipe.ingredients.filter((ingredient) => !isStapleIngredient(ingredient));
-    const stapleIngredients = recipe.ingredients.filter((ingredient) => isStapleIngredient(ingredient));
+    const scaledIngredients = recipe.ingredients.map((ingredient) => ({
+        ...ingredient,
+        amount: scaleIngredientAmount(ingredient, recipe.baseServings, portions)
+    }));
+    const coreIngredients = scaledIngredients.filter((ingredient) => !isStapleIngredient(ingredient));
+    const stapleIngredients = scaledIngredients.filter((ingredient) => isStapleIngredient(ingredient));
 
     return (
         <div className='modal-overlay' onClick={onClose}>
@@ -51,7 +58,28 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                     ))}
                 </div>
 
-                <h3 className='section-title'>Ingredienser</h3>
+                <div className='section-title-row'>
+                    <h3 className='section-title'>Ingredienser</h3>
+                    <div className='portion-stepper'>
+                        <button
+                            type='button'
+                            className='portion-stepper__button'
+                            onClick={() => setPortions((current) => Math.max(PORTION_BOUNDS.min, current - 1))}
+                            disabled={portions <= PORTION_BOUNDS.min}
+                            aria-label='Færre portioner'>
+                            −
+                        </button>
+                        <span className='portion-stepper__value'>{portions === 1 ? '1 portion' : `${portions} portioner`}</span>
+                        <button
+                            type='button'
+                            className='portion-stepper__button'
+                            onClick={() => setPortions((current) => Math.min(PORTION_BOUNDS.max, current + 1))}
+                            disabled={portions >= PORTION_BOUNDS.max}
+                            aria-label='Flere portioner'>
+                            +
+                        </button>
+                    </div>
+                </div>
                 <ul className='ingredient-list'>
                     {coreIngredients.map((ingredient, index) => (
                         <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient)}</li>
