@@ -519,6 +519,61 @@ body {
     border-top: 1px solid var(--color-border);
 }
 
+.section-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 20px 0 8px;
+}
+
+.section-title-row .section-title {
+    margin: 0;
+}
+
+.portion-stepper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.portion-stepper__button {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-primary-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.portion-stepper__button:hover:not(:disabled) {
+    background: var(--color-bg);
+    border-color: var(--color-primary);
+}
+
+.portion-stepper__button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.portion-stepper__value {
+    min-width: 72px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-text);
+    text-transform: none;
+    letter-spacing: normal;
+}
+
 .ingredient-list,
 .step-list {
     padding-left: 20px;
