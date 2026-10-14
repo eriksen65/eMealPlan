@@ -53,7 +53,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                 <h3 className='section-title'>Fremgangsmåde</h3>
                 <ol className='step-list'>
                     {recipe.steps.map((step) => (
-                        <li key={step.step}>
+                        <li key={step.title}>
                             <p className='step-list__title'>{step.title}</p>
                             <p className='step-list__instruction'>{step.instruction}</p>
                             {step.tip && <p className='step-list__tip'>Tip: {step.tip}</p>}
