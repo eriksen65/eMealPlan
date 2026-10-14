@@ -28,12 +28,11 @@ export interface RecipeIngredient {
     ingredientId: string;
     amount: number;
     unit: Unit;
-    preparation?: IngredientPreparation[];
+    preparations?: IngredientPreparation[];
     optional?: boolean;
 }
 
 export interface RecipeStep {
-    step: number;
     title: string;
     instruction: string;
 
@@ -88,7 +87,7 @@ export const MOCK_RECIPES: MockRecipe[] = [
         tags: ['quick'],
         ingredients: [
             { ingredientId: 'udon-nudler', amount: 250, unit: 'g' },
-            { ingredientId: 'hakket-svinekoed', amount: 300, unit: 'g', preparation: ['minced'] },
+            { ingredientId: 'hakket-svinekoed', amount: 300, unit: 'g', preparations: ['minced'] },
             { ingredientId: 'hvidloeg', amount: 2, unit: 'pcs' },
             { ingredientId: 'chili', amount: 1, unit: 'pcs' },
             { ingredientId: 'fiskesauce', amount: 2, unit: 'tbsp' },
@@ -98,13 +97,13 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { ingredientId: 'foraarsloeg', amount: 2, unit: 'pcs' }
         ],
         steps: [
-            { step: 1, title: 'Kog nudlerne', instruction: 'Kog nudlerne efter anvisning på pakken.' },
-            { step: 2, title: 'Hak hvidløg og chili', instruction: 'Hak hvidløg og chili fint.' },
-            { step: 3, title: 'Brun svinekødet', instruction: 'Brun det hakkede svinekød i en wok.' },
-            { step: 4, title: 'Tilsæt hvidløg og chili', instruction: 'Tilsæt hvidløg og chili, steg et par minutter.' },
-            { step: 5, title: 'Smag til', instruction: 'Smag til med fiskesauce og lime.' },
-            { step: 6, title: 'Lav salaten', instruction: 'Bland mynte, koriander og forårsløg til salaten.' },
-            { step: 7, title: 'Server', instruction: 'Server nudlerne med kød og frisk salat ovenpå.' }
+            { title: 'Kog nudlerne', instruction: 'Kog nudlerne efter anvisning på pakken.' },
+            { title: 'Hak hvidløg og chili', instruction: 'Hak hvidløg og chili fint.' },
+            { title: 'Brun svinekødet', instruction: 'Brun det hakkede svinekød i en wok.' },
+            { title: 'Tilsæt hvidløg og chili', instruction: 'Tilsæt hvidløg og chili, steg et par minutter.' },
+            { title: 'Smag til', instruction: 'Smag til med fiskesauce og lime.' },
+            { title: 'Lav salaten', instruction: 'Bland mynte, koriander og forårsløg til salaten.' },
+            { title: 'Server', instruction: 'Server nudlerne med kød og frisk salat ovenpå.' }
         ]
     },
     {
@@ -120,20 +119,20 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ],
         tags: [],
         ingredients: [
-            { ingredientId: 'hakket-oksekoed', amount: 500, unit: 'g', preparation: ['minced'] },
+            { ingredientId: 'hakket-oksekoed', amount: 500, unit: 'g', preparations: ['minced'] },
             { ingredientId: 'loeg', amount: 1, unit: 'pcs' },
             { ingredientId: 'hvidloeg', amount: 2, unit: 'pcs' },
             { ingredientId: 'hakkede-tomater', amount: 400, unit: 'g' },
             { ingredientId: 'spaghetti', amount: 400, unit: 'g' },
-            { ingredientId: 'parmesan', amount: 30, unit: 'g', preparation: ['grated'], optional: true }
+            { ingredientId: 'parmesan', amount: 30, unit: 'g', preparations: ['grated'], optional: true }
         ],
         steps: [
-            { step: 1, title: 'Hak løg og hvidløg', instruction: 'Hak løg og hvidløg.' },
-            { step: 2, title: 'Brun oksekødet', instruction: 'Brun det hakkede oksekød i en stor pande.' },
-            { step: 3, title: 'Tilsæt løg og hvidløg', instruction: 'Tilsæt løg og hvidløg, steg til det er blødt.' },
-            { step: 4, title: 'Simre sovsen', instruction: 'Rør de hakkede tomater i og lad simre i 25 minutter.' },
-            { step: 5, title: 'Kog spaghettien', instruction: 'Kog spaghettien efter anvisning på pakken.' },
-            { step: 6, title: 'Server', instruction: 'Server sovsen over spaghettien med parmesan.' }
+            { title: 'Hak løg og hvidløg', instruction: 'Hak løg og hvidløg.' },
+            { title: 'Brun oksekødet', instruction: 'Brun det hakkede oksekød i en stor pande.' },
+            { title: 'Tilsæt løg og hvidløg', instruction: 'Tilsæt løg og hvidløg, steg til det er blødt.' },
+            { title: 'Simre sovsen', instruction: 'Rør de hakkede tomater i og lad simre i 25 minutter.' },
+            { title: 'Kog spaghettien', instruction: 'Kog spaghettien efter anvisning på pakken.' },
+            { title: 'Server', instruction: 'Server sovsen over spaghettien med parmesan.' }
         ]
     },
     {
@@ -149,19 +148,19 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ],
         tags: ['quick'],
         ingredients: [
-            { ingredientId: 'kyllingebryst', amount: 500, unit: 'g', preparation: ['diced'] },
+            { ingredientId: 'kyllingebryst', amount: 500, unit: 'g', preparations: ['diced'] },
             { ingredientId: 'kokosmaelk', amount: 1, unit: 'pcs' },
             { ingredientId: 'karrypasta', amount: 2, unit: 'tbsp' },
-            { ingredientId: 'peberfrugt', amount: 1, unit: 'pcs', preparation: ['sliced'] },
+            { ingredientId: 'peberfrugt', amount: 1, unit: 'pcs', preparations: ['sliced'] },
             { ingredientId: 'ris', amount: 300, unit: 'g' }
         ],
         steps: [
-            { step: 1, title: 'Skær kyllingen', instruction: 'Skær kyllingen i mundrette stykker.' },
-            { step: 2, title: 'Steg karrypastaen', instruction: 'Steg karrypastaen et minuts tid i en varm pande.' },
-            { step: 3, title: 'Brun kyllingen', instruction: 'Tilsæt kylling og brun den på alle sider.' },
-            { step: 4, title: 'Simre curryen', instruction: 'Hæld kokosmælk i og lad simre i 15 minutter.' },
-            { step: 5, title: 'Tilsæt peberfrugt', instruction: 'Tilsæt skåret peberfrugt de sidste 5 minutter.' },
-            { step: 6, title: 'Server', instruction: 'Server med ris.' }
+            { title: 'Skær kyllingen', instruction: 'Skær kyllingen i mundrette stykker.' },
+            { title: 'Steg karrypastaen', instruction: 'Steg karrypastaen et minuts tid i en varm pande.' },
+            { title: 'Brun kyllingen', instruction: 'Tilsæt kylling og brun den på alle sider.' },
+            { title: 'Simre curryen', instruction: 'Hæld kokosmælk i og lad simre i 15 minutter.' },
+            { title: 'Tilsæt peberfrugt', instruction: 'Tilsæt skåret peberfrugt de sidste 5 minutter.' },
+            { title: 'Server', instruction: 'Server med ris.' }
         ]
     },
     {
@@ -183,11 +182,11 @@ export const MOCK_RECIPES: MockRecipe[] = [
             { ingredientId: 'pizzatopping', amount: 150, unit: 'g', optional: true }
         ],
         steps: [
-            { step: 1, title: 'Forvarm ovnen', instruction: 'Forvarm ovnen til 250°C.' },
-            { step: 2, title: 'Rul dejen ud', instruction: 'Rul pizzadejen ud.' },
-            { step: 3, title: 'Smør tomatsauce på', instruction: 'Smør tomatsauce ud over dejen.' },
-            { step: 4, title: 'Fordel topping', instruction: 'Fordel mozzarella og topping.' },
-            { step: 5, title: 'Bag pizzaen', instruction: 'Bag i 10-12 minutter til den er gylden.' }
+            { title: 'Forvarm ovnen', instruction: 'Forvarm ovnen til 250°C.' },
+            { title: 'Rul dejen ud', instruction: 'Rul pizzadejen ud.' },
+            { title: 'Smør tomatsauce på', instruction: 'Smør tomatsauce ud over dejen.' },
+            { title: 'Fordel topping', instruction: 'Fordel mozzarella og topping.' },
+            { title: 'Bag pizzaen', instruction: 'Bag i 10-12 minutter til den er gylden.' }
         ]
     },
     {
@@ -203,19 +202,19 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ],
         tags: ['quick'],
         ingredients: [
-            { ingredientId: 'hakket-oksekoed', amount: 400, unit: 'g', preparation: ['minced'] },
+            { ingredientId: 'hakket-oksekoed', amount: 400, unit: 'g', preparations: ['minced'] },
             { ingredientId: 'tacokrydderi', amount: 2, unit: 'tbsp' },
             { ingredientId: 'tacoskaller', amount: 8, unit: 'pcs' },
-            { ingredientId: 'salat', amount: 50, unit: 'g', preparation: ['sliced'] },
-            { ingredientId: 'tomat', amount: 1, unit: 'pcs', preparation: ['diced'] },
-            { ingredientId: 'ost', amount: 50, unit: 'g', preparation: ['grated'] }
+            { ingredientId: 'salat', amount: 50, unit: 'g', preparations: ['sliced'] },
+            { ingredientId: 'tomat', amount: 1, unit: 'pcs', preparations: ['diced'] },
+            { ingredientId: 'ost', amount: 50, unit: 'g', preparations: ['grated'] }
         ],
         steps: [
-            { step: 1, title: 'Brun oksekødet', instruction: 'Brun det hakkede oksekød i en pande.' },
-            { step: 2, title: 'Tilsæt tacokrydderi', instruction: 'Rør tacokrydderi og lidt vand i.' },
-            { step: 3, title: 'Lad simre', instruction: 'Lad simre i 5 minutter.' },
-            { step: 4, title: 'Varm tacoskallerne', instruction: 'Varm tacoskallerne.' },
-            { step: 5, title: 'Byg tacos', instruction: 'Lad alle bygge deres egne tacos.' }
+            { title: 'Brun oksekødet', instruction: 'Brun det hakkede oksekød i en pande.' },
+            { title: 'Tilsæt tacokrydderi', instruction: 'Rør tacokrydderi og lidt vand i.' },
+            { title: 'Lad simre', instruction: 'Lad simre i 5 minutter.' },
+            { title: 'Varm tacoskallerne', instruction: 'Varm tacoskallerne.' },
+            { title: 'Byg tacos', instruction: 'Lad alle bygge deres egne tacos.' }
         ]
     },
     {
@@ -233,15 +232,15 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ingredients: [
             { ingredientId: 'boef', amount: 4, unit: 'pcs' },
             { ingredientId: 'kartofler', amount: 800, unit: 'g' },
-            { ingredientId: 'smoer', amount: 50, unit: 'g', preparation: ['melted'] },
+            { ingredientId: 'smoer', amount: 50, unit: 'g', preparations: ['melted'] },
             { ingredientId: 'groenne-boenner', amount: 300, unit: 'g' }
         ],
         steps: [
-            { step: 1, title: 'Tag bøfferne frem', instruction: 'Tag bøfferne frem, så de når stuetemperatur.' },
-            { step: 2, title: 'Kog kartoflerne', instruction: 'Kog kartoflerne.' },
-            { step: 3, title: 'Steg bøfferne', instruction: 'Steg bøfferne i smør.' },
-            { step: 4, title: 'Lad bøfferne hvile', instruction: 'Lad bøfferne hvile, tilbered de grønne bønner.' },
-            { step: 5, title: 'Anret og server', instruction: 'Anret og server.' }
+            { title: 'Tag bøfferne frem', instruction: 'Tag bøfferne frem, så de når stuetemperatur.' },
+            { title: 'Kog kartoflerne', instruction: 'Kog kartoflerne.' },
+            { title: 'Steg bøfferne', instruction: 'Steg bøfferne i smør.' },
+            { title: 'Lad bøfferne hvile', instruction: 'Lad bøfferne hvile, tilbered de grønne bønner.' },
+            { title: 'Anret og server', instruction: 'Anret og server.' }
         ]
     },
     {
@@ -257,20 +256,20 @@ export const MOCK_RECIPES: MockRecipe[] = [
         ],
         tags: ['weekend'],
         ingredients: [
-            { ingredientId: 'hakket-oksekoed', amount: 500, unit: 'g', preparation: ['minced'] },
+            { ingredientId: 'hakket-oksekoed', amount: 500, unit: 'g', preparations: ['minced'] },
             { ingredientId: 'lasagneplader', amount: 12, unit: 'pcs' },
             { ingredientId: 'bechamelsauce', amount: 500, unit: 'ml' },
             { ingredientId: 'hakkede-tomater', amount: 400, unit: 'g' },
-            { ingredientId: 'ost', amount: 150, unit: 'g', preparation: ['grated'] }
+            { ingredientId: 'ost', amount: 150, unit: 'g', preparations: ['grated'] }
         ],
         steps: [
-            { step: 1, title: 'Tag oksekødet frem', instruction: 'Tag det hakkede oksekød ud af køleskabet.' },
-            { step: 2, title: 'Hak løg og hvidløg', instruction: 'Hak løg og hvidløg.' },
-            { step: 3, title: 'Start kødsovsen', instruction: 'Start kødsovsen.' },
-            { step: 4, title: 'Forvarm ovnen', instruction: 'Forvarm ovnen til 200°C.' },
-            { step: 5, title: 'Saml lasagnen', instruction: 'Saml lasagnen i lag.' },
-            { step: 6, title: 'Sæt lasagnen i ovnen', instruction: 'Sæt lasagnen i ovnen.' },
-            { step: 7, title: 'Tag lasagnen ud', instruction: 'Tag lasagnen ud af ovnen og lad den hvile.' }
+            { title: 'Tag oksekødet frem', instruction: 'Tag det hakkede oksekød ud af køleskabet.' },
+            { title: 'Hak løg og hvidløg', instruction: 'Hak løg og hvidløg.' },
+            { title: 'Start kødsovsen', instruction: 'Start kødsovsen.' },
+            { title: 'Forvarm ovnen', instruction: 'Forvarm ovnen til 200°C.' },
+            { title: 'Saml lasagnen', instruction: 'Saml lasagnen i lag.' },
+            { title: 'Sæt lasagnen i ovnen', instruction: 'Sæt lasagnen i ovnen.' },
+            { title: 'Tag lasagnen ud', instruction: 'Tag lasagnen ud af ovnen og lad den hvile.' }
         ]
     }
 ];

@@ -42,8 +42,8 @@ export function formatRecipeIngredient(recipeIngredient: RecipeIngredient): stri
 
     let line = `${amountPart} ${name}`;
 
-    if (recipeIngredient.preparation && recipeIngredient.preparation.length > 0) {
-        const preparationLabels = recipeIngredient.preparation.map((preparation) => PREPARATION_LABELS[preparation]);
+    if (recipeIngredient.preparations && recipeIngredient.preparations.length > 0) {
+        const preparationLabels = recipeIngredient.preparations.map((preparation) => PREPARATION_LABELS[preparation]);
         line += `, ${preparationLabels.join(', ')}`;
     }
 
