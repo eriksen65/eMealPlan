@@ -249,6 +249,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         isStaple: false,
         emoji: '🌱',
         imageUrl: myntePhoto,
+        unitConversions: [{ unit: 'sprig', grams: 2 }],
         nutritionPer100g: {
             energyKcal: 44,
             fat: 0.73,
