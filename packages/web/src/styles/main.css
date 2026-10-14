@@ -505,6 +505,14 @@ body {
     margin-bottom: 6px;
 }
 
+.step-list li {
+    margin-bottom: 28px;
+}
+
+.step-list li:last-child {
+    margin-bottom: 0;
+}
+
 .step-list__image-wrap {
     position: relative;
     display: block;
