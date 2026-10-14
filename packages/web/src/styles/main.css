@@ -525,6 +525,18 @@ body {
     margin: 0;
 }
 
+.ingredient-list__divider {
+    list-style: none;
+    margin: 12px 0 6px -20px;
+    padding-top: 10px;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 600;
+    color: var(--color-text-muted);
+}
+
 .step-list {
     list-style: none;
     padding-left: 0;
