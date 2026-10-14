@@ -58,6 +58,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                             <p className='step-list__title'>{step.title}</p>
                             <p className='step-list__instruction'>{step.instruction}</p>
                             {step.tip && <p className='step-list__tip'>Tip: {step.tip}</p>}
+                            {step.vigtig && <p className='step-list__vigtig'>Vigtigt: {step.vigtig}</p>}
                         </li>
                     ))}
                 </ol>

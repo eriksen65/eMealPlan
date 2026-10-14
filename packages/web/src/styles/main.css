@@ -512,6 +512,7 @@ body {
 .step-list__title {
     font-weight: 600;
     margin: 0;
+    color: var(--color-primary-dark);
 }
 
 .step-list__instruction {
@@ -522,6 +523,14 @@ body {
 .step-list__tip {
     color: var(--color-primary-dark);
     font-style: italic;
+    margin: 4px 0 0;
+    font-size: 0.9rem;
+}
+
+.step-list__vigtig {
+    color: var(--color-primary-dark);
+    font-style: italic;
+    font-weight: 600;
     margin: 4px 0 0;
     font-size: 0.9rem;
 }
