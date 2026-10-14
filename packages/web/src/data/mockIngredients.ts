@@ -59,10 +59,10 @@ export interface Ingredient {
     isStaple: boolean;
     aliases?: string[];
 
-    /** Mock placeholder icon (emoji), used when no real photo is set. */
+    /** Emoji placeholder icon, used when no real photo is set. */
+    emoji?: string;
+    /** Optional real photo URL; falls back to emoji when not set. */
     imageUrl?: string;
-    /** Optional real photo; falls back to imageUrl (emoji) when not set. */
-    image?: string;
     nutritionPer100g?: NutritionPer100g;
     /** Grams-per-unit conversions, used to normalise quantities measured in e.g. tsp/tbsp/pcs for the shopping list. */
     unitConversions?: IngredientUnitConversion[];
@@ -76,8 +76,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['spicy'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🌶️',
-        image: chiliPhoto
+        emoji: '🌶️',
+        imageUrl: chiliPhoto
     },
     {
         id: 'citrongraes',
@@ -86,8 +86,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sour'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🌿',
-        image: citrongraesPhoto
+        emoji: '🌿',
+        imageUrl: citrongraesPhoto
     },
     {
         id: 'citrusfrugt',
@@ -96,8 +96,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sour'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🍋',
-        image: citrusfrugtPhoto
+        emoji: '🍋',
+        imageUrl: citrusfrugtPhoto
     },
     {
         id: 'ginger-ninja',
@@ -106,8 +106,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['spicy', 'seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🧂',
-        image: gingerNinjaPhoto,
+        emoji: '🧂',
+        imageUrl: gingerNinjaPhoto,
         unitConversions: [
             { unit: 'tsp', grams: 6 },
             { unit: 'tbsp', grams: 18 }
@@ -120,8 +120,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sweet'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🥕',
-        image: gulerodJuliennePhoto,
+        emoji: '🥕',
+        imageUrl: gulerodJuliennePhoto,
         nutritionPer100g: {
             energyKcal: 41,
             fat: 0.6,
@@ -140,8 +140,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🥩',
-        image: hakketSvinekoedPhoto
+        emoji: '🥩',
+        imageUrl: hakketSvinekoedPhoto
     },
     {
         id: 'ingefaerpure',
@@ -150,8 +150,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🫚',
-        image: ingefaerpurePhoto,
+        emoji: '🫚',
+        imageUrl: ingefaerpurePhoto,
         unitConversions: [
             { unit: 'tsp', grams: 6 },
             { unit: 'tbsp', grams: 18 }
@@ -164,8 +164,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
-        imageUrl: '💧',
-        image: kogevandPhoto
+        emoji: '💧',
+        imageUrl: kogevandPhoto
     },
     {
         id: 'mynte',
@@ -174,8 +174,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🌱',
-        image: myntePhoto
+        emoji: '🌱',
+        imageUrl: myntePhoto
     },
     {
         id: 'olie',
@@ -184,8 +184,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
-        imageUrl: '🫒',
-        image: oliePhoto
+        emoji: '🫒',
+        imageUrl: oliePhoto
     },
     {
         id: 'peber',
@@ -194,8 +194,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
-        imageUrl: '🧂',
-        image: peberPhoto
+        emoji: '🧂',
+        imageUrl: peberPhoto
     },
     {
         id: 'salt',
@@ -204,8 +204,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
-        imageUrl: '🧂',
-        image: saltPhoto
+        emoji: '🧂',
+        imageUrl: saltPhoto
     },
     {
         id: 'soed-chilisauce',
@@ -214,8 +214,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sweet', 'spicy'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🫙',
-        image: soedChilisaucePhoto
+        emoji: '🫙',
+        imageUrl: soedChilisaucePhoto
     },
     {
         id: 'sojasauce',
@@ -224,8 +224,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🍶',
-        image: sojasaucePhoto
+        emoji: '🍶',
+        imageUrl: sojasaucePhoto
     },
     {
         id: 'spidskaal',
@@ -234,8 +234,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🥬',
-        image: spidskaalPhoto
+        emoji: '🥬',
+        imageUrl: spidskaalPhoto
     },
     {
         id: 'sukkeraerter',
@@ -244,8 +244,8 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sweet'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🫛',
-        image: sukkeraerterPhoto
+        emoji: '🫛',
+        imageUrl: sukkeraerterPhoto
     },
     {
         id: 'udon-nudler',
@@ -254,7 +254,7 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
         isStaple: false,
-        imageUrl: '🍜',
-        image: udonNudlerPhoto
+        emoji: '🍜',
+        imageUrl: udonNudlerPhoto
     }
 ];
