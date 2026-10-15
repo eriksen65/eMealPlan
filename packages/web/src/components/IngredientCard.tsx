@@ -1,4 +1,4 @@
-import type { Ingredient } from '../data/mockIngredients';
+import type { Ingredient } from '@emealplan/domain';
 
 interface IngredientCardProps {
     ingredient: Ingredient;

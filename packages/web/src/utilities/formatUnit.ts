@@ -1,6 +1,6 @@
-import type { Unit } from '../data/mockRecipes';
+import type { Unit } from '@emealplan/domain';
 
-export const UNIT_LABELS: Record<Unit, string> = {
+const UNIT_LABELS: Record<Unit, string> = {
     g: 'g',
     kg: 'kg',
     ml: 'ml',

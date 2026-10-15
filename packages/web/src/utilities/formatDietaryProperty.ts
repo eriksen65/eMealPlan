@@ -1,4 +1,4 @@
-import type { DietaryProperty } from '../data/mockIngredients';
+import type { DietaryProperty } from '@emealplan/domain';
 
 const DIETARY_PROPERTY_LABELS: Record<DietaryProperty, string> = {
     vegan: 'Vegansk',

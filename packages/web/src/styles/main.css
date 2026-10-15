@@ -605,8 +605,13 @@ body {
 }
 
 .info-tooltip__icon {
-    font-size: 0.9em;
-    line-height: 1;
+    display: block;
+    transition: color 0.15s;
+}
+
+.info-tooltip:hover .info-tooltip__icon,
+.info-tooltip:focus-visible .info-tooltip__icon {
+    color: var(--color-text);
 }
 
 .info-tooltip__bubble {

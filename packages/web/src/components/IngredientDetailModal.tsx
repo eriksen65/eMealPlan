@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import type { Ingredient } from '../data/mockIngredients';
+import type { Ingredient } from '@emealplan/domain';
 import { formatDietaryProperty } from '../utilities/formatDietaryProperty';
 import { formatUnit } from '../utilities/formatUnit';
 

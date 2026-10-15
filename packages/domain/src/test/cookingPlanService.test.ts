@@ -3,26 +3,31 @@ import { describe, expect, it } from 'vitest';
 import type { Recipe } from '../models/recipe';
 import { generateCookingPlan } from '../services/cookingPlanService';
 
+function makeRecipe(overrides: Partial<Recipe> & Pick<Recipe, 'id' | 'title' | 'steps'>): Recipe {
+    return {
+        subtitle: '',
+        description: '',
+        emoji: '🍽️',
+        baseServings: 2,
+        timeEstimates: [],
+        tags: [],
+        ingredients: [],
+        ...overrides
+    };
+}
+
 describe('generateCookingPlan', () => {
     it('schedules steps sequentially backward from the meal time, then appends a "ready" task', () => {
-        const recipe: Recipe = {
+        const recipe = makeRecipe({
             id: 'lasagna',
-            name: 'Lasagna',
-            description: '',
-            portions: 4,
-            prepTimeMinutes: 30,
-            cookTimeMinutes: 45,
-            ingredients: [],
+            title: 'Lasagna',
             steps: [
-                { id: 's1', order: 1, instruction: 'Chop onion and garlic.', durationMinutes: 5 },
-                { id: 's2', order: 2, instruction: 'Start the meat sauce.', durationMinutes: 20 },
-                { id: 's3', order: 3, instruction: 'Assemble the lasagna.', durationMinutes: 10 },
-                { id: 's4', order: 4, instruction: 'Bake in the oven.', durationMinutes: 35 }
-            ],
-            tags: [],
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-        };
+                { title: 'Chop onion and garlic.', instruction: '', durationMinutes: 5 },
+                { title: 'Start the meat sauce.', instruction: '', durationMinutes: 20 },
+                { title: 'Assemble the lasagna.', instruction: '', durationMinutes: 10 },
+                { title: 'Bake in the oven.', instruction: '', durationMinutes: 35 }
+            ]
+        });
 
         const plan = generateCookingPlan('2026-03-19', recipe, '18:30');
 
@@ -37,19 +42,11 @@ describe('generateCookingPlan', () => {
     });
 
     it('wraps times correctly when scheduling crosses midnight', () => {
-        const recipe: Recipe = {
+        const recipe = makeRecipe({
             id: 'midnight-snack',
-            name: 'Midnight snack',
-            description: '',
-            portions: 1,
-            prepTimeMinutes: 0,
-            cookTimeMinutes: 0,
-            ingredients: [],
-            steps: [{ id: 's1', order: 1, instruction: 'Toast bread.', durationMinutes: 10 }],
-            tags: [],
-            createdAt: new Date().toISOString(),
-            updatedAt: new Date().toISOString()
-        };
+            title: 'Midnight snack',
+            steps: [{ title: 'Toast bread.', instruction: '', durationMinutes: 10 }]
+        });
 
         const plan = generateCookingPlan('2026-03-19', recipe, '00:05');
 

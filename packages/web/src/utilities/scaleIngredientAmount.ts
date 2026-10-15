@@ -1,9 +1,9 @@
-import type { RecipeIngredient } from '../data/mockRecipes';
+import type { RecipeIngredient } from '@emealplan/domain';
 
 const MIN_PORTIONS = 1;
 const MAX_PORTIONS = 8;
 
-export const DEFAULT_PORTION_BOUNDS = { min: MIN_PORTIONS, max: MAX_PORTIONS };
+const DEFAULT_PORTION_BOUNDS = { min: MIN_PORTIONS, max: MAX_PORTIONS };
 
 /**
  * Computes the portion range a recipe actually supports.

@@ -37,14 +37,14 @@ packages/
 ```
 
 - **`@emealplan/domain`** — pure TypeScript: the domain models (`Recipe`, `MealPlan`, `ShoppingList`, `CookingPlan`,
-  etc.) and the business rules that operate on them (ingredient aggregation, cooking-step scheduling, dashboard
-  progress summaries). No HTTP, no React, no persistence — this is the part that should be easiest to test and reuse.
+  etc.) and the business rules that operate on them (ingredient aggregation, cooking-step scheduling,
+  unit conversion). No HTTP, no React, no persistence — this is the part that should be easiest to test and reuse.
 - **`@emealplan/server`** — a thin Fastify layer: routes delegate straight to `@emealplan/domain` services, and data
   is persisted through small repository interfaces (`RecipeRepository`, `MealPlanRepository`, …) currently implemented
   with JSON files on disk. Swapping in a real database later only means writing a new implementation of those
   interfaces.
-- **`@emealplan/web`** — a React SPA that talks to the API through a small typed client (`src/api/*.ts`). Pages are
-  simple: fetch via a shared `useFetch` hook, render, mutate via the API client, update local state.
+- **`@emealplan/web`** — a React SPA that talks to the API through a small typed client (`src/api/client.ts`). Data
+  is fetched from the server on load and held in local state.
 
 This keeps business logic out of React components and out of the database layer, so either can change independently.
 
@@ -102,12 +102,16 @@ Use `--workspace packages/<name>` to scope any script to a single package.
 ## Data model
 
 ```
-User, Household
-Recipe, RecipeIngredient, RecipeStep
+Ingredient (catalog: category, tags, nutrition, unit conversions)
+Recipe, RecipeIngredient (ingredientId + amount/unit), RecipeStep (with durationMinutes)
 MealPlan, MealPlanDay
 ShoppingList, ShoppingListItem
 CookingPlan, CookingTask
 ```
+
+Every type is defined exactly once in `packages/domain/src/models/` (e.g. `Unit`, `Recipe`, `IngredientCategory`) and
+imported from `@emealplan/domain` by both the server and the web app. The recipe and ingredient data is served by the
+server (`/api/recipes`, `/api/ingredients`, images under `/api/assets/`).
 
 See `packages/domain/src/models/` for the full type definitions.
 

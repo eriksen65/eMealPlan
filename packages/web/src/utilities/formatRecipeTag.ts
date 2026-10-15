@@ -1,4 +1,4 @@
-import type { RecipeTag } from '../data/mockRecipes';
+import type { RecipeTag } from '@emealplan/domain';
 
 const RECIPE_TAG_LABELS: Record<RecipeTag, string> = {
     quick: 'Hurtigt',

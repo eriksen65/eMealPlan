@@ -1,97 +1,14 @@
-import vietnamesiskeNudlerPhoto from '../assets/recipes/vietnamesiske-nudler.png';
-import stepKogNudlerPhoto from '../assets/recipes/steps/step-1-kog-nudler.webp';
-import stepStegKoedPhoto from '../assets/recipes/steps/step-2-steg-kod.webp';
-import stepLavSaucePhoto from '../assets/recipes/steps/step-3-lav-sauce.webp';
-import stepServerPhoto from '../assets/recipes/steps/step-4-server.webp';
+import type { Recipe } from '@emealplan/domain';
 
-export interface TimeEstimate {
-    portions: number;
-    minMinutes: number;
-    maxMinutes: number;
-}
+const ASSETS = '/api/assets/recipes';
 
-export type Unit =
-    | 'g' // gram
-    | 'kg' // kilogram
-    | 'ml' // milliliter
-    | 'l' // liter
-    | 'tsp' // teskefuld
-    | 'tbsp' // spiseskefuld
-    | 'pcs' // stykker
-    | 'clove' // fed (fx hvidløgsfed)
-    | 'pinch' // knivspids
-    | 'sprig'; // kvist (fx en kvist timian eller mynte)
-
-export interface PortionAmount {
-    portions: number;
-    amount: number;
-}
-
-export type IngredientScaling =
-    | {
-          type: 'linear';
-      }
-    | {
-          type: 'portions';
-          amounts: PortionAmount[];
-      };
-
-export interface RecipeIngredient {
-    ingredientId: string;
-    amount: number;
-    unit: Unit;
-    scaling: IngredientScaling;
-    displayName?: string;
-    optional?: boolean;
-}
-
-export interface RecipeStep {
-    title: string;
-    instruction: string;
-
-    tip?: string;
-    vigtig?: string;
-    image?: string;
-}
-
-/**
- * Meta attributes about a recipe that can't be derived from its other fields
- * (e.g. ingredient categories already imply protein/dish type, so those are
- * not repeated here as tags).
- */
-export type RecipeTag = 'quick' | 'weekend' | 'kid-friendly' | 'meal-prep';
-
-export interface MockRecipe {
-    id: string;
-
-    title: string;
-    subtitle: string;
-    description: string;
-
-    emoji: string;
-
-    /** Optional real photo; falls back to the emoji when not set. */
-    image?: string;
-
-    /** Number of servings the ingredient amounts are based on. */
-    baseServings: number;
-
-    timeEstimates: TimeEstimate[];
-
-    tags: RecipeTag[];
-
-    ingredients: RecipeIngredient[];
-
-    steps: RecipeStep[];
-}
-
-export const MOCK_RECIPES: MockRecipe[] = [
+export const RECIPES: Recipe[] = [
     {
         id: 'vietnamesiske-nudler',
         title: 'Hurtige vietnamesiske nudler og hakket svinekød',
         subtitle: 'med sprøde grøntsager og frisk mynte',
         emoji: '🍜',
-        image: vietnamesiskeNudlerPhoto,
+        image: `${ASSETS}/hurtige-vietnamesiske-nudler/vietnamesiske-nudler.png`,
         description:
             'Sprøde nudler wokket med hakket svinekød, citrongræs, ingefær og chili, fyldt med sprøde grøntsager og toppet med en frisk gulerods- og mynte-salat.',
         baseServings: 2,
@@ -129,29 +46,33 @@ export const MOCK_RECIPES: MockRecipe[] = [
         steps: [
             {
                 title: 'Kog nudler',
+                durationMinutes: 5,
                 instruction:
                     'Bring en stor gryde med saltet vand i kog.\nKog nudlerne i 4-5 min, eller indtil de er bløde.\nGem lidt kogevand, og hæld resten fra.\nSkyl nudler under koldt vand i en si.',
                 tip: 'Kogevandet skal være salt som havvand.',
-                image: stepKogNudlerPhoto
+                image: `${ASSETS}/hurtige-vietnamesiske-nudler/steps/step-1-kog-nudler.webp`
             },
             {
                 title: 'Steg kød',
+                durationMinutes: 7,
                 instruction:
                     'Imens, riv citrongræs fint.\nFlæk chili, fjern kerner, og skær i tynde skiver.\nOpvarm olivenolie i en stor stegepande på middelhøj varme.\nSteg kød med Ginger Ninja under omrøring i 4-5 min, eller indtil det er brunet.\nHalver citrusfrugt.\nRiv mynte i mindre stykker.\nBland sukkerærter, gulerod, mynte, salt, olivenolie, og et skvæt citrusfrugtsaft i en stor skål.',
                 vigtig: 'kød er færdigt, når der er uden antydning af rødt.',
-                image: stepStegKoedPhoto
+                image: `${ASSETS}/hurtige-vietnamesiske-nudler/steps/step-2-steg-kod.webp`
             },
             {
                 title: 'Lav Sauce',
+                durationMinutes: 3,
                 instruction:
                     'Tilsæt sød chilisauce, citrongræs og ingefærpasta til stegepanden, og steg i 30 sek, eller indtil velduftende.\nSænk til middel varme.\nTilsæt nudler, sojasauce, sød chilisauce og pastavand, og vend det sammen.',
                 tip: 'Undlad chilien, eller brug mindre, hvis du ikke er til stærk mad.',
-                image: stepLavSaucePhoto
+                image: `${ASSETS}/hurtige-vietnamesiske-nudler/steps/step-3-lav-sauce.webp`
             },
             {
                 title: 'Server',
+                durationMinutes: 2,
                 instruction: 'Anret nudler og salat i dybe tallerkener.',
-                image: stepServerPhoto
+                image: `${ASSETS}/hurtige-vietnamesiske-nudler/steps/step-4-server.webp`
             }
         ]
     }

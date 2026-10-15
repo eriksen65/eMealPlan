@@ -1,55 +1,64 @@
 import type { Id } from './common';
 
-/**
- * Grocery categories used to group shopping-list items into aisles.
- * Kept intentionally small for the MVP; easy to extend later.
- */
-export const INGREDIENT_CATEGORIES = ['fruit-veg', 'meat', 'fish', 'dairy', 'bread', 'dry-goods', 'frozen', 'other'] as const;
-
-export type IngredientCategory = (typeof INGREDIENT_CATEGORIES)[number];
-
-/** Units supported by the shopping-list quantity aggregator. */
-export const UNITS = ['g', 'kg', 'ml', 'l', 'pcs', 'tbsp', 'tsp', 'pinch'] as const;
+/** Units supported by recipes and the shopping-list quantity aggregator. */
+export const UNITS = ['g', 'kg', 'ml', 'l', 'pcs', 'tbsp', 'tsp', 'pinch', 'clove', 'sprig'] as const;
 
 export type Unit = (typeof UNITS)[number];
 
-export const RECIPE_TAGS = ['pasta', 'chicken', 'beef', 'fish', 'vegetarian', 'quick-meals', 'weekend-food', 'kid-friendly'] as const;
+/**
+ * Meta attributes about a recipe that can't be derived from its other fields
+ * (e.g. ingredient categories already imply protein/dish type, so those are
+ * not repeated here as tags).
+ */
+export const RECIPE_TAGS = ['quick', 'weekend', 'kid-friendly', 'meal-prep'] as const;
 
-export type RecipeTag = (typeof RECIPE_TAGS)[number] | string;
+export type RecipeTag = (typeof RECIPE_TAGS)[number];
+
+export interface TimeEstimate {
+    portions: number;
+    minMinutes: number;
+    maxMinutes: number;
+}
+
+export interface PortionAmount {
+    portions: number;
+    amount: number;
+}
+
+export type IngredientScaling = { type: 'linear' } | { type: 'portions'; amounts: PortionAmount[] };
 
 export interface RecipeIngredient {
-    id: Id;
-    name: string;
-    quantity: number;
+    ingredientId: Id;
+    amount: number;
     unit: Unit;
-    category: IngredientCategory;
+    scaling: IngredientScaling;
+    displayName?: string;
+    optional?: boolean;
 }
 
 export interface RecipeStep {
-    id: Id;
-    order: number;
+    title: string;
     instruction: string;
     /** How long this step takes, in minutes. Used to build the day's cooking plan. */
     durationMinutes: number;
+    tip?: string;
+    vigtig?: string;
+    image?: string;
 }
 
+/** A recipe as shown in the recipe library. */
 export interface Recipe {
     id: Id;
-    name: string;
+    title: string;
+    subtitle: string;
     description: string;
-    imageUrl?: string;
-    portions: number;
-    prepTimeMinutes: number;
-    cookTimeMinutes: number;
+    emoji: string;
+    /** Optional real photo; falls back to the emoji when not set. */
+    image?: string;
+    /** Number of servings the ingredient amounts are based on. */
+    baseServings: number;
+    timeEstimates: TimeEstimate[];
+    tags: RecipeTag[];
     ingredients: RecipeIngredient[];
     steps: RecipeStep[];
-    tags: RecipeTag[];
-    notes?: string;
-    createdAt: string;
-    updatedAt: string;
-}
-
-/** Total time is derived, never stored, so it can't drift from prep + cook time. */
-export function getTotalTimeMinutes(recipe: Pick<Recipe, 'prepTimeMinutes' | 'cookTimeMinutes'>): number {
-    return recipe.prepTimeMinutes + recipe.cookTimeMinutes;
 }

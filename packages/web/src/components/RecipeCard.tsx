@@ -1,10 +1,10 @@
-import type { MockRecipe } from '../data/mockRecipes';
+import type { Recipe } from '@emealplan/domain';
 import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
 import { formatRecipeTag } from '../utilities/formatRecipeTag';
 
 interface RecipeCardProps {
-    recipe: MockRecipe;
-    onClick: (recipe: MockRecipe) => void;
+    recipe: Recipe;
+    onClick: (recipe: Recipe) => void;
 }
 
 export function RecipeCard({ recipe, onClick }: RecipeCardProps) {
