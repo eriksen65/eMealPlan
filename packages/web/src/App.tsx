@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { TopNavBar } from './components/TopNavBar';
 import type { AppPage } from './components/NavTabs';
@@ -7,17 +7,30 @@ import { RecipeDetailModal } from './components/RecipeDetailModal';
 import { IngredientCard } from './components/IngredientCard';
 import { IngredientDetailModal } from './components/IngredientDetailModal';
 import { InfoTooltip } from './components/InfoTooltip';
-import { MOCK_RECIPES, type MockRecipe } from './data/mockRecipes';
-import { MOCK_INGREDIENTS, type Ingredient } from './data/mockIngredients';
+import { fetchIngredients, fetchRecipes } from './api/client';
+import type { Recipe } from '@emealplan/domain';
+import type { Ingredient } from '@emealplan/domain';
 import { STAPLES_INFO_TEXT } from './utilities/staplesInfoText';
 
 export function App() {
     const [page, setPage] = useState<AppPage>('recipes');
-    const [selectedRecipe, setSelectedRecipe] = useState<MockRecipe | null>(null);
+    const [recipes, setRecipes] = useState<Recipe[]>([]);
+    const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+    const [error, setError] = useState<string | null>(null);
+    const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
     const [selectedIngredient, setSelectedIngredient] = useState<Ingredient | null>(null);
 
-    const coreIngredients = MOCK_INGREDIENTS.filter((ingredient) => !ingredient.isStaple);
-    const staples = MOCK_INGREDIENTS.filter((ingredient) => ingredient.isStaple);
+    useEffect(() => {
+        Promise.all([fetchRecipes(), fetchIngredients()])
+            .then(([loadedRecipes, loadedIngredients]) => {
+                setRecipes(loadedRecipes);
+                setIngredients(loadedIngredients);
+            })
+            .catch(() => setError('Kunne ikke hente data fra serveren.'));
+    }, []);
+
+    const coreIngredients = ingredients.filter((ingredient) => !ingredient.isStaple);
+    const staples = ingredients.filter((ingredient) => ingredient.isStaple);
 
     return (
         <div className='app-shell'>
@@ -25,11 +38,12 @@ export function App() {
 
             <main className='app-main'>
                 <div className='app-main__inner'>
+                    {error && <p role='alert'>{error}</p>}{' '}
                     {page === 'recipes' ? (
                         <>
                             <h1 className='page__title'>Opskrifter</h1>
                             <div className='recipe-grid'>
-                                {MOCK_RECIPES.map((recipe) => (
+                                {recipes.map((recipe) => (
                                     <RecipeCard key={recipe.id} recipe={recipe} onClick={setSelectedRecipe} />
                                 ))}
                             </div>
@@ -61,7 +75,7 @@ export function App() {
                 </div>
             </main>
 
-            {selectedRecipe && <RecipeDetailModal recipe={selectedRecipe} onClose={() => setSelectedRecipe(null)} />}
+            {selectedRecipe && <RecipeDetailModal recipe={selectedRecipe} ingredients={ingredients} onClose={() => setSelectedRecipe(null)} />}
             {selectedIngredient && <IngredientDetailModal ingredient={selectedIngredient} onClose={() => setSelectedIngredient(null)} />}
         </div>
     );

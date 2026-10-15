@@ -14,14 +14,12 @@ export function generateCookingPlan(date: string, recipe: Recipe, mealTime: Cloc
     const totalDurationMinutes = recipe.steps.reduce((sum, step) => sum + step.durationMinutes, 0);
     const startMinutes = toMinutesSinceMidnight(mealTime) - totalDurationMinutes;
 
-    const orderedSteps = [...recipe.steps].sort((a, b) => a.order - b.order);
-
     let cursor = startMinutes;
-    const tasks: CookingTask[] = orderedSteps.map((step) => {
+    const tasks: CookingTask[] = recipe.steps.map((step, index) => {
         const task: CookingTask = {
-            id: step.id,
+            id: `${recipe.id}-step-${index + 1}`,
             time: toClockTime(cursor),
-            description: step.instruction,
+            description: step.title,
             done: false
         };
         cursor += step.durationMinutes;
@@ -31,7 +29,7 @@ export function generateCookingPlan(date: string, recipe: Recipe, mealTime: Cloc
     tasks.push({
         id: `${recipe.id}-ready`,
         time: mealTime,
-        description: `${recipe.name} is ready to serve.`,
+        description: `${recipe.title} is ready to serve.`,
         done: false
     });
 

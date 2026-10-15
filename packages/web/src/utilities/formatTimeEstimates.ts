@@ -1,4 +1,4 @@
-import type { TimeEstimate } from '../data/mockRecipes';
+import type { TimeEstimate } from '@emealplan/domain';
 
 /**
  * Formats a list of time estimates into a single readable line,

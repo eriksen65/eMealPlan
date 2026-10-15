@@ -1,21 +1,30 @@
 import { describe, expect, it } from 'vitest';
 
+import type { Ingredient } from '../models/ingredient';
 import type { MealPlan } from '../models/mealPlan';
-import type { Recipe } from '../models/recipe';
+import type { Recipe, RecipeIngredient } from '../models/recipe';
 import { generateShoppingListItems } from '../services/shoppingListService';
 
-function makeRecipe(overrides: Partial<Recipe> & Pick<Recipe, 'id' | 'ingredients'>): Recipe {
+function makeIngredient(id: string, name: string, category: Ingredient['category']): Ingredient {
+    return { id, name, category, dietaryProperties: [], isStaple: false };
+}
+
+function makeRecipeIngredient(ingredientId: string, amount: number, unit: RecipeIngredient['unit']): RecipeIngredient {
+    return { ingredientId, amount, unit, scaling: { type: 'linear' } };
+}
+
+function makeRecipe(id: string, ingredients: RecipeIngredient[]): Recipe {
     return {
-        name: 'Test recipe',
+        id,
+        title: 'Test recipe',
+        subtitle: '',
         description: '',
-        portions: 4,
-        prepTimeMinutes: 10,
-        cookTimeMinutes: 10,
-        steps: [],
+        emoji: '🍽️',
+        baseServings: 4,
+        timeEstimates: [],
         tags: [],
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        ...overrides
+        ingredients,
+        steps: []
     };
 }
 
@@ -30,16 +39,14 @@ function makeMealPlan(days: MealPlan['days']): MealPlan {
     };
 }
 
+const potatoes = makeIngredient('potatoes', 'Potatoes', 'vegetable');
+const tortillas = makeIngredient('tortillas', 'Tortillas', 'grain');
+const ingredientsById = new Map([potatoes, tortillas].map((ingredient) => [ingredient.id, ingredient]));
+
 describe('generateShoppingListItems', () => {
     it('combines the same ingredient from multiple recipes into one item, normalizing units', () => {
-        const monday = makeRecipe({
-            id: 'spaghetti-bolognese',
-            ingredients: [{ id: 'i1', name: 'Potatoes', quantity: 500, unit: 'g', category: 'fruit-veg' }]
-        });
-        const tuesday = makeRecipe({
-            id: 'chicken-curry',
-            ingredients: [{ id: 'i2', name: 'potatoes', quantity: 0.75, unit: 'kg', category: 'fruit-veg' }]
-        });
+        const monday = makeRecipe('spaghetti-bolognese', [makeRecipeIngredient('potatoes', 500, 'g')]);
+        const tuesday = makeRecipe('chicken-curry', [makeRecipeIngredient('potatoes', 0.75, 'kg')]);
 
         const mealPlan = makeMealPlan([
             { date: '2026-03-16', weekday: 'monday', recipeId: monday.id },
@@ -51,10 +58,10 @@ describe('generateShoppingListItems', () => {
             [tuesday.id, tuesday]
         ]);
 
-        const items = generateShoppingListItems(mealPlan, recipesById);
+        const items = generateShoppingListItems(mealPlan, recipesById, ingredientsById);
 
         expect(items).toHaveLength(1);
-        expect(items[0]).toMatchObject({ name: 'Potatoes', quantity: 1.25, unit: 'kg' });
+        expect(items[0]).toMatchObject({ name: 'Potatoes', quantity: 1.25, unit: 'kg', category: 'vegetable' });
         expect(items[0]?.sourceRecipeIds.sort()).toEqual(['chicken-curry', 'spaghetti-bolognese']);
     });
 
@@ -72,22 +79,19 @@ describe('generateShoppingListItems', () => {
             manuallyAdded: true
         };
 
-        const items = generateShoppingListItems(mealPlan, new Map(), [manualItem]);
+        const items = generateShoppingListItems(mealPlan, new Map(), ingredientsById, [manualItem]);
 
         expect(items).toEqual([manualItem]);
     });
 
     it('preserves checked state across regeneration using the previous checked-by-key map', () => {
-        const recipe = makeRecipe({
-            id: 'tacos',
-            ingredients: [{ id: 'i1', name: 'Tortillas', quantity: 8, unit: 'pcs', category: 'bread' }]
-        });
+        const recipe = makeRecipe('tacos', [makeRecipeIngredient('tortillas', 8, 'pcs')]);
         const mealPlan = makeMealPlan([{ date: '2026-03-20', weekday: 'friday', recipeId: recipe.id }]);
         const recipesById = new Map([[recipe.id, recipe]]);
 
         const checkedByKey = new Map([['tortillas|pcs', true]]);
 
-        const items = generateShoppingListItems(mealPlan, recipesById, [], checkedByKey);
+        const items = generateShoppingListItems(mealPlan, recipesById, ingredientsById, [], checkedByKey);
 
         expect(items[0]?.checked).toBe(true);
     });

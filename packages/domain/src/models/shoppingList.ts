@@ -1,5 +1,6 @@
 import type { Id, IsoDate } from './common';
-import type { IngredientCategory, Unit } from './recipe';
+import type { IngredientCategory } from './ingredient';
+import type { Unit } from './recipe';
 
 export interface ShoppingListItem {
     id: Id;

@@ -21,6 +21,20 @@ describe('eMealPlan API', () => {
         expect(response.json()).toEqual({ status: 'ok' });
     });
 
+    it('serves recipes and ingredients', async () => {
+        const recipes = await app.inject({ method: 'GET', url: '/api/recipes' });
+        const ingredients = await app.inject({ method: 'GET', url: '/api/ingredients' });
+
+        expect(recipes.json()[0].id).toBe('vietnamesiske-nudler');
+        expect(ingredients.json().length).toBeGreaterThan(0);
+    });
+
+    it('serves images', async () => {
+        const response = await app.inject({ method: 'GET', url: '/api/assets/ingredients/chili.webp' });
+
+        expect(response.statusCode).toBe(200);
+    });
+
     it('responds to /api/hello with a hello world message', async () => {
         const response = await app.inject({ method: 'GET', url: '/api/hello' });
 

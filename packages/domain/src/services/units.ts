@@ -17,7 +17,9 @@ const UNIT_GROUPS: Record<Unit, UnitGroup> = {
     pcs: { base: 'pcs', factor: 1 },
     tbsp: { base: 'tbsp', factor: 1 },
     tsp: { base: 'tsp', factor: 1 },
-    pinch: { base: 'pinch', factor: 1 }
+    pinch: { base: 'pinch', factor: 1 },
+    clove: { base: 'clove', factor: 1 },
+    sprig: { base: 'sprig', factor: 1 }
 };
 
 export function toBaseQuantity(quantity: number, unit: Unit): { base: Unit; quantity: number } {

@@ -1,3 +1,4 @@
+import type { Ingredient } from '../models/ingredient';
 import type { MealPlan } from '../models/mealPlan';
 import type { Recipe } from '../models/recipe';
 import type { ShoppingListItem } from '../models/shoppingList';
@@ -7,12 +8,14 @@ import { fromBaseQuantity, toBaseQuantity } from './units';
  * Builds the combined shopping list for a meal plan: every ingredient from every recipe
  * used in the plan is summed into one list, grouped by category.
  *
- * `existingManualItems` lets callers preserve user-added items (and checked state) across
- * regeneration, since regeneration happens whenever the meal plan changes.
+ * Quantities use each recipe's base servings. `existingManualItems` lets callers preserve
+ * user-added items (and checked state) across regeneration, since regeneration happens
+ * whenever the meal plan changes.
  */
 export function generateShoppingListItems(
     mealPlan: MealPlan,
     recipesById: ReadonlyMap<string, Recipe>,
+    ingredientsById: ReadonlyMap<string, Ingredient>,
     existingManualItems: ShoppingListItem[] = [],
     existingCheckedByKey: ReadonlyMap<string, boolean> = new Map()
 ): ShoppingListItem[] {
@@ -31,8 +34,11 @@ export function generateShoppingListItems(
         const recipe = recipesById.get(day.recipeId);
         if (!recipe) continue;
 
-        for (const ingredient of recipe.ingredients) {
-            const { base, quantity } = toBaseQuantity(ingredient.quantity, ingredient.unit);
+        for (const recipeIngredient of recipe.ingredients) {
+            const ingredient = ingredientsById.get(recipeIngredient.ingredientId);
+            if (!ingredient) continue;
+
+            const { base, quantity } = toBaseQuantity(recipeIngredient.amount, recipeIngredient.unit);
             const key = `${ingredient.name.trim().toLowerCase()}|${base}`;
 
             const existing = aggregates.get(key);

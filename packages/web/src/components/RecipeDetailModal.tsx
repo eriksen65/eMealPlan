@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import type { MockRecipe, RecipeIngredient } from '../data/mockRecipes';
-import { MOCK_INGREDIENTS } from '../data/mockIngredients';
+import type { Recipe, RecipeIngredient } from '@emealplan/domain';
+import type { Ingredient } from '@emealplan/domain';
 import { formatTimeEstimates } from '../utilities/formatTimeEstimates';
 import { formatRecipeIngredient } from '../utilities/formatRecipeIngredient';
 import { formatRecipeTag } from '../utilities/formatRecipeTag';
@@ -9,15 +9,14 @@ import { InfoTooltip } from './InfoTooltip';
 import { STAPLES_INFO_TEXT } from '../utilities/staplesInfoText';
 
 interface RecipeDetailModalProps {
-    recipe: MockRecipe;
+    recipe: Recipe;
+    ingredients: Ingredient[];
     onClose: () => void;
 }
 
-function isStapleIngredient(recipeIngredient: RecipeIngredient): boolean {
-    return MOCK_INGREDIENTS.find((candidate) => candidate.id === recipeIngredient.ingredientId)?.isStaple ?? false;
-}
-
-export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
+export function RecipeDetailModal({ recipe, ingredients, onClose }: RecipeDetailModalProps) {
+    const isStapleIngredient = (recipeIngredient: RecipeIngredient): boolean =>
+        ingredients.find((candidate) => candidate.id === recipeIngredient.ingredientId)?.isStaple ?? false;
     const [portions, setPortions] = useState(recipe.baseServings);
     const portionBounds = computePortionBounds(recipe.ingredients, recipe.baseServings);
 
@@ -85,7 +84,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                 </div>
                 <ul className='ingredient-list'>
                     {coreIngredients.map((ingredient, index) => (
-                        <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient)}</li>
+                        <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient, ingredients)}</li>
                     ))}
                     {stapleIngredients.length > 0 && (
                         <>
@@ -94,7 +93,7 @@ export function RecipeDetailModal({ recipe, onClose }: RecipeDetailModalProps) {
                                 <InfoTooltip text={STAPLES_INFO_TEXT} />
                             </li>
                             {stapleIngredients.map((ingredient, index) => (
-                                <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient)}</li>
+                                <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient, ingredients)}</li>
                             ))}
                         </>
                     )}

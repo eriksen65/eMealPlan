@@ -1,74 +1,8 @@
-import type { Unit } from './mockRecipes';
+import type { Ingredient } from '@emealplan/domain';
 
-import chiliPhoto from '../assets/ingredients/chili.webp';
-import citrongraesPhoto from '../assets/ingredients/citrongraes.webp';
-import citrusfrugtPhoto from '../assets/ingredients/citrusfrugt.webp';
-import gingerNinjaPhoto from '../assets/ingredients/ginger-ninja.webp';
-import gulerodJuliennePhoto from '../assets/ingredients/gulerod-julienne.webp';
-import hakketSvinekoedPhoto from '../assets/ingredients/hakket-svinekoed.webp';
-import ingefaerpurePhoto from '../assets/ingredients/ingefaerpure.webp';
-import kogevandPhoto from '../assets/ingredients/kogevand.webp';
-import myntePhoto from '../assets/ingredients/mynte.webp';
-import oliePhoto from '../assets/ingredients/olie.webp';
-import peberPhoto from '../assets/ingredients/peber.webp';
-import saltPhoto from '../assets/ingredients/salt.webp';
-import soedChilisaucePhoto from '../assets/ingredients/soed-chilisauce.webp';
-import sojasaucePhoto from '../assets/ingredients/sojasauce.webp';
-import spidskaalPhoto from '../assets/ingredients/spidskaal.webp';
-import sukkeraerterPhoto from '../assets/ingredients/sukkeraerter.webp';
-import udonNudlerPhoto from '../assets/ingredients/udon-nudler.webp';
+const ASSETS = '/api/assets/ingredients';
 
-export type IngredientCategory = 'vegetable' | 'fruit' | 'meat' | 'fish' | 'dairy' | 'grain' | 'spice' | 'herb' | 'sauce' | 'oil' | 'other';
-
-export type IngredientTag = 'spicy' | 'seasoning' | 'sour' | 'sweet' | 'bitter';
-
-export type DietaryProperty = 'vegan' | 'vegetarian' | 'gluten-free' | 'lactose-free';
-
-export interface NutritionPer100g {
-    /** Energi */
-    energyKcal: number;
-    /** Fedt */
-    fat: number;
-    /** Heraf mættede fedtsyrer */
-    saturatedFat: number;
-    /** Kulhydrat */
-    carbohydrates: number;
-    /** Heraf sukkerarter */
-    sugars: number;
-    /** Kostfibre */
-    fiber: number;
-    /** Protein */
-    protein: number;
-    /** Salt */
-    salt: number;
-}
-
-export interface IngredientUnitConversion {
-    unit: Unit;
-    grams: number;
-}
-
-export interface Ingredient {
-    id: string;
-    name: string;
-
-    category: IngredientCategory;
-    tags?: IngredientTag[];
-    dietaryProperties: DietaryProperty[];
-
-    isStaple: boolean;
-    aliases?: string[];
-
-    /** Emoji placeholder icon, used when no real photo is set. */
-    emoji?: string;
-    /** Optional real photo URL; falls back to emoji when not set. */
-    imageUrl?: string;
-    nutritionPer100g?: NutritionPer100g;
-    /** Grams-per-unit conversions, used to normalise quantities measured in e.g. tsp/tbsp/pcs for the shopping list. */
-    unitConversions?: IngredientUnitConversion[];
-}
-
-export const MOCK_INGREDIENTS: Ingredient[] = [
+export const INGREDIENTS: Ingredient[] = [
     {
         id: 'chili',
         name: 'Chili',
@@ -76,8 +10,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['spicy'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['chili', 'chilipeber', 'chili pepper', 'hot pepper', 'chilifrugt'],
         emoji: '🌶️',
-        imageUrl: chiliPhoto,
+        imageUrl: `${ASSETS}/chili.webp`,
         unitConversions: [{ unit: 'pcs', grams: 30 }],
         nutritionPer100g: {
             energyKcal: 40,
@@ -97,8 +32,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sour'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['citron græs', 'lemongrass', 'citrongræsstilk'],
         emoji: '🌿',
-        imageUrl: citrongraesPhoto,
+        imageUrl: `${ASSETS}/citrongraes.webp`,
         unitConversions: [{ unit: 'pcs', grams: 25 }],
         nutritionPer100g: {
             energyKcal: 99,
@@ -118,8 +54,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sour'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['citrusfrugt', 'citrus fruit', 'citrus'],
         emoji: '🍋',
-        imageUrl: citrusfrugtPhoto,
+        imageUrl: `${ASSETS}/citrusfrugt.webp`,
         unitConversions: [{ unit: 'pcs', grams: 30 }],
         nutritionPer100g: {
             energyKcal: 22,
@@ -133,14 +70,37 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         }
     },
     {
+        id: 'ginger',
+        name: 'Ingefær',
+        category: 'spice',
+        tags: ['spicy', 'seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['frisk ingefær', 'ingefærrod', 'ginger'],
+        emoji: '🫚',
+        imageUrl: `${ASSETS}/ingefaer.webp`,
+        unitConversions: [{ unit: 'tsp', grams: 2 }],
+        nutritionPer100g: {
+            energyKcal: 80,
+            fat: 0.75,
+            saturatedFat: 0.2,
+            carbohydrates: 17.8,
+            sugars: 1.7,
+            fiber: 2.0,
+            protein: 1.82,
+            salt: 0.033
+        }
+    },
+    {
         id: 'ginger-ninja',
         name: 'Ginger Ninja',
         category: 'spice',
         tags: ['spicy', 'seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['ginger ninja', 'spicy ginger', 'ginger spice'],
         emoji: '🧂',
-        imageUrl: gingerNinjaPhoto,
+        imageUrl: `${ASSETS}/ginger-ninja.webp`,
         unitConversions: [
             { unit: 'tsp', grams: 6 },
             { unit: 'tbsp', grams: 18 }
@@ -163,8 +123,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sweet'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['gulerod julienne', 'julienne carrot'],
         emoji: '🥕',
-        imageUrl: gulerodJuliennePhoto,
+        imageUrl: `${ASSETS}/gulerod-julienne.webp`,
         nutritionPer100g: {
             energyKcal: 41,
             fat: 0.6,
@@ -183,8 +144,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['hakket svinekød', 'svinefars', 'hakket gris', 'minced pork', 'ground pork', 'pork mince'],
         emoji: '🥩',
-        imageUrl: hakketSvinekoedPhoto,
+        imageUrl: `${ASSETS}/hakket-svinekoed.webp`,
         nutritionPer100g: {
             energyKcal: 263,
             fat: 21.2,
@@ -203,8 +165,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['ingefærpuré', 'ingefær puré', 'ginger puree', 'ginger purée'],
         emoji: '🫚',
-        imageUrl: ingefaerpurePhoto,
+        imageUrl: `${ASSETS}/ingefaerpure.webp`,
         unitConversions: [
             { unit: 'tsp', grams: 6 },
             { unit: 'tbsp', grams: 18 }
@@ -227,8 +190,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
+        aliases: ['kogevand', 'pastavand', 'nudelvand', 'cooking water', 'boiling water'],
         emoji: '💧',
-        imageUrl: kogevandPhoto,
+        imageUrl: `${ASSETS}/kogevand.webp`,
         nutritionPer100g: {
             energyKcal: 0,
             fat: 0,
@@ -247,8 +211,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['mynte', 'frisk mynte', 'mynteblade', 'pebermynte', 'mint', 'spearmint', 'peppermint'],
         emoji: '🌱',
-        imageUrl: myntePhoto,
+        imageUrl: `${ASSETS}/mynte.webp`,
         unitConversions: [{ unit: 'sprig', grams: 2 }],
         nutritionPer100g: {
             energyKcal: 44,
@@ -268,8 +233,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
+        aliases: ['olie', 'madolie', 'madlavningsolie', 'neutral olie', 'vegetabilsk olie', 'cooking oil', 'vegetable oil'],
         emoji: '🫒',
-        imageUrl: oliePhoto,
+        imageUrl: `${ASSETS}/olie.webp`,
         nutritionPer100g: {
             energyKcal: 884,
             fat: 100,
@@ -288,8 +254,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
+        aliases: ['peber', 'sort peber', 'stødt peber', 'black pepper'],
         emoji: '🧂',
-        imageUrl: peberPhoto,
+        imageUrl: `${ASSETS}/peber.webp`,
         nutritionPer100g: {
             energyKcal: 251,
             fat: 3.26,
@@ -308,8 +275,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: true,
+        aliases: ['salt', 'fint salt', 'bordsalt', 'køkkensalt', 'table salt', 'cooking salt'],
         emoji: '🧂',
-        imageUrl: saltPhoto,
+        imageUrl: `${ASSETS}/salt.webp`,
         nutritionPer100g: {
             energyKcal: 0,
             fat: 0,
@@ -328,8 +296,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sweet', 'spicy'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['sød chilisauce', 'sød chili', 'chilisauce', 'sweet chili sauce', 'sweet chilli sauce'],
         emoji: '🫙',
-        imageUrl: soedChilisaucePhoto,
+        imageUrl: `${ASSETS}/soed-chilisauce.webp`,
         nutritionPer100g: {
             energyKcal: 125,
             fat: 0,
@@ -347,9 +316,10 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         category: 'sauce',
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        aliases: ['sojasauce', 'soya', 'soy sauce', 'soy', 'soy condiment'],
         isStaple: false,
         emoji: '🍶',
-        imageUrl: sojasaucePhoto,
+        imageUrl: `${ASSETS}/sojasauce.webp`,
         unitConversions: [{ unit: 'ml', grams: 1.2 }],
         nutritionPer100g: {
             energyKcal: 60,
@@ -369,8 +339,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['spidskål', 'spidskålshoved', 'spidskål skåret', 'pointed cabbage', 'shredded cabbage'],
         emoji: '🥬',
-        imageUrl: spidskaalPhoto,
+        imageUrl: `${ASSETS}/spidskaal.webp`,
         nutritionPer100g: {
             energyKcal: 27,
             fat: 0.1,
@@ -389,8 +360,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: ['sweet'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
+        aliases: ['sukkerærter', 'sukker ærter', 'sukkerærte', 'sugar snap peas', 'snap peas', 'sugar peas'],
         emoji: '🫛',
-        imageUrl: sukkeraerterPhoto,
+        imageUrl: `${ASSETS}/sukkeraerter.webp`,
         nutritionPer100g: {
             energyKcal: 42,
             fat: 0.2,
@@ -409,8 +381,9 @@ export const MOCK_INGREDIENTS: Ingredient[] = [
         tags: [],
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
         isStaple: false,
+        aliases: ['udon-nudler', 'udon', 'udon noodles', 'dried udon noodles', 'japanske udon-nudler'],
         emoji: '🍜',
-        imageUrl: udonNudlerPhoto,
+        imageUrl: `${ASSETS}/udon-nudler.webp`,
         nutritionPer100g: {
             energyKcal: 336,
             fat: 1.2,
