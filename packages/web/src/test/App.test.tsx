@@ -42,6 +42,7 @@ describe('App', () => {
     });
 
     it('opens the full recipe when a recipe card is clicked', async () => {
+        window.history.pushState(null, '', '/opskrifter');
         render(<App />);
         const user = userEvent.setup();
 

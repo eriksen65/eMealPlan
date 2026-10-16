@@ -11,10 +11,25 @@ import { STAPLES_INFO_TEXT } from '../utilities/staplesInfoText';
 interface RecipeDetailModalProps {
     recipe: Recipe;
     ingredients: Ingredient[];
+    onSelectIngredient: (ingredient: Ingredient) => void;
     onClose: () => void;
 }
 
-export function RecipeDetailModal({ recipe, ingredients, onClose }: RecipeDetailModalProps) {
+export function RecipeDetailModal({ recipe, ingredients, onSelectIngredient, onClose }: RecipeDetailModalProps) {
+    const renderIngredient = (recipeIngredient: RecipeIngredient) => {
+        const homemadeIngredient = ingredients.find((candidate) => candidate.id === recipeIngredient.ingredientId && candidate.homemade);
+        return (
+            <>
+                {formatRecipeIngredient(recipeIngredient, ingredients)}
+                {homemadeIngredient && (
+                    <button type='button' className='homemade-badge' onClick={() => onSelectIngredient(homemadeIngredient)}>
+                        👩‍🍳 Kan laves selv
+                    </button>
+                )}
+            </>
+        );
+    };
+
     const isStapleIngredient = (recipeIngredient: RecipeIngredient): boolean =>
         ingredients.find((candidate) => candidate.id === recipeIngredient.ingredientId)?.isStaple ?? false;
     const [portions, setPortions] = useState(recipe.baseServings);
@@ -84,7 +99,7 @@ export function RecipeDetailModal({ recipe, ingredients, onClose }: RecipeDetail
                 </div>
                 <ul className='ingredient-list'>
                     {coreIngredients.map((ingredient, index) => (
-                        <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient, ingredients)}</li>
+                        <li key={`${ingredient.ingredientId}-${index}`}>{renderIngredient(ingredient)}</li>
                     ))}
                     {stapleIngredients.length > 0 && (
                         <>
@@ -93,7 +108,7 @@ export function RecipeDetailModal({ recipe, ingredients, onClose }: RecipeDetail
                                 <InfoTooltip text={STAPLES_INFO_TEXT} />
                             </li>
                             {stapleIngredients.map((ingredient, index) => (
-                                <li key={`${ingredient.ingredientId}-${index}`}>{formatRecipeIngredient(ingredient, ingredients)}</li>
+                                <li key={`${ingredient.ingredientId}-${index}`}>{renderIngredient(ingredient)}</li>
                             ))}
                         </>
                     )}

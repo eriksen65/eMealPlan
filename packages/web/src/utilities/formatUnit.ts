@@ -5,6 +5,7 @@ const UNIT_LABELS: Record<Unit, string> = {
     kg: 'kg',
     ml: 'ml',
     l: 'l',
+    dl: 'dl',
     tsp: 'tsk',
     tbsp: 'spsk',
     pcs: '',
