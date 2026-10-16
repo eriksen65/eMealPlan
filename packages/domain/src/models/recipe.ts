@@ -1,7 +1,7 @@
 import type { Id } from './common';
 
 /** Units supported by recipes and the shopping-list quantity aggregator. */
-export const UNITS = ['g', 'kg', 'ml', 'l', 'pcs', 'tbsp', 'tsp', 'pinch', 'clove', 'sprig'] as const;
+export const UNITS = ['g', 'kg', 'ml', 'l', 'dl', 'pcs', 'tbsp', 'tsp', 'pinch', 'clove', 'sprig'] as const;
 
 export type Unit = (typeof UNITS)[number];
 

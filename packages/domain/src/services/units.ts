@@ -14,6 +14,7 @@ const UNIT_GROUPS: Record<Unit, UnitGroup> = {
     kg: { base: 'g', factor: 1000 },
     ml: { base: 'ml', factor: 1 },
     l: { base: 'ml', factor: 1000 },
+    dl: { base: 'ml', factor: 100 },
     pcs: { base: 'pcs', factor: 1 },
     tbsp: { base: 'tbsp', factor: 1 },
     tsp: { base: 'tsp', factor: 1 },

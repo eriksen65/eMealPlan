@@ -2,13 +2,16 @@ import { useEffect } from 'react';
 import type { Ingredient } from '@emealplan/domain';
 import { formatDietaryProperty } from '../utilities/formatDietaryProperty';
 import { formatUnit } from '../utilities/formatUnit';
+import { HomemadeSection } from './HomemadeSection';
 
 interface IngredientDetailModalProps {
     ingredient: Ingredient;
+    ingredients: Ingredient[];
+    onSelectIngredient: (ingredient: Ingredient) => void;
     onClose: () => void;
 }
 
-export function IngredientDetailModal({ ingredient, onClose }: IngredientDetailModalProps) {
+export function IngredientDetailModal({ ingredient, ingredients, onSelectIngredient, onClose }: IngredientDetailModalProps) {
     useEffect(() => {
         function handleKeyDown(event: KeyboardEvent) {
             if (event.key === 'Escape') onClose();
@@ -18,6 +21,7 @@ export function IngredientDetailModal({ ingredient, onClose }: IngredientDetailM
     }, [onClose]);
 
     const nutrition = ingredient.nutritionPer100g;
+    const homemade = ingredient.homemade;
 
     return (
         <div className='modal-overlay' onClick={onClose}>
@@ -41,6 +45,8 @@ export function IngredientDetailModal({ ingredient, onClose }: IngredientDetailM
                         ))}
                     </div>
                 )}
+
+                {homemade && <HomemadeSection key={ingredient.id} homemade={homemade} ingredients={ingredients} onSelectIngredient={onSelectIngredient} />}
 
                 {nutrition && (
                     <>

@@ -65,6 +65,26 @@ describe('generateShoppingListItems', () => {
         expect(items[0]?.sourceRecipeIds.sort()).toEqual(['chicken-curry', 'spaghetti-bolognese']);
     });
 
+    it('buys the source ingredient for derived ingredients, rounding up whole units', () => {
+        const lemon = makeIngredient('citron', 'Citron', 'fruit');
+        const zest: Ingredient = {
+            ...makeIngredient('citronskal', 'Citronskal', 'fruit'),
+            unitConversions: [{ unit: 'tsp', grams: 2 }],
+            derivedFrom: { ingredientId: 'citron', unit: 'pcs', yieldGrams: 8 }
+        };
+        const recipe = makeRecipe('cake', [makeRecipeIngredient('citronskal', 2, 'tsp'), makeRecipeIngredient('citronskal', 10, 'g')]);
+        const mealPlan = makeMealPlan([{ date: '2026-03-16', weekday: 'monday', recipeId: recipe.id }]);
+
+        const items = generateShoppingListItems(
+            mealPlan,
+            new Map([[recipe.id, recipe]]),
+            new Map([lemon, zest].map((ingredient) => [ingredient.id, ingredient]))
+        );
+
+        expect(items).toHaveLength(1);
+        expect(items[0]).toMatchObject({ name: 'Citron', quantity: 2, unit: 'pcs' });
+    });
+
     it('keeps manually added items unchanged and skips days without a recipe', () => {
         const mealPlan = makeMealPlan([{ date: '2026-03-16', weekday: 'monday', label: 'Leftovers' }]);
 

@@ -11,14 +11,26 @@ import { fetchIngredients, fetchRecipes } from './api/client';
 import type { Recipe } from '@emealplan/domain';
 import type { Ingredient } from '@emealplan/domain';
 import { STAPLES_INFO_TEXT } from './utilities/staplesInfoText';
+import { PAGE_PATHS, pageFromPath } from './utilities/pageRoutes';
 
 export function App() {
-    const [page, setPage] = useState<AppPage>('recipes');
+    const [page, setPage] = useState<AppPage>(() => pageFromPath(window.location.pathname));
     const [recipes, setRecipes] = useState<Recipe[]>([]);
     const [ingredients, setIngredients] = useState<Ingredient[]>([]);
     const [error, setError] = useState<string | null>(null);
     const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
     const [selectedIngredient, setSelectedIngredient] = useState<Ingredient | null>(null);
+
+    useEffect(() => {
+        const onPopState = () => setPage(pageFromPath(window.location.pathname));
+        window.addEventListener('popstate', onPopState);
+        return () => window.removeEventListener('popstate', onPopState);
+    }, []);
+
+    function changePage(next: AppPage) {
+        if (next !== page) window.history.pushState(null, '', PAGE_PATHS[next]);
+        setPage(next);
+    }
 
     useEffect(() => {
         Promise.all([fetchRecipes(), fetchIngredients()])
@@ -29,17 +41,45 @@ export function App() {
             .catch(() => setError('Kunne ikke hente data fra serveren.'));
     }, []);
 
-    const coreIngredients = ingredients.filter((ingredient) => !ingredient.isStaple);
-    const staples = ingredients.filter((ingredient) => ingredient.isStaple);
+    const sortedIngredients = [...ingredients].sort((a, b) => a.name.localeCompare(b.name, 'da'));
+    const coreIngredients = sortedIngredients.filter((ingredient) => !ingredient.isStaple);
+    const staples = sortedIngredients.filter((ingredient) => ingredient.isStaple);
 
     return (
         <div className='app-shell'>
-            <TopNavBar activePage={page} onChangePage={setPage} />
+            <TopNavBar activePage={page} onChangePage={changePage} />
 
             <main className='app-main'>
                 <div className='app-main__inner'>
                     {error && <p role='alert'>{error}</p>}{' '}
-                    {page === 'recipes' ? (
+                    {page === 'home' ? (
+                        <>
+                            <h1 className='page__title'>Velkommen til eMealPlan</h1>
+                            <div className='home__grid'>
+                                {(['recipes', 'ingredients'] as const).map((target) => (
+                                    <a
+                                        key={target}
+                                        href={PAGE_PATHS[target]}
+                                        className='home__card'
+                                        onClick={(event) => {
+                                            if (event.metaKey || event.ctrlKey || event.shiftKey || event.button !== 0) return;
+                                            event.preventDefault();
+                                            changePage(target);
+                                        }}>
+                                        <span className='home__card-emoji' aria-hidden='true'>
+                                            {target === 'recipes' ? '🍜' : '🥕'}
+                                        </span>
+                                        <span className='home__card-title'>{target === 'recipes' ? 'Opskrifter' : 'Ingredienser'}</span>
+                                        <span className='home__card-text'>
+                                            {target === 'recipes'
+                                                ? `${recipes.length} opskrifter at lave mad efter`
+                                                : `${ingredients.length} ingredienser med næringsindhold`}
+                                        </span>
+                                    </a>
+                                ))}
+                            </div>
+                        </>
+                    ) : page === 'recipes' ? (
                         <>
                             <h1 className='page__title'>Opskrifter</h1>
                             <div className='recipe-grid'>
@@ -75,8 +115,16 @@ export function App() {
                 </div>
             </main>
 
-            {selectedRecipe && <RecipeDetailModal recipe={selectedRecipe} ingredients={ingredients} onClose={() => setSelectedRecipe(null)} />}
-            {selectedIngredient && <IngredientDetailModal ingredient={selectedIngredient} onClose={() => setSelectedIngredient(null)} />}
+            {selectedRecipe && <RecipeDetailModal
+                    recipe={selectedRecipe}
+                    ingredients={ingredients}
+                    onSelectIngredient={setSelectedIngredient}
+                    onClose={() => setSelectedRecipe(null)} />}
+            {selectedIngredient && <IngredientDetailModal
+                    ingredient={selectedIngredient}
+                    ingredients={ingredients}
+                    onSelectIngredient={setSelectedIngredient}
+                    onClose={() => setSelectedIngredient(null)} />}
         </div>
     );
 }
