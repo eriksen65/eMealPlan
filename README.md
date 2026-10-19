@@ -133,3 +133,11 @@ without redesigning the core:
 
 CI (`.github/workflows/ci.yml`) runs install, lint, test, and build on every pull request targeting `main`. Please
 run `npm run check` locally before opening a PR.
+
+## AI
+
+### cmd1:
+
+Ingrediens: XXX
+Lav et kvadratisk, fotorealistisk ingrediensbillede af ingrediensen ovenfor i samme stil som mine andre ingrediensbilleder.
+VIGTIGT: Når billedet er genereret, skal den genererede billedfil konverteres til ægte WebP-format. Gem filen i med ingrediensens navn som filnavn og som filendelse. Brug et webvenligt filnavn med små bogstaver og bindestreger. Kontrollér, at den færdige fil faktisk har formatet WEBP og ikke PNG. Giv mig derefter den færdige -fil.
