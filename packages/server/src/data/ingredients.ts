@@ -487,6 +487,27 @@ export const INGREDIENTS: Ingredient[] = [
         }
     },
     {
+        id: 'roedloeg',
+        name: 'Rødløg',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['rødløg', 'røde løg', 'red onion', 'roedloeg'],
+        emoji: '🧅',
+        imageUrl: `${ASSETS}/roedloeg.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 110 }],
+        nutritionPer100g: {
+            energyKcal: 40,
+            fat: 0.1,
+            saturatedFat: 0.04,
+            carbohydrates: 9.3,
+            sugars: 4.2,
+            fiber: 1.7,
+            protein: 1.1,
+            salt: 0.01
+        }
+    },
+    {
         id: 'hvidloegsfed',
         name: 'Hvidløgsfed',
         category: 'vegetable',
@@ -506,6 +527,27 @@ export const INGREDIENTS: Ingredient[] = [
             fiber: 2.1,
             protein: 6.36,
             salt: 0.043
+        }
+    },
+    {
+        id: 'aeg',
+        name: 'Æg',
+        category: 'dairy',
+        dietaryProperties: ['vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['æg', 'hønseæg', 'egg', 'eggs'],
+        emoji: '🥚',
+        imageUrl: `${ASSETS}/aeg.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 55 }],
+        nutritionPer100g: {
+            energyKcal: 143,
+            fat: 9.5,
+            saturatedFat: 3.1,
+            carbohydrates: 0.7,
+            sugars: 0.4,
+            fiber: 0,
+            protein: 12.6,
+            salt: 0.37
         }
     },
     {
@@ -613,6 +655,27 @@ export const INGREDIENTS: Ingredient[] = [
             fiber: 1.3,
             protein: 7.0,
             salt: 0.015
+        }
+    },
+    {
+        id: 'jasminris',
+        name: 'Jasminris',
+        category: 'grain',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['jasmin ris', 'jasmine rice', 'jasminerice', 'thai ris'],
+        emoji: '🍚',
+        imageUrl: `${ASSETS}/jasminris.webp`,
+        unitConversions: [{ unit: 'dl', grams: 80 }],
+        nutritionPer100g: {
+            energyKcal: 355,
+            fat: 0.6,
+            saturatedFat: 0.2,
+            carbohydrates: 79,
+            sugars: 0.1,
+            fiber: 1.2,
+            protein: 7,
+            salt: 0.01
         }
     },
     {
@@ -1120,6 +1183,109 @@ export const INGREDIENTS: Ingredient[] = [
         }
     },
     {
+        id: 'ketchup',
+        name: 'Ketchup',
+        category: 'sauce',
+        tags: ['sweet'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['ketchup', 'tomatketchup', 'tomato ketchup'],
+        emoji: '🍅',
+        imageUrl: `${ASSETS}/ketchup.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 6 },
+            { unit: 'tbsp', grams: 17 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 101,
+            fat: 0.1,
+            saturatedFat: 0,
+            carbohydrates: 25,
+            sugars: 22,
+            fiber: 0.3,
+            protein: 1,
+            salt: 1.8
+        }
+    },
+    {
+        id: 'hvedemel',
+        name: 'Hvedemel',
+        category: 'grain',
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: true,
+        aliases: ['mel', 'hvede', 'wheat flour', 'hvedemel'],
+        emoji: '🌾',
+        imageUrl: `${ASSETS}/hvedemel.webp`,
+        unitConversions: [
+            { unit: 'dl', grams: 60 },
+            { unit: 'tbsp', grams: 9 },
+            { unit: 'tsp', grams: 3 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 350,
+            fat: 1.5,
+            saturatedFat: 0.3,
+            carbohydrates: 71,
+            sugars: 0.5,
+            fiber: 3.5,
+            protein: 10,
+            salt: 0.01
+        }
+    },
+    {
+        id: 'letmaelk',
+        name: 'Letmælk',
+        category: 'dairy',
+        tags: [],
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: true,
+        aliases: ['letmælk', 'mælk 1,5%', '1,5% mælk'],
+        emoji: '🥛',
+        imageUrl: `${ASSETS}/letmaelk.webp`,
+        unitConversions: [
+            { unit: 'ml', grams: 1.03 },
+            { unit: 'dl', grams: 103 },
+            { unit: 'tsp', grams: 5.15 },
+            { unit: 'tbsp', grams: 15.45 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 46,
+            fat: 1.5,
+            saturatedFat: 1.0,
+            carbohydrates: 4.7,
+            sugars: 4.7,
+            fiber: 0,
+            protein: 3.5,
+            salt: 0.1
+        }
+    },
+    {
+        id: 'butter',
+        name: 'Smør',
+        category: 'dairy',
+        tags: [],
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: true,
+        aliases: ['smør', 'saltet smør'],
+        emoji: '🧈',
+        imageUrl: `${ASSETS}/smoer.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 5 },
+            { unit: 'tbsp', grams: 15 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 740,
+            fat: 82,
+            saturatedFat: 52,
+            carbohydrates: 0.7,
+            sugars: 0.7,
+            fiber: 0,
+            protein: 0.6,
+            salt: 1.2
+        }
+    },
+    {
         id: 'sriracha-mayo',
         name: 'Sriracha mayo',
         category: 'sauce',
@@ -1194,8 +1360,8 @@ export const INGREDIENTS: Ingredient[] = [
         category: 'spice',
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
-        isStaple: true,
-        aliases: ['mors favorit krydderi', 'mors favorit krydderiblanding', 'mors krydderiblanding'],
+        isStaple: false,
+        aliases: ['mors favorit krydderi', 'mors favorit krydderiblanding', 'mors krydderiblanding', 'Mamas Favorit'],
         emoji: '🧂',
         imageUrl: `${ASSETS}/mors-favorit.webp`,
         homemade: {
@@ -1370,6 +1536,1891 @@ export const INGREDIENTS: Ingredient[] = [
             fiber: 2.4,
             protein: 0.26,
             salt: 0.003
+        }
+    },
+    {
+        id: 'mango',
+        name: 'Mango',
+        category: 'fruit',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['mangoer', 'mango frugt', 'mangos'],
+        emoji: '🥭',
+        imageUrl: `${ASSETS}/mango.webp`,
+        nutritionPer100g: {
+            energyKcal: 60,
+            fat: 0.4,
+            saturatedFat: 0.1,
+            carbohydrates: 15,
+            sugars: 13.7,
+            fiber: 1.6,
+            protein: 0.8,
+            salt: 0.003
+        }
+    },
+    {
+        id: 'honning',
+        name: 'Honning',
+        category: 'other',
+        dietaryProperties: ['vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['honning', 'flydende honning', 'honey'],
+        emoji: '🍯',
+        imageUrl: `${ASSETS}/honning.webp`,
+        nutritionPer100g: {
+            energyKcal: 304,
+            fat: 0,
+            saturatedFat: 0,
+            carbohydrates: 82.4,
+            sugars: 82.1,
+            fiber: 0.2,
+            protein: 0.3,
+            salt: 0.004
+        }
+    },
+    {
+        id: 'olivenolie',
+        name: 'Olivenolie',
+        category: 'oil',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        aliases: ['olivenolie', 'extra virgin olivenolie', 'olive oil'],
+        emoji: '🫒',
+        imageUrl: `${ASSETS}/olivenolie.webp`,
+        nutritionPer100g: {
+            energyKcal: 884,
+            fat: 100,
+            saturatedFat: 13.8,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 0,
+            salt: 0.005
+        }
+    },
+    {
+        id: 'sej',
+        name: 'Sej',
+        category: 'fish',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['sejfilet', 'sej filet', 'saithe', 'pollock'],
+        emoji: '🐟',
+        imageUrl: `${ASSETS}/sej.webp`,
+        nutritionPer100g: {
+            energyKcal: 82,
+            fat: 0.9,
+            saturatedFat: 0.2,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 18.3,
+            salt: 0.3
+        }
+    },
+    {
+        id: 'zucchini',
+        name: 'Zucchini',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['squash', 'zucchini', 'courgette', 'zucchinier'],
+        emoji: '🥒',
+        imageUrl: `${ASSETS}/zucchini.webp`,
+        nutritionPer100g: {
+            energyKcal: 17,
+            fat: 0.3,
+            saturatedFat: 0.1,
+            carbohydrates: 3.1,
+            sugars: 2.5,
+            fiber: 1,
+            protein: 1.2,
+            salt: 0.002
+        }
+    },
+    {
+        id: 'briocheboller',
+        name: 'Briocheboller',
+        category: 'grain',
+        dietaryProperties: ['vegetarian'],
+        isStaple: false,
+        aliases: ['brioche boller', 'brioche burgerboller', 'brioche buns', 'burgerboller'],
+        emoji: '🍞',
+        imageUrl: `${ASSETS}/briocheboller.webp`,
+        nutritionPer100g: {
+            energyKcal: 330,
+            fat: 8,
+            saturatedFat: 4,
+            carbohydrates: 52,
+            sugars: 9,
+            fiber: 2,
+            protein: 9,
+            salt: 1
+        }
+    },
+    {
+        id: 'porre',
+        name: 'Porre',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['porrer', 'leek'],
+        emoji: '🥬',
+        imageUrl: `${ASSETS}/porre.webp`,
+        nutritionPer100g: {
+            energyKcal: 61,
+            fat: 0.3,
+            saturatedFat: 0.04,
+            carbohydrates: 14.2,
+            sugars: 3.9,
+            fiber: 1.8,
+            protein: 1.5,
+            salt: 0.05
+        }
+    },
+    {
+        id: 'soltoerrede-tomater',
+        name: 'Soltørrede tomater',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['soltørrede tomater', 'soltørret tomat', 'tørrede tomater', 'sun-dried tomatoes'],
+        emoji: '🍅',
+        imageUrl: `${ASSETS}/soltoerrede-tomater.webp`,
+        nutritionPer100g: {
+            energyKcal: 258,
+            fat: 3,
+            saturatedFat: 0.4,
+            carbohydrates: 55.8,
+            sugars: 37.6,
+            fiber: 12.3,
+            protein: 14.1,
+            salt: 2.9
+        }
+    },
+    {
+        id: 'madlavningsfloede-15',
+        name: 'Madlavningsfløde 15%',
+        category: 'dairy',
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: false,
+        aliases: ['madlavningsfløde', 'cremefine 15%', 'fløde 15%', 'cooking cream 15%'],
+        emoji: '🥛',
+        imageUrl: `${ASSETS}/madlavningsfloede-15pct.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 160,
+            fat: 15,
+            saturatedFat: 10,
+            carbohydrates: 3.9,
+            sugars: 3.9,
+            fiber: 0,
+            protein: 2.6,
+            salt: 0.1
+        }
+    },
+    {
+        id: 'madlavningsfloede-8',
+        name: 'Madlavningsfløde 8%',
+        category: 'dairy',
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: false,
+        aliases: ['madlavningsfløde', 'cremefine 8%', 'fløde 8%', 'cooking cream 8%'],
+        emoji: '🥛',
+        imageUrl: `${ASSETS}/madlavningsfloede-8pct.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 100,
+            fat: 8,
+            saturatedFat: 5.4,
+            carbohydrates: 4.2,
+            sugars: 4.2,
+            fiber: 0,
+            protein: 3,
+            salt: 0.1
+        }
+    },
+    {
+        id: 'creme-fraiche-9',
+        name: 'Cremefraiche 9%',
+        category: 'dairy',
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: false,
+        aliases: ['creme fraiche 9%', 'cremefraiche', 'creme fraiche', 'cremefraiche 9 %'],
+        emoji: '🥛',
+        imageUrl: `${ASSETS}/creme-fraiche-9pct.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 120,
+            fat: 9,
+            saturatedFat: 6,
+            carbohydrates: 3.8,
+            sugars: 3.8,
+            fiber: 0,
+            protein: 3,
+            salt: 0.1
+        }
+    },
+    {
+        id: 'creme-fraiche-18',
+        name: 'Cremefraiche 18%',
+        category: 'dairy',
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: false,
+        aliases: ['creme fraiche 18%', 'cremefraiche', 'creme fraiche', 'cremefraiche 18 %'],
+        emoji: '🥛',
+        imageUrl: `${ASSETS}/creme-fraiche-18pct.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 190,
+            fat: 18,
+            saturatedFat: 12,
+            carbohydrates: 3.5,
+            sugars: 3.5,
+            fiber: 0,
+            protein: 2.8,
+            salt: 0.1
+        }
+    },
+    {
+        id: 'creme-fraiche-38',
+        name: 'Cremefraiche 38%',
+        category: 'dairy',
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: false,
+        aliases: ['creme fraiche 38%', 'cremefraiche', 'creme fraiche', 'cremefraiche 38 %'],
+        emoji: '🥛',
+        imageUrl: `${ASSETS}/creme-fraiche-38pct.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 365,
+            fat: 38,
+            saturatedFat: 25,
+            carbohydrates: 2.8,
+            sugars: 2.8,
+            fiber: 0,
+            protein: 2.2,
+            salt: 0.1
+        }
+    },
+    {
+        id: 'tagliatelle-frisk',
+        name: 'Frisk tagliatelle',
+        category: 'grain',
+        dietaryProperties: ['vegetarian', 'lactose-free'],
+        isStaple: false,
+        aliases: ['tagliatelle', 'frisk pasta', 'friske tagliatelle', 'fresh tagliatelle'],
+        emoji: '🍝',
+        imageUrl: `${ASSETS}/tagliatelle-frisk.webp`,
+        nutritionPer100g: {
+            energyKcal: 280,
+            fat: 2.5,
+            saturatedFat: 0.6,
+            carbohydrates: 54,
+            sugars: 2.5,
+            fiber: 2.5,
+            protein: 11,
+            salt: 0.1
+        }
+    },
+    {
+        id: 'dild',
+        name: 'Dild',
+        category: 'herb',
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['frisk dild', 'dildtoppe', 'dildtopper', 'dill'],
+        emoji: '🌿',
+        imageUrl: `${ASSETS}/dild.webp`,
+        unitConversions: [{ unit: 'sprig', grams: 1 }],
+        nutritionPer100g: {
+            energyKcal: 43,
+            fat: 1.1,
+            saturatedFat: 0.1,
+            carbohydrates: 7,
+            sugars: 0,
+            fiber: 2.1,
+            protein: 3.5,
+            salt: 0.17
+        }
+    },
+    {
+        id: 'hvidvinseddike',
+        name: 'Hvidvinseddike',
+        category: 'sauce',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['hvidvinseddike', 'hvidvins eddike', 'eddike', 'white wine vinegar'],
+        emoji: '🍾',
+        imageUrl: `${ASSETS}/hvidvinseddike.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 19,
+            fat: 0,
+            saturatedFat: 0,
+            carbohydrates: 0.5,
+            sugars: 0.4,
+            fiber: 0,
+            protein: 0,
+            salt: 0.02
+        }
+    },
+    {
+        id: 'grov-sennep',
+        name: 'Grov sennep',
+        category: 'sauce',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['grov sennep', 'kornet sennep', 'wholegrain mustard'],
+        emoji: '🟡',
+        imageUrl: `${ASSETS}/grov-sennep.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 150,
+            fat: 8.5,
+            saturatedFat: 0.5,
+            carbohydrates: 8,
+            sugars: 3.5,
+            fiber: 4,
+            protein: 8,
+            salt: 3
+        }
+    },
+    {
+        id: 'rosmarin',
+        name: 'Rosmarin',
+        category: 'herb',
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['frisk rosmarin', 'rosmarinkviste', 'rosemary'],
+        emoji: '🌿',
+        imageUrl: `${ASSETS}/rosmarin.webp`,
+        unitConversions: [{ unit: 'sprig', grams: 3 }],
+        nutritionPer100g: {
+            energyKcal: 131,
+            fat: 5.9,
+            saturatedFat: 2.8,
+            carbohydrates: 20.7,
+            sugars: 0,
+            fiber: 14.1,
+            protein: 3.3,
+            salt: 0.06
+        }
+    },
+    {
+        id: 'aioli',
+        name: 'Aioli',
+        category: 'sauce',
+        dietaryProperties: ['vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['hvidløgsmayo', 'hvidløgsmayonnaise', 'garlic mayo', 'garlic aioli'],
+        emoji: '🧄',
+        imageUrl: `${ASSETS}/aioli.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 600,
+            fat: 65,
+            saturatedFat: 5.5,
+            carbohydrates: 2.5,
+            sugars: 1.5,
+            fiber: 0,
+            protein: 1.2,
+            salt: 1.3
+        }
+    },
+    {
+        id: 'hoisinsauce',
+        name: 'Hoisinsauce',
+        category: 'sauce',
+        dietaryProperties: ['vegetarian', 'lactose-free'],
+        isStaple: false,
+        aliases: ['hoisin', 'hoisin sauce'],
+        emoji: '🥢',
+        imageUrl: `${ASSETS}/hoisinsauce.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 18 },
+            { unit: 'tsp', grams: 6 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 220,
+            fat: 3,
+            saturatedFat: 0.5,
+            carbohydrates: 44,
+            sugars: 28,
+            fiber: 2,
+            protein: 3,
+            salt: 5
+        }
+    },
+    {
+        id: 'groenne-boenner',
+        name: 'Grønne bønner',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['haricots verts', 'fine bønner', 'bønner', 'snittebønner'],
+        emoji: '🫛',
+        imageUrl: `${ASSETS}/groenne-boenner.webp`,
+        nutritionPer100g: {
+            energyKcal: 31,
+            fat: 0.2,
+            saturatedFat: 0.1,
+            carbohydrates: 4.5,
+            sugars: 2,
+            fiber: 3,
+            protein: 1.8,
+            salt: 0.01
+        }
+    },
+    {
+        id: 'majsstivelse',
+        name: 'Majsstivelse',
+        category: 'grain',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['maizena', 'majsmel', 'cornstarch', 'cornflour'],
+        emoji: '🌽',
+        imageUrl: `${ASSETS}/majsstivelse.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 8 },
+            { unit: 'tsp', grams: 3 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 360,
+            fat: 0.1,
+            saturatedFat: 0,
+            carbohydrates: 88,
+            sugars: 0,
+            fiber: 1,
+            protein: 0.3,
+            salt: 0.02
+        }
+    },
+    {
+        id: 'radiser',
+        name: 'Radiser',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['radise', 'radis', 'radishes'],
+        emoji: '🌱',
+        imageUrl: `${ASSETS}/radiser.webp`,
+        nutritionPer100g: {
+            energyKcal: 16,
+            fat: 0.1,
+            saturatedFat: 0,
+            carbohydrates: 2,
+            sugars: 1.9,
+            fiber: 1.6,
+            protein: 0.7,
+            salt: 0.05
+        }
+    },
+    {
+        id: 'parmigiano-reggiano',
+        name: 'Parmigiano Reggiano',
+        category: 'dairy',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['parmesan', 'parmesanost', 'parmigiano', 'revet parmesan'],
+        emoji: '🧀',
+        imageUrl: `${ASSETS}/parmigiano-reggiano.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 6 },
+            { unit: 'dl', grams: 40 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 400,
+            fat: 28,
+            saturatedFat: 18,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 35,
+            salt: 1.6
+        }
+    },
+    {
+        id: 'hakket-oksekoed',
+        name: 'Hakket oksekød',
+        category: 'meat',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['hakket okse', 'oksekød hakket', 'hakkebøf', 'hakket kød'],
+        emoji: '🥩',
+        imageUrl: `${ASSETS}/hakket-oksekoed.webp`,
+        nutritionPer100g: {
+            energyKcal: 180,
+            fat: 12,
+            saturatedFat: 5,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 18,
+            salt: 0.2
+        }
+    },
+    {
+        id: 'kyllingebrystfilet-bbq',
+        name: 'Kyllingebrystfilet, BBQ-marineret',
+        category: 'meat',
+        dietaryProperties: ['lactose-free'],
+        isStaple: false,
+        aliases: ['bbq kylling', 'marineret kyllingebryst', 'bbq kyllingebryst', 'kyllingebrystfilet bbq'],
+        emoji: '🍗',
+        imageUrl: `${ASSETS}/kyllingbrystfilet-bbq-marineret.webp`,
+        nutritionPer100g: {
+            energyKcal: 130,
+            fat: 2.5,
+            saturatedFat: 0.7,
+            carbohydrates: 6,
+            sugars: 5,
+            fiber: 0.3,
+            protein: 20,
+            salt: 1.2
+        }
+    },
+    {
+        id: 'svinekamfilet',
+        name: 'Svinekamfilet',
+        category: 'meat',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['svinekam', 'svinefilet', 'kamfilet', 'svinekam uden ben'],
+        emoji: '🥩',
+        imageUrl: `${ASSETS}/svinekamfilet.webp`,
+        nutritionPer100g: {
+            energyKcal: 160,
+            fat: 8,
+            saturatedFat: 3,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 22,
+            salt: 0.2
+        }
+    },
+    {
+        id: 'peberfrugt',
+        name: 'Peberfrugt',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['rød peberfrugt', 'gul peberfrugt', 'grøn peberfrugt', 'peberfrugter', 'bell pepper'],
+        emoji: '🫑',
+        imageUrl: `${ASSETS}/peberfrugt.webp`,
+        nutritionPer100g: {
+            energyKcal: 30,
+            fat: 0.3,
+            saturatedFat: 0.1,
+            carbohydrates: 5,
+            sugars: 4,
+            fiber: 1.9,
+            protein: 1,
+            salt: 0.01
+        }
+    },
+    {
+        id: 'saltede-peanuts',
+        name: 'Saltede peanuts',
+        category: 'seed',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['peanuts', 'jordnødder', 'ristede peanuts', 'salted peanuts'],
+        emoji: '🥜',
+        imageUrl: `${ASSETS}/saltede-peanuts.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 10 },
+            { unit: 'dl', grams: 65 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 610,
+            fat: 52,
+            saturatedFat: 8,
+            carbohydrates: 11,
+            sugars: 4,
+            fiber: 8,
+            protein: 26,
+            salt: 1.5
+        }
+    },
+    {
+        id: 'tortillabroed-fuldkorn',
+        name: 'Tortillabrød, fuldkorn',
+        category: 'grain',
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: false,
+        aliases: ['tortilla', 'fuldkornstortilla', 'tortillas', 'wraps', 'fuldkornswrap'],
+        emoji: '🫓',
+        imageUrl: `${ASSETS}/tortillabroed-fuldkorn.webp`,
+        nutritionPer100g: {
+            energyKcal: 290,
+            fat: 6,
+            saturatedFat: 1,
+            carbohydrates: 47,
+            sugars: 2.5,
+            fiber: 7,
+            protein: 9,
+            salt: 1.2
+        }
+    },
+    {
+        id: 'knoldselleri',
+        name: 'Knoldselleri',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['selleri', 'selleriknold', 'celeriac'],
+        emoji: '🥔',
+        imageUrl: `${ASSETS}/knoldselleri.webp`,
+        nutritionPer100g: {
+            energyKcal: 42,
+            fat: 0.3,
+            saturatedFat: 0.1,
+            carbohydrates: 9,
+            sugars: 1.6,
+            fiber: 1.8,
+            protein: 1.5,
+            salt: 0.2
+        }
+    },
+    {
+        id: 'tomat',
+        name: 'Tomat',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['tomater', 'frisk tomat', 'tomato'],
+        emoji: '🍅',
+        imageUrl: `${ASSETS}/tomat.webp`,
+        nutritionPer100g: {
+            energyKcal: 18,
+            fat: 0.2,
+            saturatedFat: 0,
+            carbohydrates: 3.5,
+            sugars: 2.6,
+            fiber: 1.2,
+            protein: 0.9,
+            salt: 0.01
+        }
+    },
+    {
+        id: 'cherrytomater',
+        name: 'Cherrytomater',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['cherrytomat', 'cherry tomater', 'cherry tomat', 'cocktailtomater', 'cherry tomatoes'],
+        emoji: '🍅',
+        imageUrl: `${ASSETS}/cherrytomater.webp`,
+        nutritionPer100g: {
+            energyKcal: 20,
+            fat: 0.2,
+            saturatedFat: 0,
+            carbohydrates: 3.9,
+            sugars: 3.1,
+            fiber: 1.2,
+            protein: 0.9,
+            salt: 0.01
+        }
+    },
+    {
+        id: 'koriander',
+        name: 'Koriander',
+        category: 'herb',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['frisk koriander', 'korianderblade', 'coriander', 'cilantro'],
+        emoji: '🌿',
+        imageUrl: `${ASSETS}/koriander.webp`,
+        nutritionPer100g: {
+            energyKcal: 23,
+            fat: 0.5,
+            saturatedFat: 0,
+            carbohydrates: 3.7,
+            sugars: 0.9,
+            fiber: 2.8,
+            protein: 2.1,
+            salt: 0.12
+        }
+    },
+    {
+        id: 'jalapeno',
+        name: 'Jalapeño',
+        category: 'vegetable',
+        tags: ['spicy'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['jalapeno', 'jalapeños', 'jalapenos', 'grøn chili'],
+        emoji: '🌶️',
+        imageUrl: `${ASSETS}/jalapeno.webp`,
+        nutritionPer100g: {
+            energyKcal: 29,
+            fat: 0.4,
+            saturatedFat: 0.1,
+            carbohydrates: 4,
+            sugars: 4,
+            fiber: 2.8,
+            protein: 0.9,
+            salt: 0.01
+        }
+    },
+    {
+        id: 'smaa-tortillabroed',
+        name: 'Små tortillabrød',
+        category: 'grain',
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: false,
+        aliases: ['små tortillas', 'tortillabrød', 'taco tortillas', 'små wraps', 'hvide tortillas'],
+        emoji: '🫓',
+        imageUrl: `${ASSETS}/smaa-tortillabroed.webp`,
+        nutritionPer100g: {
+            energyKcal: 300,
+            fat: 7,
+            saturatedFat: 1.2,
+            carbohydrates: 50,
+            sugars: 2.5,
+            fiber: 3,
+            protein: 8,
+            salt: 1.3
+        }
+    },
+    {
+        id: 'rejer',
+        name: 'Rejer',
+        category: 'fish',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['rejer pillede', 'pillede rejer', 'jumbo rejer', 'shrimp', 'kogte rejer', 'kogte koldvandsrejer'],
+        emoji: '🦐',
+        imageUrl: `${ASSETS}/rejer.webp`,
+        nutritionPer100g: {
+            energyKcal: 90,
+            fat: 1,
+            saturatedFat: 0.2,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 20,
+            salt: 1.2
+        }
+    },
+    {
+        id: 'groen-pesto',
+        name: 'Grøn pesto',
+        category: 'sauce',
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: false,
+        aliases: ['pesto', 'basilikumpesto', 'pesto genovese', 'pesto verde', 'green pesto'],
+        emoji: '🌿',
+        imageUrl: `${ASSETS}/groen-pesto.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 450,
+            fat: 44,
+            saturatedFat: 7,
+            carbohydrates: 5,
+            sugars: 2,
+            fiber: 2,
+            protein: 6,
+            salt: 1.8
+        }
+    },
+    {
+        id: 'roed-pesto',
+        name: 'Rød pesto',
+        category: 'sauce',
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: false,
+        aliases: ['pesto rosso', 'tomatpesto', 'rød basilikumpesto', 'red pesto'],
+        emoji: '🍅',
+        imageUrl: `${ASSETS}/roed-pesto.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'tsp', grams: 5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 380,
+            fat: 35,
+            saturatedFat: 5,
+            carbohydrates: 9,
+            sugars: 6,
+            fiber: 3,
+            protein: 5,
+            salt: 2.2
+        }
+    },
+    {
+        id: 'laurbaerblade',
+        name: 'Laurbærblade',
+        category: 'herb',
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        aliases: ['laurbærblad', 'laurbær', 'laurbærblade tørrede', 'bay leaf', 'bay leaves'],
+        emoji: '🍃',
+        imageUrl: `${ASSETS}/laurbaerblade.webp`,
+        nutritionPer100g: {
+            energyKcal: 313,
+            fat: 8.4,
+            saturatedFat: 2.3,
+            carbohydrates: 48,
+            sugars: 0,
+            fiber: 26,
+            protein: 7.6,
+            salt: 0.08
+        }
+    },
+    {
+        id: 'karry',
+        name: 'Karry',
+        category: 'spice',
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        aliases: ['karrypulver', 'karry pulver', 'madras karry', 'curry', 'curry powder'],
+        emoji: '🥘',
+        imageUrl: `${ASSETS}/karry.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 2.2 },
+            { unit: 'tbsp', grams: 6.5 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 325,
+            fat: 14,
+            saturatedFat: 2.2,
+            carbohydrates: 55,
+            sugars: 2.8,
+            fiber: 33,
+            protein: 14,
+            salt: 0.2
+        }
+    },
+    {
+        id: 'skinke-tern',
+        name: 'Skinketern',
+        category: 'meat',
+        dietaryProperties: ['lactose-free'],
+        isStaple: false,
+        aliases: ['skinke', 'skinke i tern', 'skinketern', 'kogt skinke', 'diced ham'],
+        emoji: '🍖',
+        imageUrl: `${ASSETS}/skinke-tern.webp`,
+        nutritionPer100g: {
+            energyKcal: 110,
+            fat: 3.5,
+            saturatedFat: 1.2,
+            carbohydrates: 1,
+            sugars: 0.8,
+            fiber: 0,
+            protein: 19,
+            salt: 2.2
+        }
+    },
+    {
+        id: 'skinke-strimler',
+        name: 'Skinkestrimler',
+        category: 'meat',
+        dietaryProperties: ['lactose-free'],
+        isStaple: false,
+        aliases: ['skinke i strimler', 'skinkestrimler', 'strimlet skinke', 'ham strips'],
+        emoji: '🍖',
+        imageUrl: `${ASSETS}/skinke-strimler.webp`,
+        nutritionPer100g: {
+            energyKcal: 110,
+            fat: 3.5,
+            saturatedFat: 1.2,
+            carbohydrates: 1,
+            sugars: 0.8,
+            fiber: 0,
+            protein: 19,
+            salt: 2.2
+        }
+    },
+    {
+        id: 'rosmarin-torret',
+        name: 'Rosmarin, tørret',
+        category: 'spice',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        aliases: ['tørret rosmarin', 'rosmarin tørret', 'dried rosemary'],
+        emoji: '🌿',
+        imageUrl: `${ASSETS}/rosmarin-torret.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 1.2 },
+            { unit: 'tbsp', grams: 3.6 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 331,
+            fat: 15.2,
+            saturatedFat: 7.4,
+            carbohydrates: 21,
+            sugars: 0,
+            fiber: 42.6,
+            protein: 4.9,
+            salt: 0.1
+        }
+    },
+    {
+        id: 'middelhavsdroem-krydderiblanding',
+        name: 'Middelhavsdrøm krydderiblanding',
+        category: 'spice',
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['middelhavsdrøm', 'middelhavskrydderi', 'middelhavskrydderiblanding', 'middelhavsdrøm krydderi'],
+        emoji: '🧂',
+        imageUrl: `${ASSETS}/middelhavsdrom-krydderiblanding.webp`,
+        homemade: {
+            ingredients: [
+                { ingredientId: 'oregano-toerret', quantity: 2, unit: 'tbsp' },
+                { ingredientId: 'basilikum', quantity: 2, unit: 'tbsp' },
+                { ingredientId: 'timian-toerret', quantity: 1, unit: 'tbsp' },
+                { ingredientId: 'rosmarin-torret', quantity: 1, unit: 'tbsp', note: 'gerne let knust' },
+                { ingredientId: 'soed-paprika', quantity: 2, unit: 'tbsp' },
+                { ingredientId: 'hvidloegspulver', quantity: 1, unit: 'tbsp' },
+                { ingredientId: 'loegpulver', quantity: 1, unit: 'tbsp' },
+                { ingredientId: 'salt', quantity: 1, unit: 'tsp' },
+                { ingredientId: 'peber', quantity: 0.5, unit: 'tsp', note: 'kværnet' },
+                { ingredientId: 'chiliflager', quantity: 0.5, unit: 'tsp', note: 'kan udelades, hvis den ikke skal være stærk' }
+            ],
+            steps: [
+                'Mål op: Mål alle ingredienserne af og kom dem i en lille skål.',
+                'Bland: Rør blandingen godt rundt, så alle krydderierne fordeler sig jævnt.',
+                'Opbevar: Hæld blandingen på et rent, lufttæt glas eller en krydderidåse. Holder sig op til 6 måneder, hvis den opbevares mørkt, tørt og køligt.'
+            ]
+        },
+        unitConversions: [
+            { unit: 'tsp', grams: 2 },
+            { unit: 'tbsp', grams: 6 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 270,
+            fat: 5,
+            saturatedFat: 1,
+            carbohydrates: 48,
+            sugars: 10,
+            fiber: 17,
+            protein: 11,
+            salt: 9
+        }
+    },
+    {
+        id: 'dijonsennep',
+        name: 'Dijonsennep',
+        category: 'sauce',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['dijon sennep', 'dijon', 'dijon mustard', 'fransk sennep'],
+        emoji: '🟡',
+        imageUrl: `${ASSETS}/dijonsennep.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 5 },
+            { unit: 'tbsp', grams: 15 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 66,
+            fat: 3.6,
+            saturatedFat: 0.2,
+            carbohydrates: 5,
+            sugars: 1,
+            fiber: 3,
+            protein: 4,
+            salt: 4.5
+        }
+    },
+    {
+        id: 'sennep',
+        name: 'Sennep',
+        category: 'sauce',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['mellemskarp sennep', 'almindelig sennep', 'yellow mustard', 'mustard'],
+        emoji: '🟡',
+        imageUrl: `${ASSETS}/sennep.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 5 },
+            { unit: 'tbsp', grams: 15 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 70,
+            fat: 3.5,
+            saturatedFat: 0.2,
+            carbohydrates: 6,
+            sugars: 2,
+            fiber: 3,
+            protein: 4,
+            salt: 4
+        }
+    },
+    {
+        id: 'soed-sennep',
+        name: 'Sød sennep',
+        category: 'sauce',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['sød sennep', 'svensk sennep', 'honningsennep', 'sweet mustard'],
+        emoji: '🟡',
+        imageUrl: `${ASSETS}/sod-sennep.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 5 },
+            { unit: 'tbsp', grams: 15 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 130,
+            fat: 3,
+            saturatedFat: 0.2,
+            carbohydrates: 22,
+            sugars: 19,
+            fiber: 2,
+            protein: 3,
+            salt: 2.5
+        }
+    },
+    {
+        id: 'tex-mex',
+        name: 'Tex Mex krydderiblanding',
+        category: 'spice',
+        tags: ['spicy', 'seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['tex mex', 'tex-mex', 'tex mex krydderi', 'taco krydderi', 'taco krydderiblanding', 'fajita krydderi'],
+        emoji: '🧂',
+        imageUrl: `${ASSETS}/tex-mex.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 3 },
+            { unit: 'tbsp', grams: 9 }
+        ],
+        homemade: {
+            ingredients: [
+                { ingredientId: 'soed-paprika', quantity: 2, unit: 'tsp' },
+                { ingredientId: 'spidskommen', quantity: 1, unit: 'tsp', note: 'stødt' },
+                { ingredientId: 'hvidloegspulver', quantity: 1, unit: 'tsp' },
+                { ingredientId: 'loegpulver', quantity: 1, unit: 'tsp' },
+                { ingredientId: 'oregano-toerret', quantity: 1, unit: 'tsp' },
+                { ingredientId: 'salt', quantity: 1, unit: 'tsp' },
+                { ingredientId: 'paprika', quantity: 0.5, unit: 'tsp', note: 'røget' },
+                { ingredientId: 'chilipulver', quantity: 0.5, unit: 'tsp', note: 'justeres efter ønsket styrke' },
+                { ingredientId: 'peber', quantity: 0.5, unit: 'tsp', note: 'friskkværnet' },
+                { ingredientId: 'sukker', quantity: 0.25, unit: 'tsp', note: 'valgfrit' }
+            ],
+            steps: [
+                'Bland: Hæld alle ingredienserne sammen i en lille skål eller et tomt krydderiglas.',
+                'Ryst: Rør eller ryst blandingen godt sammen, så alle krydderierne er jævnt fordelt.',
+                'Brug eller gem: Svarer til ca. 1 brev (500 g kød). Brug den til hakket oksekød, kylling, bønner eller bagte grøntsager. Holder sig op til 6 måneder i en lufttæt beholder.'
+            ]
+        },
+        nutritionPer100g: {
+            energyKcal: 230,
+            fat: 6,
+            saturatedFat: 1,
+            carbohydrates: 38,
+            sugars: 7,
+            fiber: 14,
+            protein: 10,
+            salt: 20
+        }
+    },
+    {
+        id: 'cajun',
+        name: 'Cajun krydderiblanding',
+        category: 'spice',
+        tags: ['spicy', 'seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['cajun', 'cajun krydderi', 'cajunkrydderi', 'cajun spice', 'cajun seasoning'],
+        emoji: '🧂',
+        imageUrl: `${ASSETS}/cajun.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 3 },
+            { unit: 'tbsp', grams: 9 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 240,
+            fat: 6,
+            saturatedFat: 1,
+            carbohydrates: 40,
+            sugars: 7,
+            fiber: 14,
+            protein: 10,
+            salt: 18
+        }
+    },
+    {
+        id: 'hjertesalat',
+        name: 'Hjertesalat',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['romaine', 'romainesalat', 'romaine salat', 'cosalat', 'romaine lettuce'],
+        emoji: '🥬',
+        imageUrl: `${ASSETS}/hjertesalat.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 150 }],
+        nutritionPer100g: {
+            energyKcal: 17,
+            fat: 0.3,
+            saturatedFat: 0.05,
+            carbohydrates: 2.1,
+            sugars: 1.2,
+            fiber: 2.1,
+            protein: 1.2,
+            salt: 0.02
+        }
+    },
+    {
+        id: 'teriyakisauce',
+        name: 'Teriyakisauce',
+        category: 'sauce',
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: false,
+        aliases: ['teriyaki', 'teriyaki sauce', 'teriyakimarinade'],
+        emoji: '🥢',
+        imageUrl: `${ASSETS}/teriyakisauce.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 6 },
+            { unit: 'tbsp', grams: 18 },
+            { unit: 'dl', grams: 110 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 110,
+            fat: 0.1,
+            saturatedFat: 0,
+            carbohydrates: 24,
+            sugars: 20,
+            fiber: 0.2,
+            protein: 3,
+            salt: 6
+        }
+    },
+    {
+        id: 'vannamei-rejer',
+        name: 'Vannamei rejer',
+        category: 'fish',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['vannamei', 'rå rejer', 'king prawns', 'rå jumbo rejer', 'raw shrimp'],
+        emoji: '🦐',
+        imageUrl: `${ASSETS}/vannamei-rejer.webp`,
+        nutritionPer100g: {
+            energyKcal: 85,
+            fat: 0.8,
+            saturatedFat: 0.2,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 19,
+            salt: 0.7
+        }
+    },
+    {
+        id: 'tigerrejer',
+        name: 'Tigerrejer',
+        category: 'fish',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['tiger rejer', 'black tiger', 'tiger prawns', 'rå tigerrejer'],
+        emoji: '🦐',
+        imageUrl: `${ASSETS}/tigerrejer.webp`,
+        nutritionPer100g: {
+            energyKcal: 85,
+            fat: 0.8,
+            saturatedFat: 0.2,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 19,
+            salt: 0.7
+        }
+    },
+    {
+        id: 'roedkaal',
+        name: 'Rødkål',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['rødkålshoved', 'frisk rødkål', 'red cabbage'],
+        emoji: '🥬',
+        imageUrl: `${ASSETS}/rodkal.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 900 }],
+        nutritionPer100g: {
+            energyKcal: 31,
+            fat: 0.2,
+            saturatedFat: 0.03,
+            carbohydrates: 5.5,
+            sugars: 3.8,
+            fiber: 2.1,
+            protein: 1.4,
+            salt: 0.05
+        }
+    },
+    {
+        id: 'roedkaal-skaaret',
+        name: 'Rødkål, skåret',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['skåret rødkål', 'snittet rødkål', 'strimlet rødkål', 'revet rødkål', 'shredded red cabbage'],
+        emoji: '🥬',
+        imageUrl: `${ASSETS}/rodkal-skaret.webp`,
+        derivedFrom: { ingredientId: 'roedkaal', unit: 'pcs', yieldGrams: 750 },
+        homemade: {
+            ingredients: [{ ingredientId: 'roedkaal', quantity: 1, unit: 'pcs', note: 'hele hoved' }],
+            steps: [
+                'Fjern de yderste blade, og skyl kålhovedet.',
+                'Skær kålhovedet i kvarte, og skær den hårde stok ud i midten.',
+                'Læg kvartene med snitfladen nedad, og skær dem i tynde strimler (ca. 2-3 mm) med en skarp kniv, eller brug en mandolin eller foodprocessor.',
+                'Ét kålhoved giver ca. 750 g skåret rødkål. Kan opbevares i en lufttæt beholder i køleskabet i 3-4 dage.'
+            ]
+        },
+        nutritionPer100g: {
+            energyKcal: 31,
+            fat: 0.2,
+            saturatedFat: 0.03,
+            carbohydrates: 5.5,
+            sugars: 3.8,
+            fiber: 2.1,
+            protein: 1.4,
+            salt: 0.05
+        }
+    },
+    {
+        id: 'foraarsloeg',
+        name: 'Forårsløg',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['forårsløg', 'spring onion', 'scallion', 'grønne løg', 'spring onions'],
+        emoji: '🧅',
+        imageUrl: `${ASSETS}/forarslog.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 20 }],
+        nutritionPer100g: {
+            energyKcal: 32,
+            fat: 0.2,
+            saturatedFat: 0.03,
+            carbohydrates: 5.5,
+            sugars: 2.3,
+            fiber: 2.6,
+            protein: 1.8,
+            salt: 0.02
+        }
+    },
+    {
+        id: 'sriracha',
+        name: 'Sriracha chilisauce',
+        category: 'sauce',
+        tags: ['spicy'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['sriracha', 'sriracha sauce', 'sriracha hot chili sauce', 'hot chili sauce', 'stærk chilisauce'],
+        emoji: '🌶️',
+        imageUrl: `${ASSETS}/sriracha-chilisauce.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 5 },
+            { unit: 'tbsp', grams: 15 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 93,
+            fat: 0.9,
+            saturatedFat: 0.1,
+            carbohydrates: 19,
+            sugars: 15,
+            fiber: 1.9,
+            protein: 2,
+            salt: 5
+        }
+    },
+    {
+        id: 'asiatisk-woksauce',
+        name: 'Asiatisk woksauce',
+        category: 'sauce',
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: false,
+        aliases: ['woksauce', 'wok sauce', 'asiatisk wok sauce', 'wok sauce asian style'],
+        emoji: '🥢',
+        imageUrl: `${ASSETS}/asiatisk-woksauce.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 6 },
+            { unit: 'tbsp', grams: 18 },
+            { unit: 'dl', grams: 110 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 120,
+            fat: 0.3,
+            saturatedFat: 0.1,
+            carbohydrates: 27,
+            sugars: 22,
+            fiber: 0.5,
+            protein: 2.5,
+            salt: 5.5
+        }
+    },
+    {
+        id: 'fennikel',
+        name: 'Fennikel',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['fennikelknold', 'fennikelløg', 'fennel', 'fennel bulb'],
+        emoji: '🌿',
+        imageUrl: `${ASSETS}/fennikel.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 250 }],
+        nutritionPer100g: {
+            energyKcal: 31,
+            fat: 0.2,
+            saturatedFat: 0,
+            carbohydrates: 7,
+            sugars: 3.9,
+            fiber: 3.1,
+            protein: 1.2,
+            salt: 0.2
+        }
+    },
+    {
+        id: 'paere',
+        name: 'Pære',
+        category: 'fruit',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['pærer', 'pear', 'pears'],
+        emoji: '🍐',
+        imageUrl: `${ASSETS}/paere.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 170 }],
+        nutritionPer100g: {
+            energyKcal: 57,
+            fat: 0.1,
+            saturatedFat: 0,
+            carbohydrates: 13.5,
+            sugars: 9.8,
+            fiber: 3.1,
+            protein: 0.4,
+            salt: 0
+        }
+    },
+    {
+        id: 'koreansk-bbq-sauce',
+        name: 'Koreansk BBQ-sauce',
+        category: 'sauce',
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: false,
+        aliases: ['korean bbq sauce', 'koreansk bbq', 'bulgogi sauce', 'bulgogisauce', 'bibigo bbq sauce'],
+        emoji: '🍖',
+        imageUrl: `${ASSETS}/koreansk-bbq-sauce.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 6 },
+            { unit: 'tbsp', grams: 18 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 150,
+            fat: 1.5,
+            saturatedFat: 0.2,
+            carbohydrates: 31,
+            sugars: 24,
+            fiber: 1,
+            protein: 2.5,
+            salt: 5
+        }
+    },
+    {
+        id: 'koldroget-laks',
+        name: 'Koldrøget laks',
+        category: 'fish',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['røget laks', 'koldrøget laks', 'laksemad', 'smoked salmon', 'cold smoked salmon', 'lox'],
+        emoji: '🐟',
+        imageUrl: `${ASSETS}/koldroget-laks.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 25 }],
+        nutritionPer100g: {
+            energyKcal: 180,
+            fat: 11,
+            saturatedFat: 2,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 20,
+            salt: 2.8
+        }
+    },
+    {
+        id: 'varmroget-laks',
+        name: 'Varmrøget laks',
+        category: 'fish',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['varmrøget laks', 'varmrøget laksefilet', 'hot smoked salmon', 'kiln roasted salmon'],
+        emoji: '🐟',
+        imageUrl: `${ASSETS}/varmroget-laks.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 125 }],
+        nutritionPer100g: {
+            energyKcal: 190,
+            fat: 11,
+            saturatedFat: 2.2,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 23,
+            salt: 2.2
+        }
+    },
+    {
+        id: 'allehaande',
+        name: 'Allehånde',
+        category: 'spice',
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        aliases: ['allehånde stødt', 'allspice', 'ground allspice', 'jamaica peber'],
+        emoji: '🧂',
+        imageUrl: `${ASSETS}/allehaande.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 2 },
+            { unit: 'tbsp', grams: 6 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 263,
+            fat: 8.7,
+            saturatedFat: 2.5,
+            carbohydrates: 72,
+            sugars: 0,
+            fiber: 21,
+            protein: 6.1,
+            salt: 0.2
+        }
+    },
+    {
+        id: 'panamad-krydderiblanding',
+        name: 'Panamad krydderiblanding',
+        category: 'spice',
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['panamad', 'panamad krydderi', 'panamad krydderier', 'panamad seasoning'],
+        emoji: '🧂',
+        imageUrl: `${ASSETS}/panamad-krydderiblanding.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 3 },
+            { unit: 'tbsp', grams: 9 }
+        ],
+        homemade: {
+            ingredients: [
+                { ingredientId: 'paprika', quantity: 0.5, unit: 'tsp' },
+                { ingredientId: 'spidskommen', quantity: 0.5, unit: 'tsp' },
+                { ingredientId: 'peber', quantity: 0.5, unit: 'tsp' },
+                { ingredientId: 'allehaande', quantity: 0.5, unit: 'tsp' },
+                { ingredientId: 'hvidloegspulver', quantity: 0.5, unit: 'tsp' },
+                { ingredientId: 'loegpulver', quantity: 0.5, unit: 'tsp' },
+                { ingredientId: 'salt', quantity: 0.5, unit: 'tsp' },
+                { ingredientId: 'timian-toerret', quantity: 0.5, unit: 'tsp' },
+                { ingredientId: 'oregano-toerret', quantity: 0.5, unit: 'tsp' }
+            ],
+            steps: [
+                'Mål alle krydderierne af og kom dem i en lille skål eller et tomt krydderiglas.',
+                'Rør eller ryst blandingen godt, så krydderierne fordeler sig jævnt.',
+                'Brug blandingen med det samme eller opbevar den tørt og lufttæt.'
+            ]
+        },
+        nutritionPer100g: {
+            energyKcal: 210,
+            fat: 4,
+            saturatedFat: 0.7,
+            carbohydrates: 40,
+            sugars: 5,
+            fiber: 12,
+            protein: 9,
+            salt: 22
+        }
+    },
+    {
+        id: 'graeskarkerner',
+        name: 'Græskarkerner',
+        category: 'seed',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['græskarkerne', 'græskar kerner', 'pumpkin seeds', 'pepitas'],
+        emoji: '🌰',
+        imageUrl: `${ASSETS}/graeskarkerner.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 4 },
+            { unit: 'tbsp', grams: 12 },
+            { unit: 'dl', grams: 50 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 559,
+            fat: 49,
+            saturatedFat: 8.7,
+            carbohydrates: 11,
+            sugars: 1.4,
+            fiber: 6,
+            protein: 30,
+            salt: 0.02
+        }
+    },
+    {
+        id: 'rucola',
+        name: 'Rucola',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['rucolasalat', 'rucola salat', 'ruccola', 'arugula', 'rocket'],
+        emoji: '🥬',
+        imageUrl: `${ASSETS}/rucola.webp`,
+        unitConversions: [{ unit: 'dl', grams: 8 }],
+        nutritionPer100g: {
+            energyKcal: 25,
+            fat: 0.7,
+            saturatedFat: 0.1,
+            carbohydrates: 3.7,
+            sugars: 2,
+            fiber: 1.6,
+            protein: 2.6,
+            salt: 0.07
+        }
+    },
+    {
+        id: 'ricotta',
+        name: 'Ricotta',
+        category: 'dairy',
+        dietaryProperties: ['vegetarian', 'gluten-free'],
+        isStaple: false,
+        aliases: ['ricottaost', 'ricotta cheese'],
+        emoji: '🧀',
+        imageUrl: `${ASSETS}/ricotta.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 5 },
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'dl', grams: 100 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 150,
+            fat: 11,
+            saturatedFat: 7,
+            carbohydrates: 3,
+            sugars: 2.5,
+            fiber: 0,
+            protein: 8,
+            salt: 0.2
+        }
+    },
+    {
+        id: 'allround-krydderi',
+        name: 'Allround krydderi',
+        category: 'spice',
+        tags: ['seasoning'],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['allround', 'all-round krydderi', 'allround krydderiblanding', 'universalkrydderi', 'all purpose seasoning'],
+        emoji: '🧂',
+        imageUrl: `${ASSETS}/allround-krydderi.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 3 },
+            { unit: 'tbsp', grams: 9 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 240,
+            fat: 4,
+            saturatedFat: 0.7,
+            carbohydrates: 42,
+            sugars: 6,
+            fiber: 12,
+            protein: 10,
+            salt: 25
+        }
+    },
+    {
+        id: 'bacon-tern',
+        name: 'Bacon i tern',
+        category: 'meat',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['baconterninger', 'bacon tern', 'baconstykker', 'diced bacon', 'bacon cubes', 'lardons'],
+        emoji: '🥓',
+        imageUrl: `${ASSETS}/bacon-tern.webp`,
+        unitConversions: [
+            { unit: 'tbsp', grams: 12 },
+            { unit: 'dl', grams: 60 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 330,
+            fat: 28,
+            saturatedFat: 10,
+            carbohydrates: 0.5,
+            sugars: 0.5,
+            fiber: 0,
+            protein: 19,
+            salt: 3.2
+        }
+    },
+    {
+        id: 'bacon-i-skiver',
+        name: 'Bacon i skiver',
+        category: 'meat',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['bacon', 'baconskiver', 'baconstrimler', 'baconskive', 'bacon slices', 'sliced bacon', 'streaky bacon'],
+        emoji: '🥓',
+        imageUrl: `${ASSETS}/bacon-i-skiver.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 15 }],
+        nutritionPer100g: {
+            energyKcal: 330,
+            fat: 28,
+            saturatedFat: 10,
+            carbohydrates: 0.5,
+            sugars: 0.5,
+            fiber: 0,
+            protein: 19,
+            salt: 3.2
+        }
+    },
+    {
+        id: 'bacon-stykke',
+        name: 'Bacon i stykke',
+        category: 'meat',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['baconstykke', 'baconklump', 'stykke bacon', 'bacon block', 'slab bacon', 'bacon slab'],
+        emoji: '🥓',
+        imageUrl: `${ASSETS}/bacon-stykke.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 200 }],
+        nutritionPer100g: {
+            energyKcal: 330,
+            fat: 28,
+            saturatedFat: 10,
+            carbohydrates: 0.5,
+            sugars: 0.5,
+            fiber: 0,
+            protein: 19,
+            salt: 3.2
+        }
+    },
+    {
+        id: 'balsamico',
+        name: 'Balsamico',
+        category: 'sauce',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        aliases: ['balsamicoeddike', 'balsamico eddike', 'balsamic', 'balsamic vinegar', 'aceto balsamico'],
+        emoji: '🍇',
+        imageUrl: `${ASSETS}/balsamico.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 5 },
+            { unit: 'tbsp', grams: 15 },
+            { unit: 'dl', grams: 105 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 88,
+            fat: 0,
+            saturatedFat: 0,
+            carbohydrates: 17,
+            sugars: 15,
+            fiber: 0,
+            protein: 0.5,
+            salt: 0.03
+        }
+    },
+    {
+        id: 'baguette',
+        name: 'Baguette',
+        category: 'grain',
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: false,
+        aliases: ['flutes', 'flûte', 'hvidt flutes', 'stenovnsbagt baguette', 'french bread'],
+        emoji: '🥖',
+        imageUrl: `${ASSETS}/baguette.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 250 }],
+        nutritionPer100g: {
+            energyKcal: 270,
+            fat: 1.5,
+            saturatedFat: 0.3,
+            carbohydrates: 54,
+            sugars: 2.5,
+            fiber: 2.8,
+            protein: 9,
+            salt: 1.3
+        }
+    },
+    {
+        id: 'blandet-salat',
+        name: 'Blandet salat',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: [
+            'salatmix',
+            'salat mix',
+            'blandede salater',
+            'salat',
+            'grøn salat',
+            'mixed salad',
+            'salad mix',
+            'mixed greens',
+            'salatblanding',
+            'krøllet salat'
+        ],
+        emoji: '🥗',
+        imageUrl: `${ASSETS}/blandet-salat.webp`,
+        unitConversions: [{ unit: 'dl', grams: 15 }],
+        nutritionPer100g: {
+            energyKcal: 18,
+            fat: 0.3,
+            saturatedFat: 0.05,
+            carbohydrates: 2.5,
+            sugars: 1.2,
+            fiber: 1.5,
+            protein: 1.5,
+            salt: 0.05
+        }
+    },
+    {
+        id: 'aerter',
+        name: 'Ærter',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['grønne ærter', 'frosne ærter', 'ærter frosne', 'peas'],
+        emoji: '🫛',
+        imageUrl: `${ASSETS}/aerter.webp`,
+        nutritionPer100g: {
+            energyKcal: 70,
+            fat: 0.5,
+            saturatedFat: 0.1,
+            carbohydrates: 10,
+            sugars: 4,
+            fiber: 5,
+            protein: 5.5,
+            salt: 0.02
+        }
+    },
+    {
+        id: 'spaghetti',
+        name: 'Spaghetti',
+        category: 'grain',
+        dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
+        isStaple: false,
+        aliases: ['pasta', 'spaghetti tør', 'tør spaghetti'],
+        emoji: '🍝',
+        imageUrl: `${ASSETS}/spaghetti.webp`,
+        nutritionPer100g: {
+            energyKcal: 355,
+            fat: 1.5,
+            saturatedFat: 0.3,
+            carbohydrates: 71,
+            sugars: 3,
+            fiber: 3.5,
+            protein: 12.5,
+            salt: 0.01
+        }
+    },
+    {
+        id: 'majs',
+        name: 'Majs',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['majskorn', 'sukkermajs', 'majs på dåse', 'corn'],
+        emoji: '🌽',
+        imageUrl: `${ASSETS}/majs.webp`,
+        nutritionPer100g: {
+            energyKcal: 90,
+            fat: 1.4,
+            saturatedFat: 0.2,
+            carbohydrates: 17,
+            sugars: 5,
+            fiber: 2.5,
+            protein: 3.2,
+            salt: 0.3
+        }
+    },
+    {
+        id: 'majskolber',
+        name: 'Majskolber',
+        category: 'vegetable',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['majskolbe', 'majs på kolbe', 'corn on the cob'],
+        emoji: '🌽',
+        imageUrl: `${ASSETS}/majskolber.webp`,
+        nutritionPer100g: {
+            energyKcal: 86,
+            fat: 1.2,
+            saturatedFat: 0.2,
+            carbohydrates: 17,
+            sugars: 5,
+            fiber: 2.7,
+            protein: 3.3,
+            salt: 0.02
+        }
+    },
+    {
+        id: 'kanel',
+        name: 'Kanel',
+        category: 'spice',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: true,
+        aliases: ['stødt kanel', 'kanelstang', 'cinnamon'],
+        emoji: '🟤',
+        imageUrl: `${ASSETS}/kanel.webp`,
+        unitConversions: [
+            { unit: 'tsp', grams: 2.6 },
+            { unit: 'tbsp', grams: 7.8 }
+        ],
+        nutritionPer100g: {
+            energyKcal: 247,
+            fat: 1.2,
+            saturatedFat: 0.3,
+            carbohydrates: 81,
+            sugars: 2.2,
+            fiber: 53,
+            protein: 4,
+            salt: 0.03
+        }
+    },
+    {
+        id: 'avocado',
+        name: 'Avocado',
+        category: 'fruit',
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['avokado'],
+        emoji: '🥑',
+        imageUrl: `${ASSETS}/avocado.webp`,
+        unitConversions: [{ unit: 'pcs', grams: 150 }],
+        nutritionPer100g: {
+            energyKcal: 160,
+            fat: 14.7,
+            saturatedFat: 2.1,
+            carbohydrates: 1.9,
+            sugars: 0.7,
+            fiber: 6.7,
+            protein: 2,
+            salt: 0.02
         }
     },
     {
@@ -1599,6 +3650,31 @@ export const INGREDIENTS: Ingredient[] = [
         }
     },
     {
+        id: 'kyllingebrystrimler',
+        name: 'Kyllingebrystfilet i strimler',
+        category: 'meat',
+        dietaryProperties: ['gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['kyllingebryststrimler', 'kyllingestrimler', 'kyllingefilet i strimler', 'chicken strips', 'chicken breast strips'],
+        emoji: '🍗',
+        imageUrl: `${ASSETS}/kyllingbryststrimler.webp`,
+        derivedFrom: { ingredientId: 'kyllingebryst', unit: 'g', yieldGrams: 1 },
+        homemade: {
+            ingredients: [{ ingredientId: 'kyllingebryst', quantity: 1, unit: 'pcs', note: 'ca. 150 g pr. bryst' }],
+            steps: ['Læg kyllingebrysten på et skærebræt, og skær den i skiver på langs.', 'Skær skiverne i strimler på ca. 1 cm i bredden.']
+        },
+        nutritionPer100g: {
+            energyKcal: 112,
+            fat: 1.93,
+            saturatedFat: 0.35,
+            carbohydrates: 0,
+            sugars: 0,
+            fiber: 0,
+            protein: 22.5,
+            salt: 0.17
+        }
+    },
+    {
         id: 'worcestershire-sauce',
         name: 'Worcestershire sauce',
         category: 'sauce',
@@ -1716,12 +3792,7 @@ export const INGREDIENTS: Ingredient[] = [
         category: 'sauce',
         dietaryProperties: ['vegan', 'vegetarian'],
         isStaple: false,
-        aliases: [
-            'umami sauce',
-            'umami soy sauce',
-            'umami seasoning sauce',
-            'umami dressing'
-        ],
+        aliases: ['umami sauce', 'umami soy sauce', 'umami seasoning sauce', 'umami dressing'],
         emoji: '🥣',
         imageUrl: `${ASSETS}/umamisauce.webp`,
         nutritionPer100g: {
@@ -1742,13 +3813,7 @@ export const INGREDIENTS: Ingredient[] = [
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
         isStaple: false,
-        aliases: [
-            'hvide løjer og urter',
-            'hvidløg og urter',
-            'hvidløgskrydderi',
-            'garlic and herb seasoning',
-            'garlic herb seasoning'
-        ],
+        aliases: ['hvide løjer og urter', 'hvidløg og urter', 'hvidløgskrydderi', 'garlic and herb seasoning', 'garlic herb seasoning'],
         emoji: '🧄',
         imageUrl: `${ASSETS}/hvide-loejer-og-urter.webp`,
         homemade: {
@@ -1924,14 +3989,7 @@ export const INGREDIENTS: Ingredient[] = [
         category: 'spice',
         dietaryProperties: ['vegan', 'vegetarian'],
         isStaple: false,
-        aliases: [
-            'stødt galangal',
-            'galangalpulver',
-            'galangarod',
-            'ground galangal',
-            'galangal powder',
-            'ground galangal root'
-        ],
+        aliases: ['stødt galangal', 'galangalpulver', 'galangarod', 'ground galangal', 'galangal powder', 'ground galangal root'],
         emoji: '🫚',
         imageUrl: `${ASSETS}/stoedt-galangalrod.webp`,
         nutritionPer100g: {
@@ -1952,14 +4010,7 @@ export const INGREDIENTS: Ingredient[] = [
         tags: ['seasoning'],
         dietaryProperties: ['vegan', 'vegetarian', 'lactose-free'],
         isStaple: false,
-        aliases: [
-            'ga laksa',
-            'ga-laksa krydderi',
-            'ga-laksa krydderiblanding',
-            'laksa krydderi',
-            'laksa seasoning',
-            'laksa spice mix'
-        ],
+        aliases: ['ga laksa', 'ga-laksa krydderi', 'ga-laksa krydderiblanding', 'laksa krydderi', 'laksa seasoning', 'laksa spice mix'],
         emoji: '🌶️',
         imageUrl: `${ASSETS}/ga-laksa.webp`,
         homemade: {
@@ -2047,6 +4098,16 @@ export const INGREDIENTS: Ingredient[] = [
         aliases: ['gulerod julienne', 'julienne carrot'],
         emoji: '🥕',
         imageUrl: `${ASSETS}/gulerod-julienne.webp`,
+        derivedFrom: { ingredientId: 'gulerod', unit: 'pcs', yieldGrams: 55 },
+        homemade: {
+            ingredients: [{ ingredientId: 'gulerod', quantity: 1, unit: 'pcs', note: 'skrællet' }],
+            steps: [
+                'Skær: Skær gulerodens ender af, og skær den i ca. 6 cm lange stykker.',
+                'Skiver: Skær hvert stykke i tynde skiver på langs.',
+                'Strimler: Stable skiverne, og skær dem i tynde strimler (ca. 2-3 mm).',
+                'Brug: Én gulerod giver ca. 55 g julienne. Kan også rives på et grovt rivejern.'
+            ]
+        },
         nutritionPer100g: {
             energyKcal: 41,
             fat: 0.6,
@@ -2165,6 +4226,28 @@ export const INGREDIENTS: Ingredient[] = [
             fiber: 6.8,
             protein: 3.29,
             salt: 0.075
+        }
+    },
+    {
+        id: 'estragon',
+        name: 'Estragon',
+        category: 'herb',
+        tags: [],
+        dietaryProperties: ['vegan', 'vegetarian', 'gluten-free', 'lactose-free'],
+        isStaple: false,
+        aliases: ['frisk estragon', 'estragonblade', 'tarragon'],
+        emoji: '🌿',
+        imageUrl: `${ASSETS}/estragon.webp`,
+        unitConversions: [{ unit: 'sprig', grams: 2 }],
+        nutritionPer100g: {
+            energyKcal: 49,
+            fat: 1.1,
+            saturatedFat: 0.2,
+            carbohydrates: 4.9,
+            sugars: 0,
+            fiber: 7,
+            protein: 3.4,
+            salt: 0.2
         }
     },
     {

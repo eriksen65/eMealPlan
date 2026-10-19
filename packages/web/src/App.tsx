@@ -17,6 +17,7 @@ export function App() {
     const [page, setPage] = useState<AppPage>(() => pageFromPath(window.location.pathname));
     const [recipes, setRecipes] = useState<Recipe[]>([]);
     const [ingredients, setIngredients] = useState<Ingredient[]>([]);
+    const [ingredientQuery, setIngredientQuery] = useState('');
     const [error, setError] = useState<string | null>(null);
     const [selectedRecipe, setSelectedRecipe] = useState<Recipe | null>(null);
     const [selectedIngredient, setSelectedIngredient] = useState<Ingredient | null>(null);
@@ -41,7 +42,15 @@ export function App() {
             .catch(() => setError('Kunne ikke hente data fra serveren.'));
     }, []);
 
-    const sortedIngredients = [...ingredients].sort((a, b) => a.name.localeCompare(b.name, 'da'));
+    const query = ingredientQuery.trim().toLocaleLowerCase('da');
+    const sortedIngredients = [...ingredients]
+        .filter(
+            (ingredient) =>
+                !query ||
+                ingredient.name.toLocaleLowerCase('da').includes(query) ||
+                (ingredient.aliases ?? []).some((alias) => alias.toLocaleLowerCase('da').includes(query))
+        )
+        .sort((a, b) => a.name.localeCompare(b.name, 'da'));
     const coreIngredients = sortedIngredients.filter((ingredient) => !ingredient.isStaple);
     const staples = sortedIngredients.filter((ingredient) => ingredient.isStaple);
 
@@ -90,7 +99,16 @@ export function App() {
                         </>
                     ) : (
                         <>
+                            <input
+                                type='search'
+                                className='search-input'
+                                placeholder='Søg efter ingrediens…'
+                                aria-label='Søg efter ingrediens'
+                                value={ingredientQuery}
+                                onChange={(event) => setIngredientQuery(event.target.value)}
+                            />
                             <h1 className='page__title'>Ingredienser</h1>
+                            {sortedIngredients.length === 0 && <p>Ingen ingredienser matcher din søgning.</p>}
                             <div className='ingredient-grid'>
                                 {coreIngredients.map((ingredient) => (
                                     <IngredientCard key={ingredient.id} ingredient={ingredient} onClick={setSelectedIngredient} />
@@ -115,16 +133,22 @@ export function App() {
                 </div>
             </main>
 
-            {selectedRecipe && <RecipeDetailModal
+            {selectedRecipe && (
+                <RecipeDetailModal
                     recipe={selectedRecipe}
                     ingredients={ingredients}
                     onSelectIngredient={setSelectedIngredient}
-                    onClose={() => setSelectedRecipe(null)} />}
-            {selectedIngredient && <IngredientDetailModal
+                    onClose={() => setSelectedRecipe(null)}
+                />
+            )}
+            {selectedIngredient && (
+                <IngredientDetailModal
                     ingredient={selectedIngredient}
                     ingredients={ingredients}
                     onSelectIngredient={setSelectedIngredient}
-                    onClose={() => setSelectedIngredient(null)} />}
+                    onClose={() => setSelectedIngredient(null)}
+                />
+            )}
         </div>
     );
 }
