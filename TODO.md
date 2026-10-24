@@ -31,3 +31,6 @@
 - [ ] Lav kan erstattes, Kyllingfond i opskift Svine- og kalvekødboller i løgsauce kan erstattes af Kyllingebouillon.
 - [ ] kan erstatte hinanden -> Sennep, grov sennep, sød sennep, Dijonsennep
 - [ ] Vannamei-rejer eller tigerrejer.
+- [ ] tun i olie, tuni vand kan erstattes hinanden.
+
+- [ ] Add Ingredienser: Grønne asparges, Hele hvide asparges, Hvide aspargessnitter, Syltede rødbeder, Syltede Agurker, Syltet rødkål, Cornichoner, syltede agurker, agurkesalat
