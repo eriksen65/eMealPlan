@@ -47,7 +47,7 @@ export const RECIPES: Recipe[] = [
             { ingredientId: 'chili', amount: 0.5, unit: 'pcs', scaling: { type: 'linear' } },
             { ingredientId: 'soed-chilisauce', amount: 80, unit: 'g', scaling: { type: 'linear' } },
             { ingredientId: 'sojasauce', amount: 40, unit: 'ml', scaling: { type: 'linear' } },
-            { ingredientId: 'mynte', amount: 1, unit: 'sprig', scaling: { type: 'linear' } },
+            { ingredientId: 'mynte-frisk', amount: 1, unit: 'sprig', scaling: { type: 'linear' } },
             { ingredientId: 'citrusfrugt', amount: 1, unit: 'pcs', scaling: { type: 'linear' } },
             { ingredientId: 'olie', amount: 1, unit: 'tbsp', scaling: { type: 'linear' }, displayName: 'Olie (til salat)' },
             { ingredientId: 'olie', amount: 0.5, unit: 'tbsp', scaling: { type: 'linear' }, displayName: 'Olie (til stegning)' },
@@ -910,7 +910,7 @@ export const RECIPES: Recipe[] = [
                 scaling: { type: 'linear' }
             },
             {
-                ingredientId: 'mynte',
+                ingredientId: 'mynte-frisk',
                 amount: 25,
                 unit: 'g',
                 scaling: { type: 'linear' }
